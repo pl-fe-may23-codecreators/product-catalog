@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '20'
       - name: install
-        run: npm install
+        run: npm ci
       - name: ESLint
         run: npm run fix .
       - name: Prettier
