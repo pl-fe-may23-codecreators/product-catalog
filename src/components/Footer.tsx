@@ -20,10 +20,10 @@ export const Footer = () => (
             Rights
         </a>
       </div>
-      <div className='Footer__navigation'>
+      <button className='Footer__navigation'>
         <p className='Footer__navigation--text'>Back to top</p>
         <div className='Footer__navigation--icon'></div>
-      </div>
+      </button>
     </div>
   </div>
 );

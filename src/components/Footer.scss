@@ -94,6 +94,9 @@
         align-items: center;
         gap: 16px;
         margin: 0 auto;
+        border: none;
+        background-color: white;
+        cursor: pointer;
 
         @include for-tablet() {
             margin: 0;
@@ -118,9 +121,10 @@
             background-image: url('../images/footer_logo_nav.svg');
             background-repeat: no-repeat;
             background-position: 50%;
-            cursor: pointer;
+            transition: all .2s ease-in-out;
 
             &:hover {
+                transform: scale(1.1);
                 border: 1px solid #313237;
             }
         }
