@@ -1,5 +1,14 @@
+import { Footer } from '../components/Footer/Footer';
+import { Header } from '../components/Header';
+
 const PhonesPage = () => {
-  return <h1>Phones page!</h1>;
+  return (
+    <>
+      <Header />
+      <h1>Phones page!</h1>
+      <Footer />
+    </>
+  );
 };
 
 export default PhonesPage;

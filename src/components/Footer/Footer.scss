@@ -1,0 +1,113 @@
+@mixin for-desktop() {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @mixin for-tablet() {
+    @media (min-width: 640px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+
+.Footer {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    border-top: 1px solid #E2E6E9;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 1136px;
+        margin: 0 auto;
+        padding: 32px 16px;
+
+        @include for-tablet() {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px 24px;
+        }
+
+        @include for-desktop() {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include for-tablet() {
+            flex-direction: row;
+        }
+
+        @include for-desktop() {
+            flex-direction: unset;
+            align-items: center;
+            gap: 100px;
+            justify-content: space-between;
+        }
+
+        &--link {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #89939A;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+
+            &:hover {
+                color: #313237;
+            }
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0 auto;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+
+        @include for-tablet() {
+            margin: 0;
+        }
+
+        @include for-desktop() {
+            margin: 0;
+        }
+
+        &--text {
+            color: #89939A;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        &--icon {
+            width: 16px;
+            height: 16px;
+            padding: 8px;
+            border: 1px solid #B4BDC3;
+            background-image: url('../../images/footer_nav.svg');
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+                border: 1px solid #313237;
+            }
+        }
+    }
+}
