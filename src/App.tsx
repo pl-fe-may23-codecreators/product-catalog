@@ -1,12 +1,20 @@
 import './App.css';
-import {createHashRouter, RouterProvider} from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import PhonesPage from './pages/PhonesPage';
 import ErrorPage from './pages/ErrorPage';
+import RootElement from './pages/RootElement';
 
 const router = createHashRouter([
-  {path: '/', element: <HomePage />, errorElement: <ErrorPage />},
-  {path: '/phones', element: <PhonesPage />}
+  {
+    path: '/',
+    element: <RootElement />,
+    children: [
+      {path: '*', element: <ErrorPage />},
+      { path: '/', element: <HomePage /> },
+      { path: '/phones', element: <PhonesPage /> }
+    ],
+  },
 ]);
 
 function App() {
