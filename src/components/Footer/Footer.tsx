@@ -1,14 +1,10 @@
+import { Logo } from '../Logo';
 import './Footer.scss';
 
 export const Footer = () => (
   <div className="Footer">
     <div className="Footer__content">
-      <div className="Footer__logo">
-        <div className="Footer__logo--image"
-        />
-        <div className="Footer__logo--icon"
-        />
-      </div>
+      <Logo />
       <div className='Footer__links'>
         <a className='Footer__links--link' href="https://github.com">
             Github
