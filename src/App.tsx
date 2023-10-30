@@ -10,9 +10,9 @@ const router = createHashRouter([
     path: '/',
     element: <RootElement />,
     children: [
-      {path: '*', element: <ErrorPage />},
+      { path: '*', element: <ErrorPage /> },
       { path: '/', element: <HomePage /> },
-      { path: '/phones', element: <PhonesPage /> }
+      { path: '/phones', element: <PhonesPage /> },
     ],
   },
 ]);

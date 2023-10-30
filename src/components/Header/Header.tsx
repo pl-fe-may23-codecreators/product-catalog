@@ -8,61 +8,65 @@ export const Header = () => {
     <div className="Header">
       <div className="Header__content">
         <Logo />
-        <div className='Header__navigation'>
+        <div className="Header__navigation">
           <NavLink
-            className={
-              ({ isActive }) => cn('Header__navigation--link', {
-                'is-active': isActive, 
+            className={({ isActive }) =>
+              cn('Header__navigation--link', {
+                'is-active': isActive,
               })
             }
-            to='/'
+            to="/"
           >
             Home
           </NavLink>
           <NavLink
-            className={
-              ({ isActive }) => cn('Header__navigation--link', {
-                'is-active': isActive, 
+            className={({ isActive }) =>
+              cn('Header__navigation--link', {
+                'is-active': isActive,
               })
             }
-            to='/phones'
+            to="/phones"
           >
             Phones
           </NavLink>
           <NavLink
-            className={
-              ({ isActive }) => cn('Header__navigation--link', {
-                'is-active': isActive, 
+            className={({ isActive }) =>
+              cn('Header__navigation--link', {
+                'is-active': isActive,
               })
             }
-            to='/tablets'
+            to="/tablets"
           >
             Tablets
           </NavLink>
           <NavLink
-            className={
-              ({ isActive }) => cn('Header__navigation--link', {
-                'is-active': isActive, 
+            className={({ isActive }) =>
+              cn('Header__navigation--link', {
+                'is-active': isActive,
               })
             }
-            to='/accessories'
+            to="/accessories"
           >
             Accessories
           </NavLink>
         </div>
-        <div className='Header__icons'>
-          <div className='Header__icons--icon Header__icons--menu_icon'/>
+        <div className="Header__icons">
+          <div className="Header__icons--icon Header__icons--menu_icon" />
           <NavLink
-            className={({ isActive }) => cn('Header__icons--icon Header__icons--heart_icon', {
-              'is-active': isActive, 
-            })}
-            to='/favourites'
+            className={({ isActive }) =>
+              cn('Header__icons--icon Header__icons--heart_icon', {
+                'is-active': isActive,
+              })
+            }
+            to="/favourites"
           />
           <NavLink
-            className={({ isActive }) => cn('Header__icons--icon Header__icons--cart_icon', {
-              'is-active': isActive, 
-            })}
-            to='/cart'
+            className={({ isActive }) =>
+              cn('Header__icons--icon Header__icons--cart_icon', {
+                'is-active': isActive,
+              })
+            }
+            to="/cart"
           />
         </div>
       </div>
