@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
 import './App.css';
+import { PhonesList } from './Components/CardList/PhonesList';
+import phonesFromServer from './api/phones.json';
 
-function App() {
-  return <h1>Hello,world</h1>;
-}
+export const App: React.FC = () => {
+  const [phones, setPhones] = useState(phonesFromServer);
 
-export default App;
+  return <PhonesList phones={phones} />;
+};
