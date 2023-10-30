@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
 import './App.css';
-import { PhonesList } from './Components/CardList/PhonesList';
-import phonesFromServer from './api/phones.json';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PhonesPage from './pages/PhonesPage';
+import ErrorPage from './pages/ErrorPage';
+import RootElement from './pages/RootElement';
 
-export const App: React.FC = () => {
-  const [phones, setPhones] = useState(phonesFromServer);
+const router = createHashRouter([
+  {
+    path: '/',
+    element: <RootElement />,
+    children: [
+      { path: '*', element: <ErrorPage /> },
+      { path: '/', element: <HomePage /> },
+      { path: '/phones', element: <PhonesPage /> },
+    ],
+  },
+]);
 
-  return <PhonesList phones={phones} />;
-};
+function App() {
+  return <RouterProvider router={router} />;
+}
+
+export default App;

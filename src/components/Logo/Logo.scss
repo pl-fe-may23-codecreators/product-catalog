@@ -1,0 +1,18 @@
+.Logo {
+    position: relative;
+    width: 89px;
+    height: 32px;
+    background-image: url('../../images/logo.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &__icon {
+        width: 13px;
+        height: 17px;
+        background-image: url('../../images/logo_icon.png');
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 45px;
+        top: -2px;
+    }
+}
