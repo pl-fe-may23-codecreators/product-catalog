@@ -25,5 +25,3 @@ jobs:
         run: npm ci
       - name: ESLint
         run: npm run fix .
-      - name: Prettier
-        run: npm prettier --write .
