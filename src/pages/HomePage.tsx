@@ -1,5 +1,16 @@
-const HomePage = () => {
-  return <h1>Home Page!!!</h1>;
+// Inny plik w aplikacji
+
+import React from 'react';
+import Main from '../components/Main/Main'; // Importuj nowy komponent
+import '../components/Main/Main.scss';
+
+const App = () => {
+  return (
+    <div>
+      {/* Inna zawartość aplikacji */}
+      <Main /> {/* Użyj komponentu strony głównej */}
+    </div>
+  );
 };
 
-export default HomePage;
+export default App;
