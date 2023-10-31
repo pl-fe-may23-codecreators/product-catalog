@@ -43,14 +43,14 @@
     &__icons {
         display: flex;
         position: absolute;
-        right: 0;
+        right: 16px;
 
         &--icon {
-            width: 16px;
-            height: 16px;
+            box-sizing: content-box;
+            width: 48px;
+            height: 48px;
             background-repeat: no-repeat;
             background-position: 50%;
-            padding: 16px;
             justify-content: center;
             align-items: center;
             cursor: pointer;
@@ -89,6 +89,7 @@
                 display: block;
                 background-image: url('../../images/cart_icon.svg');
                 border: 1px solid #E2E6E9;
+                border-left: 1px solid #FFFFFF;
             }
 
         }
