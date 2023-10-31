@@ -12,6 +12,8 @@
 
 .CartItem {
     width: 288px;
+    border: 1px solid #E2E6E9;
+    background: #FFF;
 
     @include for-desktop() {
         width: 752px;
