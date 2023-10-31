@@ -1,0 +1,102 @@
+/* ResponsiveMain.scss */
+
+/* Dla urządzeń o rozdzielczości od 1199px do 640px */
+@media screen and (max-width: 1199px) and (min-width: 640px) {
+    .homepage-container {
+      width: 592px;
+    }
+  
+    .section__button.responsive {
+      width: 32px !important;
+      height: 189px ;
+    }
+  
+    .section__image.responsive {
+      width: 490px !important;
+      height: 189px !important;
+    }
+  
+    /* Dla sekcji section-2 */
+    .section-2 .section__models {
+      width: 1136px;
+    }
+  
+    .section__image2.responsive {
+      width: 187px !important;
+      height: 187px !important;
+    }
+  
+    /* Dla sekcji section-3 (section__categories) */
+    .section-3 .section__categories .section__category-content {
+      width: 187px; /* Ustaw szerokość na 187px */
+      height: 262px; /* Ustaw wysokość na 262px */
+    }
+  
+    .section__image.responsive {
+      width: 490px;
+      height: 189px;
+    }
+  
+    .section__text-line {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+      /* Dla sekcji section-4 */
+    .section-4 .section__models {
+      width: 1136px; /* Zachowaj oryginalny rozmiar */
+    }
+  
+    /* Dodaj inne style dla innych elementów na stronie w zależności od potrzeb */
+  }
+  
+/* Dla urządzeń o rozdzielczości od 639px do 320px */
+@media screen and (max-width: 639px) {
+  .homepage-container {
+      width: auto !important; /* Cała szerokość dostępna na stronie */
+      margin: 0 20px !important;
+  }
+
+  /* Aktualizowane reguły dla sekcji 1 */
+  .section-1 .section__button.responsive {
+      display: none; /* Ukryj przyciski */
+  }
+
+  .section-1 .section__image.responsive {
+      width: 100% !important;; /* Zajmij całą dostępną szerokość ekranu */
+      height: auto !important;
+      padding-top: 100% !important;; /* Ustaw 1:1 proporcje (kwadrat) */
+  }
+
+  /* Dla sekcji section-2 */
+  .section-2 .section__models {
+    width: 1136px;
+    
+  }
+  
+  .section__image2.responsive {
+    width: 100% !important;
+    height: auto !important;
+    padding-top: 100% !important;
+  }
+
+/* Dla sekcji section-3 (section__categories) w rozdzielczości mniejszej niż 640px */
+.section-3 .section__categories {
+  flex-direction: column; /* Ustaw układ kolumnowy, aby elementy były pod sobą */
+}
+
+/* Dla każdej kategorii (div) */
+.section-3 .section__categories .section__category-content {
+  width: 100%; /* Ustaw szerokość na 100% */
+  height: auto; /* Ustaw wysokość na auto, aby dostosować się do zawartości */
+  margin-right: 0; /* Wyłącz marginesy */
+}
+
+
+
+  .section-4 .section__models {
+    width: 1136px; /* Zachowaj oryginalny rozmiar */
+  }
+
+  /* Pozostałe reguły pozostawione puste lub dostosowane do potrzeb tej rozdzielczości */
+}

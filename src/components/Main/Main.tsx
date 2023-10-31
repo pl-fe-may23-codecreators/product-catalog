@@ -6,14 +6,12 @@ const HomePage = () => {
         <div className="section__content">
           <h1 className="section__title">Welcome to Nice Gadgets store!</h1>
           <div className="section__album">
-            {/* Tutaj możesz dodać album ze zdjęciami */}
-            <div className="section__button left"></div>
-
-            {/* Drugi div z obrazem */}
-            <div className="section__image"></div>
-
-            {/* Trzeci div z przyciskiem "right" */}
-            <div className="section__button right"></div>
+            <div className="section__button responsive left"></div>{' '}
+            {/* Dodaj klasę responsive */}
+            <div className="section__image responsive"></div>{' '}
+            {/* Dodaj klasę responsive */}
+            <div className="section__button responsive right"></div>{' '}
+            {/* Dodaj klasę responsive */}
           </div>
         </div>
       </div>
@@ -24,10 +22,10 @@ const HomePage = () => {
           <h2 className="section__title">Brand new models</h2>
           <div className="section__models">
             {/* Tutaj możesz dodać 4 divy z nowymi modelami obok siebie */}
-            <div className="section__model section__model--1"></div>
-            <div className="section__model section__model--2"></div>
-            <div className="section__model section__model--3"></div>
-            <div className="section__model section__model--4"></div>
+            <div className="section__model responsive section__model--1"></div>
+            <div className="section__model responsive section__model--2"></div>
+            <div className="section__model responsive section__model--3"></div>
+            <div className="section__model responsive section__model--4"></div>
           </div>
         </div>
       </div>
@@ -39,7 +37,7 @@ const HomePage = () => {
           <div className="section__categories">
             {/* Tutaj możesz dodać 3 divy do wyboru kategorii obok siebie */}
             <div className="section__category-content">
-              <div className="section__image"></div>
+              <div className="section__image2 responsive"></div>
               <div className="section__text">
                 <div className="section__text-line">Text 1</div>
                 <div className="section__text-line">Text 2</div>
@@ -47,7 +45,7 @@ const HomePage = () => {
             </div>
 
             <div className="section__category-content">
-              <div className="section__image"></div>
+              <div className="section__image2 responsive"></div>
               <div className="section__text">
                 <div className="section__text-line">Text 1</div>
                 <div className="section__text-line">Text 2</div>
@@ -55,7 +53,7 @@ const HomePage = () => {
             </div>
 
             <div className="section__category-content">
-              <div className="section__image"></div>
+              <div className="section__image2 responsive"></div>
               <div className="section__text">
                 <div className="section__text-line">Text 1</div>
                 <div className="section__text-line">Text 2</div>
