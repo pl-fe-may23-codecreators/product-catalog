@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { Logo } from '../Logo';
 import './Header.scss';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+import { BurgerMenu } from '../BugerMenu';
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="Header">
       <div className="Header__content">
@@ -51,7 +59,11 @@ export const Header = () => {
           </NavLink>
         </div>
         <div className="Header__icons">
-          <div className="Header__icons--icon Header__icons--menu_icon" />
+          <div
+            className="Header__icons--icon Header__icons--menu_icon"
+            onClick={toggleMenu}
+          />
+          <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <NavLink
             className={({ isActive }) =>
               cn('Header__icons--icon Header__icons--heart_icon', {
