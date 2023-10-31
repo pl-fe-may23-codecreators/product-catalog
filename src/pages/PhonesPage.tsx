@@ -11,21 +11,19 @@ const PhonesPage = () => {
       const fetchedPhones = await fetchData({
         page: 1,
         limit: 16,
-        sortField: 'price',  // price or year
-        sortOrder: 'asc'  // asc or desc
+        sortField: 'price', // price or year
+        sortOrder: 'asc', // asc or desc
       });
-      
+
       if (fetchedPhones) {
         setPhones(fetchedPhones);
       }
     }
-    
+
     loadData();
   }, []);
 
-  return (
-    <PhonesList phones={phones} />
-  );
+  return <PhonesList phones={phones} />;
 };
 
 export default PhonesPage;

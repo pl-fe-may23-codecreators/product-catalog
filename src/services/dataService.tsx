@@ -15,8 +15,8 @@ export async function fetchData(params = {}) {
     }
 
     const data = await response.json();
-    return data.devices;
 
+    return data.devices;
   } catch (error) {
     console.error('There was a problem fetching the data:', error);
   }

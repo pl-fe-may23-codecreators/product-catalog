@@ -14,7 +14,7 @@ const router = createHashRouter([
       { path: '*', element: <ErrorPage /> },
       { path: '/', element: <HomePage /> },
       { path: '/phones', element: <PhonesPage /> },
-      { path: '/cart', element: <CartPage />}
+      { path: '/cart', element: <CartPage /> },
     ],
   },
 ]);
