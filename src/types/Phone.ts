@@ -12,5 +12,4 @@ export interface Phone {
   ram: string;
   year: number;
   image: string;
-  //"image": "img/phones/apple-iphone-7/black/00.jpg"
 }

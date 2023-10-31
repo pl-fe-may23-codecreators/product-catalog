@@ -1,7 +1,7 @@
 import React from 'react';
 import './PhonesList.scss';
 import { Phone } from '../../types/Phone';
-import { PhoneCard } from '../../components/CardPhone/PhoneCard';
+import { PhoneCard } from '../CardPhone/PhoneCard';
 
 interface Props {
   phones: Phone[];
