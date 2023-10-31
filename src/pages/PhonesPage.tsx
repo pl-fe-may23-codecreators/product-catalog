@@ -6,7 +6,6 @@ const PhonesPage = () => {
   const [phones, setPhones] = useState(phonesFromServer);
   return (
     <>
-      <h1>Phones page!</h1>
       <PhonesList phones={phones} />
     </>
   );
