@@ -1,9 +1,7 @@
-/* Resetowanie ogólnego wyglądu strony */
 body {
   overflow-x: hidden;
 }
 
-/* Kontener na stronę */
 .homepage-container {
   width: 1136px;
   margin: 0 auto;
@@ -11,7 +9,6 @@ body {
   flex-direction: column;
 }
 
-/* Styl dla sekcji "section__album" */
 .section__album {
   display: flex;
   align-items: center;
@@ -33,7 +30,6 @@ body {
   background-color: red;
 }
 
-/* Styl dla sekcji "section__models" */
 .section__models {
   display: flex;
 }
@@ -42,30 +38,29 @@ body {
   width: 272px;
   height: 506px;
   margin-right: 20px;
-  background-color: #ccc; /* Przykładowy kolor tła */
+  background-color: #ccc;
 
   &:last-child {
     margin-right: 0;
   }
 
   &--1 {
-    background-color: #ff5733; /* Przykładowy kolor tła dla modelu 1 */
+    background-color: #ff5733;
   }
 
   &--2 {
-    background-color: #33ff57; /* Przykładowy kolor tła dla modelu 2 */
+    background-color: #33ff57;
   }
 
   &--3 {
-    background-color: #5733ff; /* Przykładowy kolor tła dla modelu 3 */
+    background-color: #5733ff;
   }
 
   &--4 {
-    background-color: #ff5733; /* Przykładowy kolor tła dla modelu 4 */
+    background-color: #ff5733;
   }
 }
 
-/* Styl dla sekcji "section__categories" */
 .section__categories {
   display: flex;
   justify-content: space-between;
@@ -75,7 +70,7 @@ body {
   .section__image2 {
     width: 368px;
     height: 368px;
-    background-color: #6ba3ff; /* Przykładowy losowy kolor tła */
+    background-color: #6ba3ff;
   }
 
   .section__text {
@@ -94,7 +89,6 @@ body {
   }
 }
 
-/* Styl dla sekcji "section__prices" */
 .section__prices {
   display: flex;
 }
@@ -103,7 +97,7 @@ body {
   width: 250px;
   height: 300px;
   margin-right: 20px;
-  background-color: #eee; /* Przykładowy kolor tła */
+  background-color: #eee;
 
   &:last-child {
     margin-right: 0;

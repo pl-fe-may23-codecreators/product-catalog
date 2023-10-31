@@ -7,17 +7,19 @@ const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
-    fetchData({  // for pagination
-      page: 1,
-      limit: 17,
-      sortField: 'price',  // price or year
-      sortOrder: 'asc'  // asc or desc
-    }, setPhones);
+    fetchData(
+      {
+        // for pagination
+        page: 1,
+        limit: 17,
+        sortField: 'price', // price or year
+        sortOrder: 'asc', // asc or desc
+      },
+      setPhones,
+    );
   }, []);
 
-  return (
-    <PhonesList phones={phones} />
-  );
+  return <PhonesList phones={phones} />;
 };
 
 export default PhonesPage;

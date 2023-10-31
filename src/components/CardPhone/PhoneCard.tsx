@@ -11,7 +11,11 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => (
   <div className="card">
     <div className="card__content">
       <div>
-        <img className="card__image" src={`https://codecreators-backend.onrender.com/${[phone.image]}`} alt="img" />
+        <img
+          className="card__image"
+          src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
+          alt="img"
+        />
       </div>
       <p className="card__title">{phone.name}</p>
       <div className="card__price">
@@ -33,11 +37,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => (
       </div>
       <div className="card__buttons">
         <button className="card__button-primary">Add to cart</button>
-        <img
-          className="card__button-favourite"
-          src={heartIcon}
-          alt=""
-        />
+        <img className="card__button-favourite" src={heartIcon} alt="" />
       </div>
     </div>
   </div>

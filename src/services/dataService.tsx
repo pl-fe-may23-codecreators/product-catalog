@@ -3,7 +3,10 @@ import { Phone } from '../types/Phone';
 const URL_BASE = 'https://codecreators-backend.onrender.com';
 const ENDPOINT = '/products';
 
-export async function fetchData(params = {}, setFunction: (data: Phone[]) => void) {
+export async function fetchData(
+  params = {},
+  setFunction: (data: Phone[]) => void,
+) {
   try {
     const url = new URL(ENDPOINT, URL_BASE);
     url.search = new URLSearchParams(params).toString();
@@ -16,7 +19,6 @@ export async function fetchData(params = {}, setFunction: (data: Phone[]) => voi
 
     const data = await response.json();
     setFunction(data.devices);
-
   } catch (error) {
     console.error('There was a problem fetching the data:', error);
   }
