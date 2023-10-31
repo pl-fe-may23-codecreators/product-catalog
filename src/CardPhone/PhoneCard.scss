@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Mont';
+  src: url('../fonts/Mont-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+.card {
+  display: flex;
+  font-family: 'Mont', sans-serif;
+  box-shadow: 0px 1px 16px 0px rgba(0, 0, 0, 0.1);
+  width: 272px;
+  height: 506px;
+  border: 1px solid var(--gray-elements, #e2e6e9);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 0;
+    flex-direction: column;
+    padding: 32px;
+  }
+
+  &__title {
+    color: var(--gray-primary, #313237);
+    font-family: 'Mont', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    padding-bottom: 10px;
+  }
+
+  &__prices {
+    display: flex;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e6e9;
+    margin-bottom: 8px;
+
+    &--current {
+      color: var(--gray-primary, #313237);
+
+      font-size: 22px;
+      margin-right: 8px;
+    }
+
+    &--old {
+      color: var(--gray-secondary, #89939a);
+      font-size: 22px;
+      font-weight: 600;
+      text-decoration-line: line-through;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    &--screen,
+    &--capacity,
+    &--RAM {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 8px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+
+    &--cart {
+      padding: 10px 45px;
+      background-color: var(--gray-primary, #313237);
+      color: white;
+      border: none;
+    }
+
+    &--heart {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--gray-elements, #e2e6e9);
+      background-image: url(../images/heart_icon.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: white;
+    }
+  }
+}
+
+img {
+  padding-bottom: 24px;
+  object-fit: contain;
+  max-height: 218px;
+}
+
+.detail__title,
+.detail__value {
+  color: var(--gray-secondary, #89939a);
+  font-family: Mont;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.detail__value {
+  color: var(--gray-primary, #313237);
+}

@@ -1,8 +1,0 @@
-.phones {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 200px);
-  justify-content: center;
-  gap: 16px 40px;
-  min-width: 1024px;
-}
