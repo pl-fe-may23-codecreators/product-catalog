@@ -4,9 +4,24 @@ body {
 
 .homepage-container {
   width: 1136px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+.section__title {
+
+  &--1 {
+    font-size: 48px;
+    font-weight: 800;
+    text-align: left;
+    margin: 56px 0;
+  }
+  &--2, &--3, &--4 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 56px 0 32px;
+  }
 }
 
 .section__album {

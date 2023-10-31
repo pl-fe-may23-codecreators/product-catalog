@@ -2,7 +2,13 @@
     .homepage-container {
       width: 592px;
     }
-  
+
+    .section__title {
+      &--1 {
+        margin: 32px 0;
+      }
+    }
+
     .section__button.responsive {
       width: 32px !important;
       height: 189px ;
@@ -40,12 +46,24 @@
     .section-4 .section__models {
       width: 1136px;
     }
-  }
+}
   
 @media screen and (max-width: 639px) {
   .homepage-container {
       width: auto !important;
       margin: 0 20px !important;
+  }
+
+  .section__title {
+    &--1 {
+      font-size: 32px;
+      margin: 32px 0;
+    }
+
+    &--2, &--3, &--4 {
+      font-size: 22px;
+      margin: 56px 0 32px;
+    }
   }
 
   .section-1 .section__button.responsive {
@@ -78,8 +96,6 @@
   height: auto;
   margin-right: 0;
 }
-
-
 
   .section-4 .section__models {
     width: 1136px;

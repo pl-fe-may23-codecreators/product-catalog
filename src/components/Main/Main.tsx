@@ -3,7 +3,9 @@ const HomePage = () => {
     <div className="homepage-container">
       <div className="section section-1">
         <div className="section__content">
-          <h1 className="section__title">Welcome to Nice Gadgets store!</h1>
+          <h1 className="section__title section__title--1">
+            Welcome to Nice Gadgets store!
+          </h1>
           <div className="section__album">
             <div className="section__button responsive left"></div>{' '}
             <div className="section__image responsive"></div>{' '}
@@ -14,7 +16,7 @@ const HomePage = () => {
 
       <div className="section section-2">
         <div className="section__content">
-          <h2 className="section__title">Brand new models</h2>
+          <h2 className="section__title section__title--2">Brand new models</h2>
           <div className="section__models">
             <div className="section__model responsive section__model--1"></div>
             <div className="section__model responsive section__model--2"></div>
@@ -25,8 +27,8 @@ const HomePage = () => {
       </div>
 
       <div className="section section-3">
-        <div className="section__content">
-          <h2 className="section__title">Shop by category</h2>
+        <div className="section__content ">
+          <h2 className="section__title section__title--3">Shop by category</h2>
           <div className="section__categories">
             <div className="section__category-content">
               <div className="section__image2 responsive"></div>
@@ -57,7 +59,7 @@ const HomePage = () => {
 
       <div className="section section-4">
         <div className="section__content">
-          <h2 className="section__title">Hot prices</h2>
+          <h2 className="section__title section__title--4">Hot prices</h2>
           <div className="section__models">
             <div className="section__model section__model--5"></div>
             <div className="section__model section__model--6"></div>

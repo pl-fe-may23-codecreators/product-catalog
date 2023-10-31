@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Main from '../components/Main/Main'; // Importuj nowy komponent
+import '../components/utils/reset.scss';
 import '../components/Main/Main.scss';
 import '../components/Main/ResponsiveMain.scss';
+import '../components/utils/fonts/fonts.scss';
 
 const App = () => {
   return (
