@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PhonesList } from '../CardList/PhonesList';
+import { PhonesList } from '../components/CardList/PhonesList';
 import { fetchData } from '../services/dataService';
 import { Phone } from '../types/Phone';
 
@@ -9,8 +9,8 @@ const PhonesPage = () => {
   useEffect(() => {
     async function loadData() {
       const fetchedPhones = await fetchData({
-        page: 1,
-        limit: 16,
+        page: 2,
+        limit: 12,
         sortField: 'price', // price or year
         sortOrder: 'asc', // asc or desc
       });
