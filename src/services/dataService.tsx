@@ -1,5 +1,3 @@
-import { Phone } from '../types/Phone';
-
 const URL_BASE = 'https://codecreators-backend.onrender.com';
 const ENDPOINT = '/products';
 

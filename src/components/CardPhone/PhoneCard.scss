@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Mont';
-  src: url('../fonts/Mont-Regular.otf') format('opentype');
+  src: url('../../fonts/Mont-Regular.otf') format('opentype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Mont';
-  src: url('../fonts/Mont-SemiBold.otf') format('opentype');
+  src: url('../../fonts/Mont-SemiBold.otf') format('opentype');
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'Mont';
-  src: url('../fonts/Mont-Bold.otf') format('opentype');
+  src: url('../../fonts/Mont-Bold.otf') format('opentype');
   font-weight: 700;
 }
 
@@ -85,18 +85,27 @@
       background-color: var(--gray-primary, #313237);
       color: white;
       border: none;
+      cursor: pointer;
     }
 
     &--heart {
       width: 40px;
       height: 40px;
       border: 1px solid var(--gray-elements, #e2e6e9);
-      background-image: url(../images/heart_icon.svg);
+      background-image: url(../../images/heart_icon.svg);
       background-repeat: no-repeat;
       background-position: center center;
       background-color: white;
+      cursor: pointer;
     }
   }
+}
+
+.selected {
+  background-color: white;
+  color: #27AE60;
+  border: 1px solid rgb(49, 47, 47);
+  width: 154px;
 }
 
 img {
