@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PhonesList } from '../components/CardList';
+import { PhonesList } from '../components/CardList/PhonesList';
 import { fetchData } from '../services/dataService';
 import { Phone } from '../types/Phone';
 import { Pagination } from '../components/Pagination';

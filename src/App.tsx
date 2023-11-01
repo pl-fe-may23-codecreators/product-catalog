@@ -5,6 +5,7 @@ import PhonesPage from './pages/PhonesPage';
 import ErrorPage from './pages/ErrorPage';
 import RootElement from './pages/RootElement';
 import CartPage from './pages/CartPage';
+import WorkingOnItPage from './pages/WorkingOnItPage';
 
 const router = createHashRouter([
   {
@@ -15,6 +16,9 @@ const router = createHashRouter([
       { path: '/', element: <HomePage /> },
       { path: '/phones', element: <PhonesPage /> },
       { path: '/cart', element: <CartPage /> },
+      { path: '/tablets', element: <WorkingOnItPage /> },
+      { path: '/accessories', element: <WorkingOnItPage /> },
+      { path: '/favourites', element: <WorkingOnItPage /> },
     ],
   },
 ]);

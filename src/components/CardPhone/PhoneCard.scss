@@ -85,6 +85,7 @@
       background-color: var(--gray-primary, #313237);
       color: white;
       border: none;
+      cursor: pointer;
     }
 
     &--heart {
@@ -95,8 +96,16 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-color: white;
+      cursor: pointer;
     }
   }
+}
+
+.selected {
+  background-color: white;
+  color: #27AE60;
+  border: 1px solid rgb(49, 47, 47);
+  width: 154px;
 }
 
 img {
