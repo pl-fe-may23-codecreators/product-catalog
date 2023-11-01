@@ -10,7 +10,7 @@ type Props = {
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { cart, addToCart, removeFromCart } = useCart();
 
-  const isSelected = cart.some(item => item.id === phone.id);
+  const isSelected = cart.some((item) => item.id === phone.id);
 
   const handleButtonClick = () => {
     if (isSelected) {

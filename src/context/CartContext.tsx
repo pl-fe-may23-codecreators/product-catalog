@@ -25,11 +25,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<Phone[]>([]);
 
   const addToCart = (phone: Phone) => {
-    setCart(prevCart => [...prevCart, phone]);
+    setCart((prevCart) => [...prevCart, phone]);
   };
 
   const removeFromCart = (phone: Phone) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== phone.id));
+    setCart((prevCart) => prevCart.filter((item) => item.id !== phone.id));
   };
 
   return (

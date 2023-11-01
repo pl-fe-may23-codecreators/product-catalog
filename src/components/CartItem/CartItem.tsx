@@ -7,7 +7,7 @@ type CartItemProps = {
   price: number;
 };
 
-export const CartItem: FC<CartItemProps> = ({name, price, imgURL}) => (
+export const CartItem: FC<CartItemProps> = ({ name, price, imgURL }) => (
   <div className="CartItem">
     <div className="CartItem__content">
       <button className="CartItem__remove"></button>
@@ -16,9 +16,7 @@ export const CartItem: FC<CartItemProps> = ({name, price, imgURL}) => (
         src={`https://codecreators-backend.onrender.com/${[imgURL]}`}
         alt="Cart item image"
       />
-      <div className="CartItem__name">
-        {name}
-      </div>
+      <div className="CartItem__name">{name}</div>
       <div className="CartItem__count">
         <button className="CartItem__count--button CartItem__count--decrease-amount" />
         <div className="CartItem__count--amount">1</div>
