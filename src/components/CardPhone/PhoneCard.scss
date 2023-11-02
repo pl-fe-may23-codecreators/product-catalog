@@ -86,6 +86,10 @@
       color: white;
       border: none;
       cursor: pointer;
+
+      &:hover {
+        box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.40);
+      }
     }
 
     &--heart {
@@ -97,15 +101,23 @@
       background-position: center center;
       background-color: white;
       cursor: pointer;
+
+      &:hover {
+        border: 1px solid var(--gray-primary, #313237);
+      }
     }
   }
 }
 
-.selected {
+.selected--cart {
   background-color: white;
   color: #27AE60;
   border: 1px solid rgb(49, 47, 47);
   width: 154px;
+}
+
+.selected--heart {
+  background-image: url(../../images/heart_icon_red.svg);
 }
 
 img {
