@@ -7,7 +7,7 @@ import { Pagination } from '../components/Pagination';
 const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [phonesPerPage, setPhonesPerPage] = useState(8);
+  const [phonesPerPage] = useState(8);
 
   useEffect(() => {
     async function loadData() {
