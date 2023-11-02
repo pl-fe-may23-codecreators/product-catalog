@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { Phone } from '../../types/Phone';
 import './PhoneCard.scss';
 import { useCart } from '../../context/CartContext';
+import { useFavourites } from '../../context/FavouritesContext';
 
 type Props = {
   phone: Phone;
@@ -9,16 +9,27 @@ type Props = {
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { cart, addToCart, removeFromCart } = useCart();
+  const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
 
-  const isSelected = cart.some((item) => item.id === phone.id);
+  const isCartSelected = cart.some((item) => item.id === phone.id);
+  const isFavouritesSelected = favourites.some((item) => item.id === phone.id);
 
-  const handleButtonClick = () => {
-    if (isSelected) {
+  const handleCartToggle = () => {
+    if (isCartSelected) {
       removeFromCart(phone);
     } else {
       addToCart(phone);
     }
   };
+
+  const handleFavouritesToggle = () => {
+    if (isFavouritesSelected) {
+      removeFromFavourites(phone);
+    } else {
+      addToFavourites(phone);
+    }
+  };
+
   return (
     <div className="card">
       <div className="card__content">
@@ -47,12 +58,19 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </div>
         <div className="card__buttons">
           <button
-            className={`card__buttons--cart ${isSelected ? 'selected' : ''}`}
-            onClick={handleButtonClick}
+            className={`card__buttons--cart ${
+              isCartSelected ? 'selected--cart' : ''
+            }`}
+            onClick={handleCartToggle}
           >
-            {isSelected ? 'Added!' : 'Add to cart'}
+            {isCartSelected ? 'Added!' : 'Add to cart'}
           </button>
-          <button className="card__buttons--heart"></button>
+          <button
+            className={`card__buttons--heart ${
+              isFavouritesSelected ? 'selected--heart' : ''
+            }`}
+            onClick={handleFavouritesToggle}
+          ></button>
         </div>
       </div>
     </div>

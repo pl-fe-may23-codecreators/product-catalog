@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Phone } from '../types/Phone';
 
 type CartContextType = {
@@ -22,14 +22,24 @@ type CartProviderProps = {
 };
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cart, setCart] = useState<Phone[]>([]);
+  const [cart, setCart] = useState<Phone[]>(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      return JSON.parse(savedCart);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (phone: Phone) => {
-    setCart((prevCart) => [...prevCart, phone]);
+    setCart(prevCart => [...prevCart, phone]);
   };
 
   const removeFromCart = (phone: Phone) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== phone.id));
+    setCart(prevCart => prevCart.filter(item => item.id !== phone.id));
   };
 
   return (
@@ -38,3 +48,4 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     </CartContext.Provider>
   );
 };
+

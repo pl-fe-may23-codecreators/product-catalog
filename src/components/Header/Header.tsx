@@ -4,8 +4,12 @@ import './Header.scss';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { BurgerMenu } from '../BugerMenu';
+import { useCart } from '../../context/CartContext';
+import { useFavourites } from '../../context/FavouritesContext';
 
 export const Header = () => {
+  const { cart } = useCart();
+  const { favourites } = useFavourites();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -71,7 +75,11 @@ export const Header = () => {
               })
             }
             to="/favourites"
-          />
+          >
+            {favourites.length > 0 && (
+              <span className="favourites-count">{favourites.length}</span>
+            )}
+          </NavLink>
           <NavLink
             className={({ isActive }) =>
               cn('Header__icons--icon Header__icons--cart_icon', {
@@ -79,7 +87,11 @@ export const Header = () => {
               })
             }
             to="/cart"
-          />
+          >
+            {cart.length > 0 && (
+              <span className="cart-count">{cart.length}</span>
+            )}
+          </NavLink>
         </div>
       </div>
     </div>
