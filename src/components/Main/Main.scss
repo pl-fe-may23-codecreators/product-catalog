@@ -1,109 +1,241 @@
-/* Styl dla całej strony */
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-Regular.otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 800;
+}
+
+.mont-regular {
+  font-family: 'Mont', sans-serif;
+  font-weight: 400;
+}
+
+/* Mont Medium */
+.mont-medium {
+  font-family: 'Mont', sans-serif;
+  font-weight: 500;
+}
+
+/* Mont Semi-Bold */
+.mont-semibold {
+  font-family: 'Mont', sans-serif;
+  font-weight: 600;
+}
+
+/* Mont Bold */
+.mont-bold {
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+}
+
+/* Mont Extra Bold */
+.mont-extrabold {
+  font-family: 'Mont', sans-serif;
+  font-weight: 800;
+}
+
+
+body {
+  overflow-x: hidden;
+  font-family: 'Mont',
+}
+
 .homepage-container {
-    width: 1136px;
-    margin: 0 auto;
+  width: 1136px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-2,
+.section-4 {
+  overflow-x: auto;
+}
+
+.section__title {
+  &--1 {
+    font-size: 48px;
+    font-weight: 800;
+    text-align: left;
+    margin: 56px 0;
+  }
+
+  &--2, &--3, &--4 {
+    background-color: white;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 56px 0 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.section__album {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section__button,
+.section__image {
+  height: 400px;
+}
+
+.section__button {
+  
+  width: 32px;
+  background-image: url(../../images/left_arrow_icon.svg);
+  background-size: 100% 100%;
+  border: 2px solid #B4BDC3;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.section__button,
+.section__image {
+  height: 400px;
+}
+
+.section__button {
+  width: 32px;
+  background-image: url(../../images/left_arrow_icon.svg);
+  background-size: 100% 100%;
+  border: 2px solid #B4BDC3;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &.right {
+    background-image: url(../../images/right_arrow_icon.svg);
+  }
+}
+
+.section__title-wrapper {
+  display: flex;
+}
+
+.section__title-button {
+  width: 32px;
+  height: 32px;
+  background-image: url(../../images/left_arrow_icon.svg);
+  background-size: 100% 100%;
+  border: 2px solid #B4BDC3;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &.right {
+    background-image: url(../../images/right_arrow_icon.svg);
+  }
+
+  &.left {
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+}
+
+.section__image {
+  width: 1040px;
+  background-image: url(../../images/baner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.section__models {
+  display: flex;
+  overflow-x: auto;
+}
+
+.section__model {
+  width: 272px;
+  height: 506px;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.section__categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section__category-content {
+  .section__image2 {
+    width: 368px;
+    height: 368px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &.left {
+      background-image: url(../../images/mobile.png);
+    }
+
+    &.mid {
+      background-image: url(../../images/tablet.png);
+    }
+
+    &.right {
+      background-image: url(../../images/accessories.png);
+    }
+  }
+
+  .section__text {
     display: flex;
     flex-direction: column;
-  }
-  
-  /* Styl dla sekcji "section__album" */
-  .section__album {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-  
-    .section__button {
-      width: 32px;
-      height: 400px;
-      background-color: blue;
-    }
-  
-    .section__image {
-      width: 1040px;
-      height: 400px;
-      background-color: red;
-    }
+  }
+
+  .section__text-line {
+    font-size: 16px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+
+  .section__text-line.mont-medium {
+    color: #89939A;
   }
   
-  /* Styl dla sekcji "section__models" */
-  .section__models {
-    display: flex;
-  
-    /* Style dla każdego pojedynczego modelu (div) */
-    .section__model {
-      width: 272px;
-      height: 506px;
-      margin-right: 20px;
-      background-color: #ccc; /* Przykładowy kolor tła */
-  
-      &--1 {
-        background-color: #ff5733; /* Przykładowy kolor tła dla modelu 1 */
-      }
-  
-      &--2 {
-        background-color: #33ff57; /* Przykładowy kolor tła dla modelu 2 */
-      }
-  
-      &--3 {
-        background-color: #5733ff; /* Przykładowy kolor tła dla modelu 3 */
-      }
-  
-      &--4 {
-        background-color: #ff5733; /* Przykładowy kolor tła dla modelu 4 */
-      }
-  
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+
+  &:last-child {
+    margin-right: 0;
   }
-  
-  /* Styl dla sekcji "section__categories" */
-  .section__categories {
-    display: flex;
-    justify-content: space-between;
-  
-    /* Style dla każdej kategorii (div) */
-    .section__category-content {
-      width: 368px;
-      height: 443px;
-  
-      .section__image {
-        width: 368px;
-        height: 368px;
-        background-color: #6ba3ff; /* Przykładowy losowy kolor tła */
-      }
-  
-      .section__text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-  
-        .section__text-line {
-          font-size: 16px;
-          margin-bottom: 8px;
-        }
-      }
-  
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+}
+
+
+.section__prices {
+  display: flex;
+}
+
+.section__price {
+  width: 250px;
+  height: 300px;
+  margin-right: 20px;
+  background-color: #eee;
+
+  &:last-child {
+    margin-right: 0;
   }
-  
-  /* Styl dla sekcji "section__prices" */
-  .section__prices {
-    display: flex;
-  
-    /* Style dla każdej ceny (div) */
-    .section__price {
-      width: 250px;
-      height: 300px;
-      margin-right: 20px;
-      background-color: #eee; /* Przykładowy kolor tła */
-  
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
+}
