@@ -1,48 +1,37 @@
-@font-face {
-    font-family: 'Mont';
-    src: url('../../../fonts/Mont-Regular.otf') format('opentype');
-    font-weight: 400;
-  }
-  
-  @font-face {
-    font-family: 'Mont';
-    src: url('../../../fonts/Mont-SemiBold.otf') format('opentype');
-    font-weight: 600;
-  }
-  
-  @font-face {
-    font-family: 'Mont';
-    src: url('../../../fonts/Mont-Bold.otf') format('opentype');
-    font-weight: 700;
-  }
+.About {
+  text-align: justify;
+  font-family: 'Mont';
+  width: 100%;
+  color: var(--gray-primary, #313237);
+  text-align: left;
 
-  .About {
-    font-family: Mont;
+  @media (min-width: 1200px) {
+      text-align: justify;
+
     width: 560px;
-    color: var(--gray-primary, #313237);
-    text-align: left;
-
-    &__title {
-        font-size: 22px;
-        font-weight: 800;
-        line-height: 31px;
-        margin-bottom: 32px;
-        border-bottom: 1.4px solid #E2E6E9;      
-        padding-bottom: 16px;
-    }
-
-    &__info {
-        font-size: 20px;
-        font-weight: 700;
-        line-height: normal;
-        margin-bottom: 16px;
-    }
-
-    &__text {
-        color: #89939A;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 21px;
-        margin-bottom: 32px;
-    }
   }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 31px;
+    margin-bottom: 32px;
+    border-bottom: 1.4px solid #e2e6e9;
+    padding-bottom: 16px;
+  }
+
+  &__info {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    color: #89939a;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 32px;
+  }
+}

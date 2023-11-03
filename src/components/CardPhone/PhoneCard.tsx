@@ -34,6 +34,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
     <div className="card">
       <div className="card__content">
         <img
+          className="card__image"
           src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
           alt=""
         />

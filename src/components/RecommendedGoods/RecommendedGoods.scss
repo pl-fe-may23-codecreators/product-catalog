@@ -1,0 +1,15 @@
+.recommended-phones-container {
+  display: flex;
+  overflow-x: auto;
+
+  @media (min-width: 1200px) {
+    overflow-x: unset;
+  }
+}
+
+.recommended-phones {
+  display: flex;
+  width: 1200px;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
