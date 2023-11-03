@@ -4,6 +4,7 @@ import './Cart.scss';
 
 export const Cart = () => {
   const { cart } = useCart();
+  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
   return (
     <div className="Cart">
       <button className="Cart__goback">
@@ -24,7 +25,7 @@ export const Cart = () => {
         </div>
         <div className="Cart__total">
           <div className="Total">
-            <div className="Total__price">$300</div>
+            <div className="Total__price">${totalPrice}</div>
             <div className="Total__count-items">
               Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
             </div>

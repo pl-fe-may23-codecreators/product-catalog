@@ -1,0 +1,41 @@
+.photos-container {
+  display: flex;
+}
+
+.small-photos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.telephone-picture {
+  display: flex;
+  flex-wrap: wrap;
+  height: 66px;
+  width: 66px;
+  border: 1px solid #C4C4C4;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.telephone-picture:nth-child(1) {
+  background-image: url('../../images/telefon-aparat.png');
+}
+
+.telephone-picture:nth-child(2) {
+  background-image: url('../../images/telefon-front.png');
+}
+
+.telephone-picture:nth-child(3) {
+  background-image: url('../../images/telefon-skos-prawo.png');
+}
+
+.telephone-picture:nth-child(4) {
+  background-image: url('../../images/telefon-tyl.png');
+}
+
+.telephone-picture:nth-child(5) {
+  background-image: url('../../images/telefon-skos-prawo.png');
+}

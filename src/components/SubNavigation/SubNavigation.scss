@@ -1,0 +1,37 @@
+.navigation {
+  display: flex;
+  padding-top: 25px;
+  align-items: flex-end;
+  padding-right: 17px;
+  padding-bottom: 24px;
+
+  @media (min-width: 640px) {
+    padding-bottom: 40px;
+  }
+
+  &__category-link {
+    color: var(--gray-primary, #313237);
+    font-family: 'Mont';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+  }
+
+  &__product-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--gray-secondary, #89939a);
+    font-family: 'Mont';
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  &__right-icon {
+    padding: 0 8px;
+  }
+}
+
+
