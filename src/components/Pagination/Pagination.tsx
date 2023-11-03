@@ -1,6 +1,7 @@
-import './Pagination.scss';
+import React from 'react';
 import classnames from 'classnames';
-import { DOTS, usePagination } from './usePagination';
+
+import './Pagination.scss';
 
 interface PaginationProps {
   onPageChange: (page: number) => void;
@@ -11,23 +12,34 @@ interface PaginationProps {
   className?: string;
 }
 
+const DOTS = '...';
+
 export const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
   totalCount,
-  siblingCount,
+  siblingCount = 1,
   currentPage,
   pageSize,
   className,
 }) => {
-  const paginationRange: (number | string)[] =
-    usePagination({
-      currentPage,
-      totalCount,
-      siblingCount,
-      pageSize,
-    }) || [];
+  const lastPage = Math.ceil(totalCount / pageSize);
+  const maxSiblings = siblingCount * 2;
+  const showDots = lastPage > maxSiblings;
 
-  if (currentPage === 0 || paginationRange.length < 2) {
+  const range: (number | string)[] = [];
+  for (let i = 1; i <= lastPage; i++) {
+    if (
+      i === 1 ||
+      i === lastPage ||
+      (i >= currentPage - siblingCount && i <= currentPage + siblingCount)
+    ) {
+      range.push(i);
+    } else if (showDots && range[range.length - 1] !== DOTS) {
+      range.push(DOTS);
+    }
+  }
+
+  if (range.length < 2) {
     return null;
   }
 
@@ -39,14 +51,8 @@ export const Pagination: React.FC<PaginationProps> = ({
     onPageChange(currentPage - 1);
   };
 
-  const lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <ul
-      className={classnames(
-        'pagination-container',
-        className ? { [className]: true } : undefined,
-      )}
-    >
+    <ul className={classnames('pagination-container', className)}>
       <li
         key="previous"
         className={classnames('pagination-item', {
@@ -56,29 +62,21 @@ export const Pagination: React.FC<PaginationProps> = ({
       >
         <div className="arrow arrow-left left" />
       </li>
-      {paginationRange.map((pageNumber, index) => {
-        if (pageNumber === DOTS) {
-          return (
-            <li key={`dots-${index}`} className="pagination-item dots">
-              &#8230;
-            </li>
-          );
-        }
-
-        return (
-          <li
-            key={pageNumber}
-            className={classnames('pagination-item', {
-              selected: pageNumber === currentPage,
-            })}
-            onClick={() =>
-              onPageChange(typeof pageNumber === 'number' ? pageNumber : 1)
+      {range.map((pageNumber, index) => (
+        <li
+          key={index}
+          className={classnames('pagination-item', {
+            selected: pageNumber === currentPage,
+          })}
+          onClick={() => {
+            if (pageNumber !== DOTS) {
+              onPageChange(pageNumber as number);
             }
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
+          }}
+        >
+          {pageNumber === DOTS ? DOTS : pageNumber}
+        </li>
+      ))}
       <li
         key="next"
         className={classnames('pagination-item', {
