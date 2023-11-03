@@ -12,10 +12,10 @@ const PhonesPage = () => {
   useEffect(() => {
     async function loadData() {
       const fetchedPhones = await fetchData({
-        page: 1,
-        limit: 48,
-        sortField: 'price', // price or year
-        sortOrder: 'asc', // asc or desc
+        page: currentPage,
+        limit: phonesPerPage,
+        sortField: 'price',
+        sortOrder: 'asc',
       });
 
       if (fetchedPhones) {
@@ -24,24 +24,22 @@ const PhonesPage = () => {
     }
 
     loadData();
-  }, []);
+  }, [currentPage, phonesPerPage]);
 
-  const indexOfLastPhone = currentPage * phonesPerPage;
-  const indexOfFirstPhone = indexOfLastPhone - phonesPerPage;
-  const currentPhones = phones.slice(indexOfFirstPhone, indexOfLastPhone);
+  const total = 71;
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const handlePageSwitch = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
-      <PhonesList phones={currentPhones} />
+      <PhonesList phones={phones} />
       <Pagination
-        currentPage={currentPage}
-        totalCount={phones.length}
-        siblingCount={2}
+        onPageChange={handlePageSwitch}
+        totalCount={total}
         pageSize={phonesPerPage}
-        onPageChange={paginate}
-        className="pagination"
+        currentPage={currentPage}
       />
     </>
   );
