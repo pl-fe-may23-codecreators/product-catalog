@@ -6,7 +6,7 @@ const FavouritesPage = () => {
 
   return (
     <>
-      {favourites.length ? <PhonesList phones={favourites} /> : <h1>No favouerites</h1>}
+      {favourites.length ? <PhonesList phones={favourites} /> : <h1>No favourites</h1>}
     </>
   );
 };

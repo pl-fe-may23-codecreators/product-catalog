@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1136px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.product-name {
+  color: var(--gray-primary, #313237);
+  /* Mobile/H2 */
+  font-family: Mont;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 140%;
+  padding-bottom: 40px;
+
+  @media (min-width: 640px) {
+    color: var(--gray-primary, #313237);
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+  }
+}
+
+.more-phones {
+  color: var(--gray-primary, #313237);
+  /* Mobile/H2 */
+  font-family: Mont;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 140%;
+  padding-bottom: 24px;
+
+  @media (min-width: 640px) {
+    color: var(--gray-primary, #313237);
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+  }
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 20px;
+
+  @media (min-width: 1199px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+// another thing

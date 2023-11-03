@@ -1,0 +1,39 @@
+.Specifications {
+  font-family: 'Mont';
+  width: 100%;
+  color: var(--gray-primary, #313237);
+
+  @media (min-width: 1200px) {
+    width: 511px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 31px;
+    margin-bottom: 32px;
+    border-bottom: 1.4px solid #e2e6e9;
+    padding-bottom: 16px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+
+    &--info {
+      color: #89939a;
+      display: flex;
+      font-size: 14px;
+      gap: 15px;
+      justify-content: space-between;
+      letter-spacing: 0;
+      line-height: 21px;
+    }
+
+    &--value {
+      color: var(--gray-primary, #313237);
+    }
+  }
+}

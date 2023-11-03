@@ -1,0 +1,37 @@
+.About {
+  text-align: justify;
+  font-family: 'Mont';
+  width: 100%;
+  color: var(--gray-primary, #313237);
+  text-align: left;
+
+  @media (min-width: 1200px) {
+      text-align: justify;
+
+    width: 560px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 31px;
+    margin-bottom: 32px;
+    border-bottom: 1.4px solid #e2e6e9;
+    padding-bottom: 16px;
+  }
+
+  &__info {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    color: #89939a;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 32px;
+  }
+}

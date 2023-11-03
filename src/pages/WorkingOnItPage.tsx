@@ -10,7 +10,7 @@ const WorkingOnItPage = () => {
         marginTop: '50px',
       }}
     >
-      <img src={workingCat} alt="" />
+      <img style={{maxWidth: '218px', margin: 'auto'}} src={workingCat} alt="" />
       <h1>We're working on IT</h1>
     </div>
   );

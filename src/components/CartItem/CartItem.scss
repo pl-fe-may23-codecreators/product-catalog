@@ -57,6 +57,7 @@
     }
 
     &__image {
+        object-fit: contain;
         width: 66px;
         height: 66px;
     }
