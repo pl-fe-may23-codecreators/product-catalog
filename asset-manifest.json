@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.9a73ddd3.css",
+    "main.css": "/product-catalog/static/css/main.cde327dc.css",
     "main.js": "/product-catalog/static/js/main.0ff3b6ee.js",
     "static/media/telefon-front.png": "/product-catalog/static/media/telefon-front.046182dd957cf36861c8.png",
     "static/media/telefon-tyl.png": "/product-catalog/static/media/telefon-tyl.79a840e7d587f9713b68.png",
@@ -30,11 +30,11 @@
     "static/media/Color - green.svg": "/product-catalog/static/media/Color - green.4c6f8445e434c29f98580f4227a26b60.svg",
     "static/media/Color - white.svg": "/product-catalog/static/media/Color - white.cb9d1568c36036a55bc0327141ed1ed6.svg",
     "static/media/EllipseCounter.svg": "/product-catalog/static/media/EllipseCounter.dff156689e0216f49db9.svg",
-    "main.9a73ddd3.css.map": "/product-catalog/static/css/main.9a73ddd3.css.map",
+    "main.cde327dc.css.map": "/product-catalog/static/css/main.cde327dc.css.map",
     "main.0ff3b6ee.js.map": "/product-catalog/static/js/main.0ff3b6ee.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a73ddd3.css",
+    "static/css/main.cde327dc.css",
     "static/js/main.0ff3b6ee.js"
   ]
 }
