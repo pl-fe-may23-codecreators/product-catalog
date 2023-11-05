@@ -3,6 +3,7 @@
 import React from 'react';
 import Main from '../components/Main/Main'; // Importuj nowy komponent
 import '../components/Main/Main.scss';
+import '../components/Main/ResponsiveMain.scss';
 
 const App = () => {
   return (
