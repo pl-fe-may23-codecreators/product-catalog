@@ -1,78 +1,148 @@
+$gray-secondary: #89939a;
+$gray-icons-placeholders: #b4bdc3;
+$gray-primary: #313237;
+$gray-elements: #e2e6e9;
+
+@mixin text-properties {
+  font-family: Mont;
+  font-style: normal;
+}
+
 .variants-container {
   display: flex;
   justify-content: space-between;
   height: 500px;
   width: 500px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    order: 3;
+  }
 }
 
-.colors__title,
-.capacity__title {
-  color: var(--gray-secondary, #89939a);
-  padding-bottom: 8px;
-  /* Small text 12 */
-  font-family: Mont;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+.colors,
+.capacity {
+  &__title {
+    color: $gray-secondary;
+    padding-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    @include text-properties;
+  }
+
+  &__options {
+    display: flex;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e6e9;
+    margin-bottom: 24px;
+    gap: 2px;
+  }
+
+  &__button {
+    padding: 5px 11px;
+    background-color: white;
+    border: 1px solid $gray-icons-placeholders;
+    margin-bottom: 28px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px; // 150%
+    @include text-properties;
+
+    &.active {
+      background: $gray-primary;
+      color: white;
+    }
+  }
+
+  &__button--2 {
+    margin: 0 8px;
+  }
 }
 
 .phoneID {
-  color: var(--gray-icons-placeholders, #b4bdc3);
+  margin-left: -200px;
+  color: $gray-icons-placeholders;
   text-align: right;
-
-  /* Small text 12 */
-  font-family: Mont;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
-}
+  @include text-properties;
 
-.colors__options {
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e2e6e9;
-  margin-bottom: 24px;
-}
-.capacity__button {
-  padding: 5px 15px;
-  background-color: white;
-  border: 1px solid var(--gray-icons-placeholders, #b4bdc3);
-  margin-bottom: 28px;
-
-  /* Body text 14 */
-  font-family: 'Mont';
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 21px; /* 150% */
-}
-
-.capacity__button--1 {
-  background: var(--gray-primary, #313237);
-  color: white;
-}
-
-.capacity__button--2 {
-  margin: 0 8px;
+  @media (max-width: 640px) {
+    display: none;
+  }
 }
 
 .colors {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
+  min-width: 236px;
+
+  @media (max-width: 640px) {
+    max-width: unset;
+  }
 }
 
-.card__product-prices {
+.card {
+  &__product-prices {
+    display: flex;
+    padding: 32px 0 8px;
+    border-top: 1px solid #e2e6e9;
+  }
+
+  &__buttons--cart--wide {
+    width: 80%;
+    height: 48px;
+    background-color: $gray-primary;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 8px 32px 0;
+
+    &:hover {
+      box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.40);
+    }
+  }
+
+
+
+  &__buttons--heart--wide {
+    width: 48px;
+    height: 48px;
+    border: 1px solid $gray-elements;
+    background: white url(../../images/heart_icon.svg) no-repeat center center;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid var(--gray-primary, #313237);
+    }
+  }
+}
+
+.selected--cart--wide {
+  background-color: white;
+  color: #27AE60;
+  border: 1px solid rgb(49, 47, 47);
+}
+
+.selected--heart--wide {
+  background-image: url(../../images/heart_icon_red.svg);
+}
+
+
+.colors__circle {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(143, 38, 38);
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.colors__circle-border {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 2px solid #E2E6E9;
   display: flex;
-  padding-top: 32px;
-  border-top: 1px solid #e2e6e9;
-  padding-bottom: 8px;
-}
-
-.card__buttons--cart--wide {
-  padding: 15px 100px;
-  background-color: var(--gray-primary, #313237);
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 32px;
+  justify-content: center;
+  align-items: center;
 }

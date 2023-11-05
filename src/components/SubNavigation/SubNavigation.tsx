@@ -4,7 +4,11 @@ import './SubNavigation.scss';
 import { NavLink } from 'react-router-dom';
 import { BackClick } from '../BackClick/backClick';
 
-const SubNavigation = () => {
+type SubNavigationProps = {
+  name: string;
+};
+
+const SubNavigation = ({name}: SubNavigationProps) => {
   return (
     <>
       <div className="navigation">
@@ -28,7 +32,7 @@ const SubNavigation = () => {
           alt="Right icon"
         />
         <p className="navigation__product-name">
-          Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+          {name}
         </p>
       </div>
       <BackClick />

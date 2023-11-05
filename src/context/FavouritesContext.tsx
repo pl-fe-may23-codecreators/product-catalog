@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Phone } from '../types/Phone';
+import { Phone } from '../types/PhoneTypes';
 
 type FavouritesContextType = {
   favourites: Phone[];

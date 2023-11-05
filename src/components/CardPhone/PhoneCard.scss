@@ -30,6 +30,7 @@
     flex: 1 0 0;
     flex-direction: column;
     padding: 32px;
+    width: 270px;
   }
 
   &__title {
@@ -121,9 +122,11 @@
 }
 
 .card__image {
+  width: 100%;
   padding-bottom: 24px;
   object-fit: contain;
   max-height: 218px;
+  transition: transform 0.5s ease;
 }
 
 .detail__title,
@@ -136,4 +139,8 @@
 
 .detail__value {
   color: var(--gray-primary, #313237);
+}
+
+.card__image:hover {
+  transform: scale(1.10);
 }

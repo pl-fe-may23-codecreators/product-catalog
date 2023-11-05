@@ -1,22 +1,35 @@
 import './PhotosBlock.scss';
-import cameraPicture from '../../images/telefon-front.png';
+import { useState } from 'react';
 
-const PhotosBlock = () => {
+type PhotosBlockProps = {
+  photos: string[];
+};
+
+const PhotosBlock = ({photos}: PhotosBlockProps) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const phonePictures = photos.map(photo => `https://codecreators-backend.onrender.com/${photo}`);
+
   return (
-    <div className='photos-container'>
-      <div className="small-photos-container">
-        <div className="telephone-picture" />
-        <div className="telephone-picture" />
-        <div className="telephone-picture" />
-        <div className="telephone-picture" />
-        <div className="telephone-picture" />
+    <>
+      <div className="photos-block__container">
+        <div className="photos-block__small-photos">
+          {phonePictures.map((pic, index) => (
+            <div
+              key={index}
+              className={`photos-block__photo ${index === selectedIndex ? 'selected' : ''}`} 
+              style={{ backgroundImage: `url(${pic})` }}
+              onClick={() => setSelectedIndex(index)} 
+            />
+          ))}
+        </div>
       </div>
       <img
-        style={{ height: '442px', width: '442px' }}
-        src={cameraPicture}
-        alt=""
+        className="photos-block__big-photo"
+        src={phonePictures[selectedIndex]} 
+        alt="Selected product"
       />
-    </div>
+    </>
   );
 };
 
