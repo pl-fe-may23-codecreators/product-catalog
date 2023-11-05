@@ -17,18 +17,11 @@ const router = createHashRouter([
       { path: '*', element: <ErrorPage /> },
       { path: '/', element: <HomePage /> },
       { path: '/phones', element: <PhonesPage /> },
-      {
-        path: '/phones',
-        element: <PhonesPage />,
-        children: [
-          { path: ':productName', element: <ProductPage /> },
-        ],
-      },
+      {path: '/phones/:productName', element: <ProductPage />},
       { path: '/cart', element: <CartPage /> },
       { path: '/tablets', element: <WorkingOnItPage /> },
       { path: '/accessories', element: <WorkingOnItPage /> },
       { path: '/favourites', element: <FavouritesPage /> },
-      { path: '/phones/test', element: <ProductPage /> }, // this is only for test purposes, remember to remove it later
     ],
   },
 ]);

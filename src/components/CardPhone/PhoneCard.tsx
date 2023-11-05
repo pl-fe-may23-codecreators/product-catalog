@@ -1,18 +1,25 @@
-import { Phone } from '../../types/Phone';
+import { Phone } from '../../types/PhoneTypes';
 import './PhoneCard.scss';
 import { useCart } from '../../context/CartContext';
 import { useFavourites } from '../../context/FavouritesContext';
+import { Link } from 'react-router-dom';
 
 type Props = {
   phone: Phone;
+};
+
+const toUrlSlug = (str: string) => {
+  return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
 };
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
 
-  const isCartSelected = cart.some((item) => item.id === phone.id);
-  const isFavouritesSelected = favourites.some((item) => item.id === phone.id);
+  const isCartSelected = cart.some((item) => item.itemId === phone.itemId);
+  const isFavouritesSelected = favourites.some(
+    (item) => item.itemId === phone.itemId,
+  );
 
   const handleCartToggle = () => {
     if (isCartSelected) {
@@ -33,12 +40,19 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="card">
       <div className="card__content">
-        <img
-          className="card__image"
-          src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
-          alt=""
-        />
-        <h3 className="card__title">{phone.name}</h3>
+        <Link to={`/phones/${toUrlSlug(phone.name)}`}>
+          <img
+            className="card__image"
+            src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
+            alt={phone.name}
+          />
+        </Link>
+        <Link
+          style={{ textDecoration: 'none' }}
+          to={`/phones/${toUrlSlug(phone.name)}`}
+        >
+          <h3 className="card__title">{phone.name}</h3>
+        </Link>
         <div className="card__prices">
           <h4 className="card__prices--current">${phone.price}</h4>
           <h4 className="card__prices--old">${phone.fullPrice}</h4>

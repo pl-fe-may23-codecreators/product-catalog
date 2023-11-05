@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PhonesList } from '../components/CardList/PhonesList';
 import { fetchData } from '../services/dataService';
-import { Phone } from '../types/Phone';
+import { Phone } from '../types/PhoneTypes';
 import { Pagination } from '../components/Pagination';
 
 const PhonesPage = () => {
@@ -34,13 +34,15 @@ const PhonesPage = () => {
 
   return (
     <>
-      <PhonesList phones={phones} />
-      <Pagination
-        onPageChange={handlePageSwitch}
-        totalCount={total}
-        pageSize={phonesPerPage}
-        currentPage={currentPage}
-      />
+      <div className="container">
+        <PhonesList phones={phones} />
+        <Pagination
+          onPageChange={handlePageSwitch}
+          totalCount={total}
+          pageSize={phonesPerPage}
+          currentPage={currentPage}
+        />
+      </div>
     </>
   );
 };

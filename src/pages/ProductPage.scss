@@ -67,4 +67,10 @@
   }
 }
 
-// another thing
+@media (max-width: 640px) {
+  .options-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

@@ -1,5 +1,5 @@
 import './PhonesList.scss';
-import { Phone } from '../../types/Phone';
+import { Phone } from '../../types/PhoneTypes';
 import { PhoneCard } from '../CardPhone/PhoneCard';
 import { PhonesLayout } from '../PhonesLayout';
 

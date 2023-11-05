@@ -1,41 +1,58 @@
-.photos-container {
-  display: flex;
-}
+.photos-block {
+  &__container {
+    display: flex;
 
-.small-photos-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    @media (max-width: 640px) {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 20px;
+      order: 2;
+    }
+  }
 
-}
+  &__small-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-.telephone-picture {
-  display: flex;
-  flex-wrap: wrap;
-  height: 66px;
-  width: 66px;
-  border: 1px solid #C4C4C4;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+    @media (max-width: 640px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
 
-.telephone-picture:nth-child(1) {
-  background-image: url('../../images/telefon-aparat.png');
-}
+  &__photo {
+    display: flex;
+    flex-wrap: wrap;
+    height: 66px;
+    width: 66px;
+    border: 1px solid #c4c4c4;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 
-.telephone-picture:nth-child(2) {
-  background-image: url('../../images/telefon-front.png');
-}
+    &.selected {
+      border: 1px solid black;
+    }
 
-.telephone-picture:nth-child(3) {
-  background-image: url('../../images/telefon-skos-prawo.png');
-}
+    @media (max-width: 400px) {
+      height: 40px;
+      width: 40px;
+    }
+  }
 
-.telephone-picture:nth-child(4) {
-  background-image: url('../../images/telefon-tyl.png');
-}
+  &__big-photo {
+    height: 442px;
+    min-width: 300px;
+    object-fit: contain;
 
-.telephone-picture:nth-child(5) {
-  background-image: url('../../images/telefon-skos-prawo.png');
+    @media (max-width: 640px) {
+      height: auto;
+      width: 90%;
+      max-height: 442px;
+      min-width: unset;
+      order: 1;
+    }
+  }
 }
