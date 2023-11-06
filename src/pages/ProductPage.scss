@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 1136px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
@@ -52,6 +52,7 @@
 .options-container {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .details-container {

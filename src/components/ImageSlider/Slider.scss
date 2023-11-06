@@ -1,0 +1,25 @@
+.button-arrow {
+    background-color: GhostWhite;
+    transition:
+      transform 0.1s ease,
+      background-color 0.3s ease;
+    width: 30px;
+    height: 100%;
+    border: 1px solid #b4bdc3;
+  
+    &:hover {
+      background-color: #e5e5e5;
+      cursor: pointer;
+    }
+  
+    &:active {
+      transform: scale(0.99);
+    }
+    &.left-button {
+      margin-right: 10px;
+    }
+  
+    &.right-button {
+      margin-left: -65px;
+    }
+  }

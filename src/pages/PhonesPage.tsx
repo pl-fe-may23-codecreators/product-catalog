@@ -3,6 +3,7 @@ import { PhonesList } from '../components/CardList/PhonesList';
 import { fetchData } from '../services/dataService';
 import { Phone } from '../types/PhoneTypes';
 import { Pagination } from '../components/Pagination';
+import { PhonesLayout } from '../components/PhonesLayout';
 
 const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -35,6 +36,7 @@ const PhonesPage = () => {
   return (
     <>
       <div className="container">
+        <PhonesLayout />
         <PhonesList phones={phones} />
         <Pagination
           onPageChange={handlePageSwitch}
