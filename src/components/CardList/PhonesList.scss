@@ -4,8 +4,13 @@
 
 .phones {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 1200px;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 16px;
+}
+
+Link {
+  text-decoration: none;
+  cursor: default;
 }

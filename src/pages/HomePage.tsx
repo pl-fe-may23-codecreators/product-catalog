@@ -1,17 +1,20 @@
-// Inny plik w aplikacji
+import './HomePage.scss';
 
-import React from 'react';
-import Main from '../components/Main/Main'; // Importuj nowy komponent
-import '../components/Main/Main.scss';
-import '../components/Main/ResponsiveMain.scss';
+import { RecommendedGoods } from '../components/RecommendedGoods/RecommendedGoods';
+import { examplePhones } from '../phonesFromServer/ExamplePhones';
+import { ShopByCategory } from '../components/ShopByCategory/ShopByCateory';
+import { Slider } from '../components/ImageSlider/Slider';
 
-const App = () => {
+const HomePage = () => {
   return (
-    <div>
-      {/* Inna zawartość aplikacji */}
-      <Main /> {/* Użyj komponentu strony głównej */}
+    <div className="container">
+      <h2 className="home-page__title">Welcome to Nice Gadgets store!!</h2>
+      <Slider />
+      <RecommendedGoods phones={examplePhones} title={'Brand new models'} />
+      <ShopByCategory />
+      <RecommendedGoods phones={examplePhones} title={'Hot prices'} />
     </div>
   );
 };
 
-export default App;
+export default HomePage;
