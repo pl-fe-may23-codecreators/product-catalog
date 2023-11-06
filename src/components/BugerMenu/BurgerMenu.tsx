@@ -23,10 +23,7 @@ export const BurgerMenu: React.FC<Props> = ({ isOpen, toggleMenu }) => {
     <div className={`Burger ${isOpen ? 'open' : ''}`}>
       <div className="Burger__header">
         <Logo />
-        <div
-          className="Burger__header--icon Burger__header--close_icon"
-          onClick={toggleMenu}
-        />
+        <div className="Burger__header--close_icon" onClick={toggleMenu} />
       </div>
 
       <div className="Burger__navigation" onClick={closeMenu}>
