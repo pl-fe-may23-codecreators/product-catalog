@@ -1,5 +1,5 @@
-import homeIcon from '.././images/home.svg';
-import rightIcon from '.././images/disabled_right_icon.svg';
+import homeIcon from '../images/home.svg';
+import rightIcon from '../images/disabled_right_icon.svg';
 import './FavouritesPage.scss';
 import { NavLink } from 'react-router-dom';
 import { PhonesList } from '../components/CardList/PhonesList';
