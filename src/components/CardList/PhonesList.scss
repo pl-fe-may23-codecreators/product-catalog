@@ -1,13 +1,23 @@
+@mixin for-desktop() {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
 .phones-container {
   display: flex;
 }
 
 .phones {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1200px;
   flex-wrap: wrap;
   gap: 16px;
+
+  @include for-desktop() {
+    justify-content: flex-start;
+  }
 }
 
 Link {
