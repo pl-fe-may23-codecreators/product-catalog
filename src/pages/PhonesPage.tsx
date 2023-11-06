@@ -8,15 +8,19 @@ import { PhonesLayout } from '../components/PhonesLayout';
 const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [phonesPerPage] = useState(8);
+  const [phonesPerPage, setPhonesPerPage] = useState(8);
+  const [sortBy, setSortBy] = useState('price-asc');
 
   useEffect(() => {
     async function loadData() {
+      const sortField = sortBy.split('-')[0];
+      const sortOrder = sortBy.split('-')[1];
+
       const fetchedPhones = await fetchData({
         page: currentPage,
         limit: phonesPerPage,
-        sortField: 'price',
-        sortOrder: 'asc',
+        sortField,
+        sortOrder,
       });
 
       if (fetchedPhones) {
@@ -25,7 +29,7 @@ const PhonesPage = () => {
     }
 
     loadData();
-  }, [currentPage, phonesPerPage]);
+  }, [currentPage, phonesPerPage, sortBy]);
 
   const total = 71;
 
@@ -36,7 +40,12 @@ const PhonesPage = () => {
   return (
     <>
       <div className="container">
-        <PhonesLayout />
+        <PhonesLayout
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          productsPerPage={phonesPerPage}
+          setProductsPerPage={setPhonesPerPage}
+        />
         <PhonesList phones={phones} />
         <Pagination
           onPageChange={handlePageSwitch}
