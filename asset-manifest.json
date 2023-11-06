@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.1876b32b.css",
-    "main.js": "/product-catalog/static/js/main.cd8313f1.js",
+    "main.css": "/product-catalog/static/css/main.6006014f.css",
+    "main.js": "/product-catalog/static/js/main.70fd4150.js",
     "static/media/img2.png": "/product-catalog/static/media/img2.b4eeda8bd82b712057a2.png",
     "static/media/img1.png": "/product-catalog/static/media/img1.a962057c1043a08f7737.png",
     "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -27,15 +27,14 @@
     "static/media/disabled_right_icon.svg": "/product-catalog/static/media/disabled_right_icon.83991c7d33b8e1cfe7339b9fb890e48e.svg",
     "static/media/left_arrow_icon.svg": "/product-catalog/static/media/left_arrow_icon.df0516c067a29b6aa2678765c0202969.svg",
     "static/media/right_arrow_icon.svg": "/product-catalog/static/media/right_arrow_icon.2d8cd58d1e54a885b3e05584b1d03a09.svg",
-    "static/media/arrow_down_icon.svg": "/product-catalog/static/media/arrow_down_icon.2f1e66dd386faaf77228287a2db3ce7b.svg",
     "static/media/footer_nav.svg": "/product-catalog/static/media/footer_nav.ab9b01ef8d9f75d105cc.svg",
     "static/media/minus_icon.svg": "/product-catalog/static/media/minus_icon.ff0b34edab3879e6f90c.svg",
     "static/media/EllipseCounter.svg": "/product-catalog/static/media/EllipseCounter.dff156689e0216f49db9.svg",
-    "main.1876b32b.css.map": "/product-catalog/static/css/main.1876b32b.css.map",
-    "main.cd8313f1.js.map": "/product-catalog/static/js/main.cd8313f1.js.map"
+    "main.6006014f.css.map": "/product-catalog/static/css/main.6006014f.css.map",
+    "main.70fd4150.js.map": "/product-catalog/static/js/main.70fd4150.js.map"
   },
   "entrypoints": [
-    "static/css/main.1876b32b.css",
-    "static/js/main.cd8313f1.js"
+    "static/css/main.6006014f.css",
+    "static/js/main.70fd4150.js"
   ]
 }
