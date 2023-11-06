@@ -22,3 +22,20 @@
     letter-spacing: -0.32px;
   }
 }
+
+
+.show-on-mobile {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+  }
+}
+
+.hide-on-mobile {
+  display: block;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
