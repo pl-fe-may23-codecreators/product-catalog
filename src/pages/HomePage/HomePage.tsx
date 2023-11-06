@@ -1,9 +1,9 @@
 import './HomePage.scss';
 
-import { RecommendedGoods } from '../components/RecommendedGoods/RecommendedGoods';
-import { examplePhones } from '../phonesFromServer/ExamplePhones';
-import { ShopByCategory } from '../components/ShopByCategory/ShopByCateory';
-import { Slider } from '../components/ImageSlider/Slider';
+import { RecommendedGoods } from '../../components/RecommendedGoods/RecommendedGoods';
+import { examplePhones } from '../../phonesFromServer/ExamplePhones';
+import { ShopByCategory } from '../../components/ShopByCategory/ShopByCateory';
+import { Slider } from '../../components/ImageSlider/Slider';
 
 const HomePage = () => {
   return (
