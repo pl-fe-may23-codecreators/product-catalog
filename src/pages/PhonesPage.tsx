@@ -13,14 +13,11 @@ const PhonesPage = () => {
 
   useEffect(() => {
     async function loadData() {
-      const sortField = sortBy.split('-')[0];
-      const sortOrder = sortBy.split('-')[1];
-
-      const fetchedPhones = await fetchData({
+      const fetchedPhones = await fetchData('/products', {
         page: currentPage,
         limit: phonesPerPage,
-        sortField,
-        sortOrder,
+        sortField: sortBy.split('-')[0],
+        sortOrder: sortBy.split('-')[1],
       });
 
       if (fetchedPhones) {

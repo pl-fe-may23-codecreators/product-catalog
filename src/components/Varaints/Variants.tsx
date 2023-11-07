@@ -42,6 +42,7 @@ export const Variants = ({ phone }: VariantsProps) => {
   );
 
   const cartObject = {
+    phoneId: phone.phoneId,
     name: phone.name,
     price: phone.priceRegular,
     image: phone.images[0],
