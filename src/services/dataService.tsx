@@ -1,9 +1,9 @@
 const URL_BASE = 'https://codecreators-backend.onrender.com';
-const ENDPOINT = '/products';
+// const ENDPOINT = '/products';
 
-export async function fetchData(params = {}) {
+export async function fetchData(endpoint: string, params = {}) {
   try {
-    const url = new URL(ENDPOINT, URL_BASE);
+    const url = new URL(endpoint, URL_BASE);
     url.search = new URLSearchParams(params).toString();
 
     const response = await fetch(url);
@@ -14,7 +14,7 @@ export async function fetchData(params = {}) {
 
     const data = await response.json();
 
-    return data.devices;
+    return data;
   } catch (error) {
     console.error('There was a problem fetching the data:', error);
   }
