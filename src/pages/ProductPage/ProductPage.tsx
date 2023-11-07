@@ -1,6 +1,6 @@
 import './ProductPage.scss';
-import homeIcon from '.././images/home.svg';
-import rightIcon from '.././images/disabled_right_icon.svg';
+import homeIcon from '../../images/home.svg';
+import rightIcon from '../../images/disabled_right_icon.svg';
 import SubNavigation from '../../components/SubNavigation/SubNavigation';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 import { examplePhones } from '../../phonesFromServer/ExamplePhones';
