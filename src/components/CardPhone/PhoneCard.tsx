@@ -8,10 +8,6 @@ type Props = {
   phone: Phone;
 };
 
-const toUrlSlug = (str: string) => {
-  return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
-};
-
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
@@ -40,7 +36,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="card">
       <div className="card__content">
-        <Link to={`/phones/${toUrlSlug(phone.name)}`}>
+        <Link to={`/phones/${phone.phoneId}`}>
           <img
             className="card__image"
             src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
@@ -49,7 +45,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </Link>
         <Link
           style={{ textDecoration: 'none' }}
-          to={`/phones/${toUrlSlug(phone.name)}`}
+          to={`/phones/${phone.phoneId}`}
         >
           <h3 className="card__title">{phone.name}</h3>
         </Link>

@@ -17,7 +17,7 @@ const router = createHashRouter([
       { path: '*', element: <ErrorPage /> },
       { path: '/', element: <HomePage /> },
       { path: '/phones', element: <PhonesPage /> },
-      {path: '/phones/:productName', element: <ProductPage />},
+      {path: '/phones/:phoneId', element: <ProductPage />},
       { path: '/cart', element: <CartPage /> },
       { path: '/tablets', element: <WorkingOnItPage /> },
       { path: '/accessories', element: <WorkingOnItPage /> },

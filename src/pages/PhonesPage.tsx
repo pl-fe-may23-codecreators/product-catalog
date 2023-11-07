@@ -12,7 +12,7 @@ const PhonesPage = () => {
 
   useEffect(() => {
     async function loadData() {
-      const fetchedPhones = await fetchData({
+      const fetchedPhones = await fetchData('/products', {
         page: currentPage,
         limit: phonesPerPage,
         sortField: 'price',

@@ -1,7 +1,7 @@
 export interface Phone {
   id?: string;
   category?: string;
-  phoneId?: string;
+  phoneId: string;
   itemId?: string;
   name: string;
   fullPrice?: number;
@@ -23,6 +23,7 @@ type PhoneDescription = {
 
 export interface PhoneForProductPage {
   id: string;
+  phoneId: string,
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
