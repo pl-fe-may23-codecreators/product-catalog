@@ -1,13 +1,14 @@
 import './App.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import PhonesPage from './pages/PhonesPage';
 import ErrorPage from './pages/ErrorPage';
 import RootElement from './pages/RootElement';
 import CartPage from './pages/CartPage';
-import WorkingOnItPage from './pages/WorkingOnItPage';
-import FavouritesPage from './pages/FavouritesPage';
-import ProductPage from './pages/ProductPage';
+import FavouritesPage from './pages/FavouritesPage/FavouritesPage';
+import ProductPage from './pages/ProductPage/ProductPage';
+import TabletsPage from './pages/TabletsPage/TabletsPage';
+import AccessoriesPage from './pages/AccessoriesPage/AccessoriesPage';
 
 const router = createHashRouter([
   {
@@ -19,8 +20,8 @@ const router = createHashRouter([
       { path: '/phones', element: <PhonesPage /> },
       {path: '/phones/:phoneId', element: <ProductPage />},
       { path: '/cart', element: <CartPage /> },
-      { path: '/tablets', element: <WorkingOnItPage /> },
-      { path: '/accessories', element: <WorkingOnItPage /> },
+      { path: '/tablets', element: <TabletsPage /> },
+      { path: '/accessories', element: <AccessoriesPage /> },
       { path: '/favourites', element: <FavouritesPage /> },
     ],
   },

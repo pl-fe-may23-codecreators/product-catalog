@@ -1,18 +1,18 @@
 import './ProductPage.scss';
 import homeIcon from '.././images/home.svg';
 import rightIcon from '.././images/disabled_right_icon.svg';
-import SubNavigation from '../components/SubNavigation/SubNavigation';
-import PhotosBlock from '../components/PhotosBlock/PhotosBlock';
-import { examplePhones } from '../phonesFromServer/ExamplePhones';
-import { AboutSection } from '../components/PhonesDetails/AboutSection';
-import { TechSpecs } from '../components/PhonesDetails/TechSpecs';
-import { RecommendedGoods } from '../components/RecommendedGoods/RecommendedGoods';
-import { Variants } from '../components/Varaints/Variants';
-import { PhoneForProductPage } from '../types/PhoneTypes';
+import SubNavigation from '../../components/SubNavigation/SubNavigation';
+import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
+import { examplePhones } from '../../phonesFromServer/ExamplePhones';
+import { AboutSection } from '../../components/PhonesDetails/AboutSection';
+import { TechSpecs } from '../../components/PhonesDetails/TechSpecs';
+import { RecommendedGoods } from '../../components/RecommendedGoods/RecommendedGoods';
+import { Variants } from '../../components/Varaints/Variants';
+import { PhoneForProductPage } from '../../types/PhoneTypes';
 import { useEffect, useState } from 'react';
-import { fetchData } from '../services/dataService';
+import { fetchData } from '../../services/dataService';
 import { NavLink, useParams } from 'react-router-dom';
-import { Loader } from '../components/Loader';
+import { Loader } from '../../components/Loader';
 
 const ProductPage = () => {
   const [currentProduct, setCurrentProduct] = useState<PhoneForProductPage | null>(null);

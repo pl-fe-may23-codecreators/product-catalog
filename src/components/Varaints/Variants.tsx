@@ -8,7 +8,7 @@ const colorMap: { [key: string]: string } = {
   'red': 'indianred',
   'yellow': 'gold',
   'green': 'oliveDrab',
-  'purple': 'RebeccaPurple'
+  'purple': 'plum'
 };
 
 // ^ I added this, because colors like 'red' are too bright, if you want to add another colors, feel free to do it

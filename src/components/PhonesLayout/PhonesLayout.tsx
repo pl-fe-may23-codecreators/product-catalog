@@ -1,12 +1,23 @@
+import React from 'react';
 import './PhonesLayout.scss';
-import arrowDown from '../../images/arrow_down_icon.svg';
-
+// import arrowDown from '../../images/arrow_down_icon.svg';
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
-
 import { NavLink } from 'react-router-dom';
 
-export const PhonesLayout = () => {
+interface PhonesLayoutProps {
+  sortBy: string;
+  setSortBy: (value: string) => void;
+  productsPerPage: number;
+  setProductsPerPage: (value: number) => void;
+}
+
+export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
+  sortBy,
+  setSortBy,
+  productsPerPage,
+  setProductsPerPage,
+}) => {
   return (
     <>
       <div className="section">
@@ -31,30 +42,29 @@ export const PhonesLayout = () => {
         <div className="product">
           <div className="product__dropdown">
             <span className="product__dropdown--name">Sort by</span>
-            <button className="product__dropdown--trigger sorting">
-              <span className="product__dropdown--text">Choose</span>
-              <div>
-                <img
-                  className="product__dropdown--icon"
-                  src={arrowDown}
-                  alt="arrow-down"
-                />
-              </div>
-            </button>
+            <select
+              className="product__dropdown--trigger sorting"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="price-asc">Price (asc)</option>
+              <option value="price-desc">Price (desc)</option>
+              <option value="name-asc">Name (a-z)</option>
+              <option value="name-desc">Name (z-a)</option>
+            </select>
           </div>
 
           <div className="product__dropdown">
             <span className="product__dropdown--name">Items on page</span>
-            <button className="product__dropdown--trigger items">
-              <span className="product__dropdown--text">4</span>
-              <div>
-                <img
-                  className="product__dropdown--icon"
-                  src={arrowDown}
-                  alt="arrow-down"
-                />
-              </div>
-            </button>
+            <select
+              className="product__dropdown--trigger items"
+              value={productsPerPage}
+              onChange={(e) => setProductsPerPage(parseInt(e.target.value, 10))}
+            >
+              <option value={4}>4</option>
+              <option value={8}>8</option>
+              <option value={16}>16</option>
+            </select>
           </div>
         </div>
       </div>
