@@ -1,12 +1,12 @@
 import './ProductPage.scss';
-import SubNavigation from '../components/SubNavigation/SubNavigation';
-import PhotosBlock from '../components/PhotosBlock/PhotosBlock';
-import { examplePhones } from '../phonesFromServer/ExamplePhones';
-import { AboutSection } from '../components/PhonesDetails/AboutSection';
-import { TechSpecs } from '../components/PhonesDetails/TechSpecs';
-import { RecommendedGoods } from '../components/RecommendedGoods/RecommendedGoods';
-import { Variants } from '../components/Varaints/Variants';
-import { examplePhoneForProductPage } from '../phonesFromServer/ExamplePhoneForProductPage';
+import SubNavigation from '../../components/SubNavigation/SubNavigation';
+import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
+import { examplePhones } from '../../phonesFromServer/ExamplePhones';
+import { AboutSection } from '../../components/PhonesDetails/AboutSection';
+import { TechSpecs } from '../../components/PhonesDetails/TechSpecs';
+import { RecommendedGoods } from '../../components/RecommendedGoods/RecommendedGoods';
+import { Variants } from '../../components/Varaints/Variants';
+import { examplePhoneForProductPage } from '../../phonesFromServer/ExamplePhoneForProductPage';
 
 const ProductPage = () => {
   return (
