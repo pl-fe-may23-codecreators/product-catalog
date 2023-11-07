@@ -27,7 +27,11 @@ const FavouritesPage = () => {
       </div>
       <h2 className="Cart__title">Favourites</h2>
       <p className="favourites-counter">
-        {favourites.length > 1 ? `${favourites.length} items` : favourites.length === 1 ? '1 item' : 'no items'}
+        {favourites.length > 1
+          ? `${favourites.length} items`
+          : favourites.length === 1
+          ? '1 item'
+          : 'no items'}
       </p>
 
       <PhonesList phones={favourites} />
