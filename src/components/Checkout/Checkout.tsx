@@ -43,10 +43,10 @@ export const Checkout = () => {
         Checkout
       </button>
       {isLoading && (
-        <div className="loading-spinner">
+        <div className="checkout__spinner">
           <MoonLoader
             color="rgba(49, 50, 55, 1)"
-            size={200}
+            size={100}
             speedMultiplier={0.5}
           />
         </div>
@@ -54,18 +54,22 @@ export const Checkout = () => {
       {isMessageVisible && !isLoading && (
         <div className="checkout__overlay">
           <div className="checkout__message">
-            <h2>Thank You for your purchase!</h2>
-            <p>
+            <div className="checkout__message-thanks">
+              Thank You for your purchase!
+            </div>
+            <div className="checkout__message-confirmation">
               Your order has been processed✅
               <br />
               Order confirmation and delivery info will be provided to you via
               e-mail.
-            </p>
-            <h3>Order ID #{orderNumber}</h3>
-            <p>
+            </div>
+            <div className="checkout__message-order">
+              Order ID #{orderNumber}
+            </div>
+            <div className="checkout__message-redirect">
               You will be redirected to the homepage in {redirectTimer} seconds.
-            </p>
-            <Link to="/" className="checkout__message--back">
+            </div>
+            <Link to="/" className="checkout__message-back">
               Go back to the homepage now
             </Link>
           </div>
