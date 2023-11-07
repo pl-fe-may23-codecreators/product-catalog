@@ -1,5 +1,6 @@
 import { useCart } from '../../context/CartContext';
 import { CartItem } from '../CartItem/CartItem';
+import { Checkout } from '../Checkout';
 import './Cart.scss';
 
 export const Cart = () => {
@@ -29,7 +30,7 @@ export const Cart = () => {
             <div className="Total__count-items">
               Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
             </div>
-            <button className="Total__checkout">Checkout</button>
+            <Checkout />
           </div>
         </div>
       </div>
