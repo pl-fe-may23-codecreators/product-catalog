@@ -32,6 +32,8 @@ function ClerkProviderWithRoutes() {
     <ClerkProvider
       publishableKey={clerkPubKey}
       navigate={(to) => navigate(to)}
+      afterSignInUrl='/product-catalog'
+      afterSignUpUrl='/product-catalog'
     >
       <CartProvider>
         <FavouritesProvider>
