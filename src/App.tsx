@@ -9,6 +9,7 @@ import FavouritesPage from './pages/FavouritesPage/FavouritesPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import TabletsPage from './pages/TabletsPage/TabletsPage';
 import AccessoriesPage from './pages/AccessoriesPage/AccessoriesPage';
+import OrdersPage from './pages/OrdersPage/OrdersPage';
 
 const router = createHashRouter([
   {
@@ -23,6 +24,7 @@ const router = createHashRouter([
       { path: '/tablets', element: <TabletsPage /> },
       { path: '/accessories', element: <AccessoriesPage /> },
       { path: '/favourites', element: <FavouritesPage /> },
+      { path: '/orders', element: <OrdersPage /> },
     ],
   },
 ]);
