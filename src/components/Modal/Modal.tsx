@@ -22,7 +22,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
           Please sign in to be able to add items to your cart or favourites.
         </div>
         <button
-          onClick={() => clerk.openSignUp({})}
+          onClick={() => clerk.openSignIn({})}
           className="login-modal__sign-button"
         >
           Sign in!
