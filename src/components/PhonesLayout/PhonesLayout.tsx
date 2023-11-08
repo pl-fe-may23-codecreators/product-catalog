@@ -1,6 +1,5 @@
 import React from 'react';
 import './PhonesLayout.scss';
-// import arrowDown from '../../images/arrow_down_icon.svg';
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
 import { NavLink } from 'react-router-dom';

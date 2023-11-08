@@ -10,7 +10,6 @@
 
   &__content {
     padding-left: 16px;
-    height: 48px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,13 +68,35 @@
       }
     }
 
+    &--search_icon {
+      display: none;
+      background-image: url('../../images/search.svg');
+
+      @include for-desktop() {
+        display: block;
+        background-image: url('../../images/search.svg');
+        border: 1px solid #e2e6e9;
+      }
+    }
+
+    &--close_icon {
+      display: none;
+      background-image: url('../../images/close_icon.svg');
+
+      @include for-desktop() {
+        display: block;
+        background-image: url('../../images/close_icon.svg');
+        border: 1px solid #e2e6e9;
+      }
+    }
+
     &--heart_icon {
       display: none;
 
       @include for-desktop() {
         display: block;
         background-image: url('../../images/heart_icon.svg');
-        border: 1px solid #e2e6e9;
+
       }
 
       &.is-active {
@@ -96,7 +117,6 @@
         display: block;
         background-image: url('../../images/cart_icon.svg');
         border: 1px solid #e2e6e9;
-        border-left: 1px solid #ffffff;
       }
     }
   }
