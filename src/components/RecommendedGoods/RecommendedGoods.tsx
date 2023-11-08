@@ -2,14 +2,15 @@ import './RecommendedGoods.scss';
 import { Phone } from '../../types/PhoneTypes';
 import { PhoneCard } from '../CardPhone/PhoneCard';
 import { useRef } from 'react';
-
+import {Loader} from '../Loader/Loader';
 
 type Props = {
   phones: Phone[];
   title: string;
+  isLoading: boolean;
 };
 
-export const RecommendedGoods: React.FC<Props> = ({ phones, title }) => {
+export const RecommendedGoods: React.FC<Props> = ({ phones, title, isLoading }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const SCROLL_AMOUNT = 270;
@@ -27,6 +28,7 @@ export const RecommendedGoods: React.FC<Props> = ({ phones, title }) => {
       container.scrollLeft += SCROLL_AMOUNT;
     }
   };
+
   return (
     <>
       <div className="recommended-goods__header">
@@ -38,11 +40,15 @@ export const RecommendedGoods: React.FC<Props> = ({ phones, title }) => {
       </div>
 
       <div className="recommended-goods__container" ref={containerRef}>
-        <div className="recommended-goods__phones">
-          {phones.map((phone) => (
-            <PhoneCard key={phone.id} phone={phone} />
-          ))}
-        </div>
+        {isLoading ? (
+          <Loader /> 
+        ) : (
+          <div className="recommended-goods__phones">
+            {phones.map((phone) => (
+              <PhoneCard key={phone.id} phone={phone} />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

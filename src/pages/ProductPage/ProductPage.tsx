@@ -44,7 +44,7 @@ const ProductPage = () => {
           <TechSpecs phone={currentProduct} />
         </div>
 
-        <RecommendedGoods phones={examplePhones} title={'You may also like'} />
+        <RecommendedGoods phones={examplePhones} title={'You may also like'} isLoading={isLoading}/>
       </div>
     ) : isLoading ? (<Loader />) : (
       <div className="container">
