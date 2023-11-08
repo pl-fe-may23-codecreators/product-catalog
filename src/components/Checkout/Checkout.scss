@@ -1,0 +1,69 @@
+.checkout {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  &__message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    font-weight: 800;
+
+    &-thanks {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    &-confirmation,
+    &-redirect {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    &-order {
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    &-back {
+      text-decoration: none;
+      color: #007bff;
+    
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
