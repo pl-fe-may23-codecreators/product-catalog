@@ -178,7 +178,7 @@ export const Header = () => {
                 onClick={toggleUserMenu}
                 ref={userIconRef}
                 style={{
-                  paddingTop: '1px',
+                  paddingTop: '15px',
                   paddingRight: '20px',
                   cursor: 'pointer',
                   paddingLeft: '20px',
