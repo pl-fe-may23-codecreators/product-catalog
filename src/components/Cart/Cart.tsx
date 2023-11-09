@@ -1,8 +1,4 @@
-import homeIcon from '../../images/home.svg';
-import rightIcon from '../../images/disabled_right_icon.svg';
-import { NavLink } from 'react-router-dom';
 import './Cart.scss';
-import { BackClick } from '../BackClick/backClick';
 import React, { useEffect, useState } from 'react';
 import './Cart.scss';
 import { useCart } from '../../context/CartContext';
@@ -32,24 +28,7 @@ export const Cart = () => {
 
   return (
     <>
-      <div className="navigation">
-        <NavLink to="/">
-          <img className="navigation__home-icon" src={homeIcon} alt="Home" />
-        </NavLink>
-
-        <img
-          className="navigation__right-icon"
-          src={rightIcon}
-          alt="Right icon"
-        />
-
-        <NavLink to="/cart" className="navigation__category--favourites">
-          <p>Cart</p>
-        </NavLink>
-      </div>
-      <BackClick />
       <div className="Cart">
-        <h1 className="Cart__title">Cart</h1>
         <div className="Cart__content">
           <div className="Cart__items">
             {cart.map((item) => (
