@@ -1,3 +1,9 @@
+@mixin for-desktop() {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
 @font-face {
   font-family: 'Mont';
   src: url('../../fonts/Mont-Regular.otf') format('opentype');
@@ -27,9 +33,18 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 150px;
+  width: 60px;
   background-color: white;
   position: relative;
+
+  @include for-desktop() {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 150px;
+    background-color: white;
+    position: relative;
+  }
 
   &__input {
     display: flex;
@@ -37,12 +52,21 @@
     padding: 3px;
 
     input {
-      width: 100px;
+      width: 50px;
+      background-color: transparent;
+      border: 0;
+      font-family: Mont;
+      font-size: 11px;
+      padding: 4px;
+
+      @include for-desktop() {
+        width: 100px;
       background-color: transparent;
       border: 0;
       font-family: Mont;
       font-size: 16px;
       padding: 3px;
+      }
 
       &:focus {
         outline: none;
@@ -51,10 +75,15 @@
   }
 
   .searchIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 4px;
+    display: none;
+    margin-right: 0;
+
+    @include for-desktop() {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 4px;
+    }
   }
 
   .Serch__no-results {

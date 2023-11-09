@@ -90,7 +90,7 @@
       background-image: url('../../images/burger_menu.svg');
       border: 1px solid #e2e6e9;
       position: absolute;
-      right: 0;
+      right: 160px;
       &:hover {
         margin-top: 0;
       }
@@ -103,7 +103,7 @@
     &--search_icon {
       border-left: 1px solid #e2e6e9;
       display: block;
-      margin-right: 48px;
+      margin-right: 51px;
       background-image: url('../../images/search.svg');
 
       @include for-desktop() {
@@ -116,7 +116,7 @@
 
     &--close_icon {
       display: block;
-      margin-right: 48px;
+      margin-right: 51px;
       background-image: url('../../images/close_icon.svg');
 
       @include for-desktop() {
