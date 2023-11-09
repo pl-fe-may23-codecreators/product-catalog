@@ -6,6 +6,7 @@ type CartContextType = {
   cart: Phone[];
   addToCart: (phone: Phone) => void;
   removeFromCart: (phone: Phone) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -41,18 +42,51 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     }
   }, [cart, isSignedIn]);
 
-  const addToCart = (phone: Phone) => {
-    setCart(prevCart => [...prevCart, phone]);
+  const addToCart = (phoneToAdd: Phone) => {
+    setCart((prevCart) => {
+      const existingPhone = prevCart.find((item) => item.id === phoneToAdd.id);
+      if (existingPhone) {
+        return prevCart.map((item) =>
+          item.id === phoneToAdd.id
+            ? { ...item, amount: (item.amount ?? 1) + 1 }
+            : item,
+        );
+      } else {
+        return [...prevCart, { ...phoneToAdd, amount: 1 }];
+      }
+    });
   };
 
-  const removeFromCart = (phone: Phone) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== phone.id));
+  const removeFromCart = (phoneToRemove: Phone) => {
+    setCart((prevCart) => {
+      const existingPhone = prevCart.find(
+        (item) => item.id === phoneToRemove.id,
+      );
+      if (
+        existingPhone &&
+        existingPhone.amount !== undefined &&
+        existingPhone.amount > 1
+      ) {
+        return prevCart.map((item) =>
+          item.id === phoneToRemove.id && item.amount !== undefined
+            ? { ...item, amount: item.amount - 1 }
+            : item,
+        );
+      } else {
+        return prevCart.filter((item) => item.id !== phoneToRemove.id);
+      }
+    });
+  };
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
-

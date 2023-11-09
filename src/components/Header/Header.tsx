@@ -12,6 +12,7 @@ import userIcon from '../../images/user-regular.svg';
 
 export const Header = () => {
   const { cart } = useCart();
+  const totalItems = cart.reduce((acc, item) => acc + (item.amount ?? 1), 0);
   const { favourites } = useFavourites();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -118,9 +119,7 @@ export const Header = () => {
             }
             to="/cart"
           >
-            {cart.length > 0 && (
-              <span className="cart-count">{cart.length}</span>
-            )}
+            {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
           </NavLink>
 
           {isSignedIn ? (

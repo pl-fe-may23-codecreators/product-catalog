@@ -13,8 +13,12 @@ type CheckoutProps = {
 export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [redirectTimer, setRedirectTimer] = useState(10);
+  const [redirectTimer, setRedirectTimer] = useState(5);
   const [orderNumber] = useState(generateOrderNumber(6));
+  const { clearCart } = useCart();
+
+  const showMessage = () => {
+    setIsLoading(true);
   const { addToOrders } = useOrders();
   const { cart } = useCart();
 
@@ -28,9 +32,8 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
       status: 'in progress',
       totalPrice,
     };
-
     addToOrders(newOrder);
-
+    
     setTimeout(() => {
       setIsLoading(false);
       setIsMessageVisible(true);
@@ -48,6 +51,7 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
       };
     } else if (isMessageVisible && redirectTimer === 0) {
       window.location.href = '/';
+      clearCart();
     }
   }, [isMessageVisible, redirectTimer]);
 
@@ -87,7 +91,7 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
             <div className="checkout__message-redirect">
               You will be redirected to the homepage in {redirectTimer} seconds.
             </div>
-            <Link to="/" className="checkout__message-back">
+            <Link to="/" className="checkout__message-back" onClick={clearCart}>
               Go back to the homepage now
             </Link>
           </div>
