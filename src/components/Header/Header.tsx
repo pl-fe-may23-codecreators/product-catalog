@@ -22,9 +22,9 @@ export const Header = () => {
   const isMobile = window.innerWidth <= 640;
   const [searchBarVisible, setSearchBarVisible] = useState(isMobile);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [phonesPerPage, setPhonesPerPage] = useState(8);
-  const [sortBy, setSortBy] = useState('price-asc');
+  const [currentPage] = useState(1);
+  const [phonesPerPage] = useState(8);
+  const [sortBy] = useState('price-asc');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { isSignedIn } = useUser();
   const userIconRef = useRef<HTMLDivElement>(null);
