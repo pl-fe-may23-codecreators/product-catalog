@@ -15,7 +15,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader';
 
 const ProductPage = () => {
-  const [currentProduct, setCurrentProduct] = useState<PhoneForProductPage | null>(null);
+  const [currentProduct, setCurrentProduct] =
+    useState<PhoneForProductPage | null>(null);
   const [recommendedProducts, setRecommendedProducts] = useState(examplePhones);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { phoneId } = useParams();
@@ -25,52 +26,54 @@ const ProductPage = () => {
       .then((data) => setCurrentProduct(data[0]))
       .finally(() => setIsLoading(false));
 
-    fetchData(`/products/${phoneId}/recommended`)
-      .then((data) => setRecommendedProducts(data));
+    fetchData(`/products/${phoneId}/recommended`).then((data) =>
+      setRecommendedProducts(data),
+    );
   }, [phoneId]);
 
-  return (
-    currentProduct && !isLoading ? (
-      <div className="container">
-        <SubNavigation name={currentProduct.name} />
+  return currentProduct && !isLoading ? (
+    <div className="container">
+      <SubNavigation name={currentProduct.name} />
 
-        <h2 className="product-name">
-          {currentProduct.name}
-        </h2>
+      <h2 className="product-name">{currentProduct.name}</h2>
 
-        <div className="options-container">
-          <PhotosBlock photos={currentProduct.images}/>
-          <Variants phone={currentProduct}/>
-        </div>
-
-        <div className="details-container">
-          <AboutSection description={currentProduct.description}/>
-          <TechSpecs phone={currentProduct} />
-        </div>
-
-        <RecommendedGoods phones={recommendedProducts} title={'You may also like'} isLoading={isLoading}/>
-
+      <div className="options-container">
+        <PhotosBlock photos={currentProduct.images} />
+        <Variants phone={currentProduct} />
       </div>
-    ) : isLoading ? (<Loader />) : (
-      <div className="container">
-        <div className="navigation">
-          <NavLink to="/">
-            <img className="navigation__home-icon" src={homeIcon} alt="Home" />
-          </NavLink>
 
-          <img
-            className="navigation__right-icon"
-            src={rightIcon}
-            alt="Right icon"
-          />
-
-          <NavLink to="/phones" className="navigation__category--favourites">
-            <p>Phones</p>
-          </NavLink>
-        </div>
-        <h2 className="Cart__title">Product not found</h2>
+      <div className="details-container">
+        <AboutSection description={currentProduct.description} />
+        <TechSpecs phone={currentProduct} />
       </div>
-    )
+
+      <RecommendedGoods
+        phones={recommendedProducts}
+        title={'You may also like'}
+        isLoading={isLoading}
+      />
+    </div>
+  ) : isLoading ? (
+    <Loader />
+  ) : (
+    <div className="container">
+      <div className="navigation">
+        <NavLink to="/">
+          <img className="navigation__home-icon" src={homeIcon} alt="Home" />
+        </NavLink>
+
+        <img
+          className="navigation__right-icon"
+          src={rightIcon}
+          alt="Right icon"
+        />
+
+        <NavLink to="/phones" className="navigation__category--favourites">
+          <p>Phones</p>
+        </NavLink>
+      </div>
+      <h2 className="Cart__title">Product not found</h2>
+    </div>
   );
 };
 

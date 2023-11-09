@@ -1,6 +1,5 @@
 import React from 'react';
 import './PhonesLayout.scss';
-// import arrowDown from '../../images/arrow_down_icon.svg';
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
 import { NavLink, useSearchParams } from 'react-router-dom';
@@ -73,18 +72,20 @@ export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
                   sort: handleSortFilter('year'),
                   order: handleOrderFilter('year'),
                 }}
-                className='product__sortField'
+                className="product__sortField"
               >
-                  Year
+                Year
                 <span className="product__sortField--icon">
-                  <i className={classNames('fas', {
-                    'fa-sort-up': sortOrder === 'desc'
-                      && sortField === 'year',
-                    'fa-sort': sortOrder === null
-                      && sortField === null || sortField === 'price',
-                    'fa-sort-down': sortOrder === 'asc'
-                      && sortField === 'year'
-                  })}
+                  <i
+                    className={classNames('fas', {
+                      'fa-sort-up':
+                        sortOrder === 'desc' && sortField === 'year',
+                      'fa-sort':
+                        (sortOrder === null && sortField === null) ||
+                        sortField === 'price',
+                      'fa-sort-down':
+                        sortOrder === 'asc' && sortField === 'year',
+                    })}
                   />
                 </span>
               </SearchLink>
@@ -93,18 +94,20 @@ export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
                   sort: handleSortFilter('price'),
                   order: handleOrderFilter('price'),
                 }}
-                className='product__sortField'
+                className="product__sortField"
               >
-                  Price
+                Price
                 <span className="product__sortField--icon">
-                  <i className={classNames('fas', {
-                    'fa-sort-up': sortOrder === 'desc'
-                      && sortField === 'price',
-                    'fa-sort': sortOrder === null
-                      && sortField === null || sortField === 'year',
-                    'fa-sort-down': sortOrder === 'asc'
-                      && sortField === 'price'
-                  })}
+                  <i
+                    className={classNames('fas', {
+                      'fa-sort-up':
+                        sortOrder === 'desc' && sortField === 'price',
+                      'fa-sort':
+                        (sortOrder === null && sortField === null) ||
+                        sortField === 'year',
+                      'fa-sort-down':
+                        sortOrder === 'asc' && sortField === 'price',
+                    })}
                   />
                 </span>
               </SearchLink>
@@ -113,18 +116,31 @@ export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
 
           <div className="product__dropdown">
             <span className="product__dropdown--name">Items on page</span>
-            <div
-              className="product__dropdown--trigger items"
-            >
-              <button className={classNames('items__item', {
-                'items__item--active': productsPerPage === 4
-              })} onClick={() => setProductsPerPage(4)}>4</button>
-              <button className={classNames('items__item', {
-                'items__item--active': productsPerPage === 8
-              })} onClick={() => setProductsPerPage(8)}>8</button>
-              <button className={classNames('items__item', {
-                'items__item--active': productsPerPage === 16
-              })} onClick={() => setProductsPerPage(16)}>16</button>
+            <div className="product__dropdown--trigger items">
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 4,
+                })}
+                onClick={() => setProductsPerPage(4)}
+              >
+                4
+              </button>
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 8,
+                })}
+                onClick={() => setProductsPerPage(8)}
+              >
+                8
+              </button>
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 16,
+                })}
+                onClick={() => setProductsPerPage(16)}
+              >
+                16
+              </button>
             </div>
           </div>
         </div>

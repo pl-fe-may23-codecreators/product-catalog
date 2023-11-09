@@ -29,14 +29,11 @@ const OrdersPage = () => {
         {orders.length > 1
           ? `${orders.length} orders`
           : orders.length === 1
-            ? '1 order'
-            : 'There is no order yet.'}
+          ? '1 order'
+          : 'There is no order yet.'}
       </p>
 
-      {orders.length > 0 ? (
-        <Orders />
-      ) : null
-      }
+      {orders.length > 0 ? <Orders /> : null}
     </div>
   );
 };

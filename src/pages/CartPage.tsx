@@ -29,11 +29,19 @@ const CartPage = () => {
         {cart.length > 1
           ? `${cart.length} items`
           : cart.length === 1
-            ? '1 item'
-            : 'no items'}
+          ? '1 item'
+          : 'no items'}
       </p>
 
-      {cart.length > 0 ? <Cart /> : <img src={emptyCart} alt="empty cart" style={{width: '20%', margin: '0 auto'}} />}
+      {cart.length > 0 ? (
+        <Cart />
+      ) : (
+        <img
+          src={emptyCart}
+          alt="empty cart"
+          style={{ width: '20%', margin: '0 auto' }}
+        />
+      )}
     </div>
   );
 };

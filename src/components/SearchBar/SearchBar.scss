@@ -1,0 +1,130 @@
+@mixin for-desktop() {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../../fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-left: 1px solid #e2e6e9;
+    padding-top: 10px;
+
+    @media (max-width: 640px) {
+    padding-top: 0px;
+    }
+}
+
+.Search {  
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 150px;
+  background-color: white;
+  position: relative;
+
+  @media (max-width: 640px) {
+    width: 100px;
+    border-right: 1px solid #e2e6e9;
+    height: 49px;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+  }
+
+  &__input {
+    display: flex;
+    justify-content: space-around;
+    padding: 3px;
+
+    input {
+      width: 100px;
+      background-color: transparent;
+      border: 0;
+      font-family: Mont;
+      font-size: 16px;
+      padding: 3px;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media (max-width: 640px) {
+        font-size: 14px;
+        padding-top: 13px;
+        width: 70px;
+      }
+    }
+  }
+
+  .searchIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
+
+    @media (max-width: 640px) {
+      padding-top: 10px;
+    }
+  }
+
+  .Serch__no-results {
+    font-family: Mont;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: black;
+      text-decoration: none;
+      padding-left: 10px;
+      &:hover {
+        background-color: lightgrey;
+      }
+  }
+
+  .Search__results {
+    width: 375px;
+    max-height: 200px;
+    background-color: white;
+    margin-top: 5px;
+    box-shadow: #0004 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 34px;
+    z-index: 6;
+
+    a {
+      font-family: Mont;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: black;
+      text-decoration: none;
+      padding-left: 10px;
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+  }
+}

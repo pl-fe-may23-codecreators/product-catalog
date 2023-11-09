@@ -2,7 +2,7 @@ import './RecommendedGoods.scss';
 import { Phone } from '../../types/PhoneTypes';
 import { PhoneCard } from '../CardPhone/PhoneCard';
 import { useRef } from 'react';
-import {Loader} from '../Loader/Loader';
+import { Loader } from '../Loader/Loader';
 
 type Props = {
   phones: Phone[];
@@ -10,7 +10,11 @@ type Props = {
   isLoading: boolean;
 };
 
-export const RecommendedGoods: React.FC<Props> = ({ phones, title, isLoading }) => {
+export const RecommendedGoods: React.FC<Props> = ({
+  phones,
+  title,
+  isLoading,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const SCROLL_AMOUNT = 270;
@@ -34,14 +38,20 @@ export const RecommendedGoods: React.FC<Props> = ({ phones, title, isLoading }) 
       <div className="recommended-goods__header">
         <h2 className="more-phones">{title}</h2>
         <div className="recommended-goods__controls">
-          <div className="recommended-goods__control recommended-goods__control--left" onClick={scrollLeft}></div>
-          <div className="recommended-goods__control recommended-goods__control--right" onClick={scrollRight}></div>
+          <div
+            className="recommended-goods__control recommended-goods__control--left"
+            onClick={scrollLeft}
+          ></div>
+          <div
+            className="recommended-goods__control recommended-goods__control--right"
+            onClick={scrollRight}
+          ></div>
         </div>
       </div>
 
       <div className="recommended-goods__container" ref={containerRef}>
         {isLoading ? (
-          <Loader /> 
+          <Loader />
         ) : (
           <div className="recommended-goods__phones">
             {phones.map((phone) => (

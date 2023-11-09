@@ -13,7 +13,7 @@ const colorMap: { [key: string]: string } = {
   purple: 'plum',
   spacegray: 'LightSlateGray',
   silver: 'silver',
-  rosegold: 'Pink'
+  rosegold: 'Pink',
 };
 
 const transformColor = (color: string): string => {

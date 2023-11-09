@@ -12,7 +12,7 @@ const PhonesPage = () => {
   const [phonesPerPage, setPhonesPerPage] = useState(8);
   const [searchParams] = useSearchParams();
   const sortField = searchParams.get('sort');
-  const sortOrder= searchParams.get('order');
+  const sortOrder = searchParams.get('order');
 
   useEffect(() => {
     async function loadData() {

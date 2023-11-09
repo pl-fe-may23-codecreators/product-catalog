@@ -15,7 +15,6 @@ const HomePage = () => {
 
   const { isSignedIn, user } = useUser();
 
-
   useEffect(() => {
     setIsLoading(true);
 
@@ -34,7 +33,10 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h2 className="home-page__title">Welcome to Nice Gadgets store{isSignedIn && user.firstName ? `, ${user.firstName}` : ''}!</h2>
+      <h2 className="home-page__title">
+        Welcome to Nice Gadgets store
+        {isSignedIn && user.firstName ? `, ${user.firstName}` : ''}!
+      </h2>
       <div className="hide-on-mobile">
         <Slider />
       </div>

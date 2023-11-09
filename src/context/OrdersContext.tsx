@@ -2,12 +2,12 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Phone } from '../types/PhoneTypes';
 
 type Order = {
-    orderId: string;
-    timestamp: string;
-    products: Phone[];
-    status: string;
-    totalPrice: number,
-}
+  orderId: string;
+  timestamp: string;
+  products: Phone[];
+  status: string;
+  totalPrice: number;
+};
 
 type OrdersContextType = {
   orders: Order[];
@@ -43,11 +43,13 @@ export const OrdersProvider: React.FC<OrdersProviderProps> = ({ children }) => {
   }, [orders]);
 
   const addToOrders = (order: Order) => {
-    setOrders(prevOrders => [...prevOrders, order]);
+    setOrders((prevOrders) => [...prevOrders, order]);
   };
 
   const cancelOrder = (order: Order) => {
-    setOrders(prevOrders => prevOrders.filter(item => item.orderId !== order.orderId));
+    setOrders((prevOrders) =>
+      prevOrders.filter((item) => item.orderId !== order.orderId),
+    );
   };
 
   return (
@@ -56,4 +58,3 @@ export const OrdersProvider: React.FC<OrdersProviderProps> = ({ children }) => {
     </OrdersContext.Provider>
   );
 };
-

@@ -6,15 +6,25 @@ import { NavLink } from 'react-router-dom';
 import { BurgerMenu } from '../BugerMenu';
 import { useCart } from '../../context/CartContext';
 import { useFavourites } from '../../context/FavouritesContext';
+import { SearchBar } from '../SearchBar';
+import { Phone } from '../../types/PhoneTypes';
+import { fetchData } from '../../services/dataService';
 import { useClerk, useUser } from '@clerk/clerk-react';
 import DropdownMenu from '../DropdownMenu/Dropdownmenu';
 import userIcon from '../../images/user-regular.svg';
 
 export const Header = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
   const { cart } = useCart();
   const totalItems = cart.reduce((acc, item) => acc + (item.amount ?? 1), 0);
   const { favourites } = useFavourites();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = window.innerWidth <= 640;
+  const [searchBarVisible, setSearchBarVisible] = useState(isMobile);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [currentPage] = useState(1);
+  const [phonesPerPage] = useState(8);
+  const [sortBy] = useState('price-asc');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { isSignedIn } = useUser();
   const userIconRef = useRef<HTMLDivElement>(null);
@@ -40,6 +50,33 @@ export const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleSearchIconClick = () => {
+    setIsSearchActive(!isSearchActive);
+    setSearchBarVisible(!searchBarVisible);
+  };
+
+  const handleCloseIconClick = () => {
+    setIsSearchActive(false);
+    setSearchBarVisible(false);
+  };
+
+  useEffect(() => {
+    async function loadData() {
+      const fetchedPhones = await fetchData('/products', {
+        page: currentPage,
+        limit: phonesPerPage,
+        sortField: sortBy.split('-')[0],
+        sortOrder: sortBy.split('-')[1],
+      });
+
+      if (fetchedPhones) {
+        setPhones(fetchedPhones);
+      }
+    }
+
+    loadData();
+  }, [currentPage, phonesPerPage, sortBy]);
 
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
@@ -96,6 +133,19 @@ export const Header = () => {
             className="Header__icons--icon Header__icons--menu_icon"
             onClick={toggleMenu}
           />
+
+          {searchBarVisible && <SearchBar data={phones} />}
+          {isSearchActive ? (
+            <div
+              className="Header__icons--icon Header__icons--close_icon"
+              onClick={handleCloseIconClick}
+            />
+          ) : (
+            <div
+              className="Header__icons--icon Header__icons--search_icon"
+              onClick={handleSearchIconClick}
+            />
+          )}
           <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
           <NavLink
