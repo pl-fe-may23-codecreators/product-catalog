@@ -76,7 +76,7 @@ export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
               Thank You for your purchase!
             </div>
             <div className="checkout__message-confirmation">
-              Your order has been processed✅
+              Your order has been processed ✅
               <br />
               Order confirmation and delivery info will be provided to you via
               e-mail.
@@ -87,7 +87,7 @@ export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
             <div className="checkout__message-redirect">
               You will be redirected to the homepage in {redirectTimer} seconds.
             </div>
-            <Link to="/" className="checkout__message-back" onClick={clearCart}>
+            <Link to="/" className="backtohomepagemodal" onClick={clearCart}>
               Go back to the homepage now
             </Link>
           </div>

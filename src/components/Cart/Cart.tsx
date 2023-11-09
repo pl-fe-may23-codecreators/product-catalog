@@ -46,7 +46,11 @@ export const Cart = () => {
                 Total for {totalItems} {totalItems === 1 ? 'item' : 'items'}
               </div>
               <div onClick={handleCheckoutClick}>
-                <Checkout totalPrice={totalPrice} />
+                {isSignedIn ? (
+                  <Checkout totalPrice={totalPrice} />
+                ) : (
+                  <div className="checkoutnouser">Checkout</div>
+                )}
               </div>
             </div>
           </div>
