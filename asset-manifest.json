@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.bd1809da.css",
-    "main.js": "/product-catalog/static/js/main.5ace94cf.js",
+    "main.css": "/product-catalog/static/css/main.c1614e89.css",
+    "main.js": "/product-catalog/static/js/main.07b2a7b5.js",
     "static/media/img1.png": "/product-catalog/static/media/img1.96586e4d18c6309470bf.png",
     "static/media/img3.png": "/product-catalog/static/media/img3.245c50249f79371d15d9.png",
     "static/media/img2.png": "/product-catalog/static/media/img2.b4eeda8bd82b712057a2.png",
@@ -23,8 +23,8 @@
     "static/media/heart_icon_red.svg": "/product-catalog/static/media/heart_icon_red.0adbb61bbc593d135bdb.svg",
     "static/media/close_icon_hover.svg": "/product-catalog/static/media/close_icon_hover.c0b1179e5233462d1ff3.svg",
     "static/media/close_icon.svg": "/product-catalog/static/media/close_icon.d9cd77be5a0b001f87e9.svg",
-    "static/media/burger_menu.svg": "/product-catalog/static/media/burger_menu.a4540afd87a1ee77653b.svg",
     "index.html": "/product-catalog/index.html",
+    "static/media/burger_menu.svg": "/product-catalog/static/media/burger_menu.a4540afd87a1ee77653b.svg",
     "static/media/plus_icon.svg": "/product-catalog/static/media/plus_icon.1d79eea4aeb76fac9a2a.svg",
     "static/media/arrow_icon.svg": "/product-catalog/static/media/arrow_icon.134598a33e3bc080133a.svg",
     "static/media/disabled_right_icon.svg": "/product-catalog/static/media/disabled_right_icon.a374b573155c92815583d44daaae0b60.svg",
@@ -35,11 +35,11 @@
     "static/media/minus_icon.svg": "/product-catalog/static/media/minus_icon.bdf110d3a1bd224c8a82.svg",
     "static/media/minus_icon_disabled.svg": "/product-catalog/static/media/minus_icon_disabled.6698474d0698283fceec.svg",
     "static/media/EllipseCounter.svg": "/product-catalog/static/media/EllipseCounter.74ec7e268b5369cc84e3.svg",
-    "main.bd1809da.css.map": "/product-catalog/static/css/main.bd1809da.css.map",
-    "main.5ace94cf.js.map": "/product-catalog/static/js/main.5ace94cf.js.map"
+    "main.c1614e89.css.map": "/product-catalog/static/css/main.c1614e89.css.map",
+    "main.07b2a7b5.js.map": "/product-catalog/static/js/main.07b2a7b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd1809da.css",
-    "static/js/main.5ace94cf.js"
+    "static/css/main.c1614e89.css",
+    "static/js/main.07b2a7b5.js"
   ]
 }
