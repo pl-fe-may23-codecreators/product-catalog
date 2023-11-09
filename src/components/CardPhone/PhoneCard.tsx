@@ -17,6 +17,10 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
     (item) => item.itemId === phone.itemId,
   );
 
+  const handleScrollUp = () => {
+    window.scrollTo(0, 0);
+  };
+
   const handleCartToggle = () => {
     if (isCartSelected) {
       removeFromCart(phone);
@@ -36,14 +40,15 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="card">
       <div className="card__content">
-        <Link to={`/phones/${phone.phoneId}`}>
+        <Link onClick={handleScrollUp} to={`/phones/${phone.phoneId}`}>
           <img
             className="card__image"
-            src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
+            src={`https://codecreators-backend.onrender.com/${phone.image}`}
             alt={phone.name}
           />
         </Link>
         <Link
+          onClick={handleScrollUp}
           style={{ textDecoration: 'none' }}
           to={`/phones/${phone.phoneId}`}
         >
@@ -70,7 +75,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         <div className="card__buttons">
           <button
             className={`card__buttons--cart ${
-              isCartSelected ? 'selected--cart' : ''
+              isCartSelected && 'selected--cart'
             }`}
             onClick={handleCartToggle}
           >
@@ -78,10 +83,10 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
           </button>
           <button
             className={`card__buttons--heart ${
-              isFavouritesSelected ? 'selected--heart' : ''
+              isFavouritesSelected && 'selected--heart'
             }`}
             onClick={handleFavouritesToggle}
-          ></button>
+          />
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
 import { NavLink } from 'react-router-dom';
@@ -6,10 +7,33 @@ import { CartItem } from '../CartItem/CartItem';
 import { Checkout } from '../Checkout';
 import './Cart.scss';
 import { BackClick } from '../BackClick/backClick';
-
+import React, { useEffect, useState } from 'react';
+import './Cart.scss';
+import { useCart } from '../../context/CartContext';
+import { CartItem } from '../CartItem/CartItem';
+import { Checkout } from '../Checkout';
+import Modal from '../Modal/Modal';
+import { useUser } from '@clerk/clerk-react';
 export const Cart = () => {
   const { cart } = useCart();
-  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+  const [totalItems, setTotalItems] = useState(0);
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.price * (item.amount ?? 1),
+    0,
+  );
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { isSignedIn } = useUser();
+
+  const handleCheckoutClick = () => {
+    if (!isSignedIn) {
+      setIsModalVisible(true);
+    }
+  };
+
+  useEffect(() => {
+    setTotalItems(cart.reduce((acc, item) => acc + (item.amount ?? 1), 0));
+  }, [cart]);
+
   return (
     <>
       <div className="navigation">
@@ -38,20 +62,23 @@ export const Cart = () => {
                 name={item.name}
                 price={item.price}
                 imgURL={item.image}
+                phone={item}
+                setTotalItems={setTotalItems}
               />
             ))}
           </div>
           <div className="Cart__total">
             <div className="Total">
-              <div className="Total__price">${totalPrice}</div>
+              <div className="Total__price">${totalPrice.toFixed(2)}</div>
               <div className="Total__count-items">
-              Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
+                Total for {totalItems} {totalItems === 1 ? 'item' : 'items'}
               </div>
               <Checkout totalPrice={totalPrice} />
             </div>
           </div>
         </div>
       </div>
+      {isModalVisible && <Modal onClose={() => setIsModalVisible(false)} />}
     </>
   );
 };
