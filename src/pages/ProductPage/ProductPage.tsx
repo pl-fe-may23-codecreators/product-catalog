@@ -16,6 +16,7 @@ import { Loader } from '../../components/Loader';
 
 const ProductPage = () => {
   const [currentProduct, setCurrentProduct] = useState<PhoneForProductPage | null>(null);
+  const [recommendedProducts, setRecommendedProducts] = useState(examplePhones);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { phoneId } = useParams();
 
@@ -23,7 +24,10 @@ const ProductPage = () => {
     fetchData(`/products/${phoneId}`)
       .then((data) => setCurrentProduct(data[0]))
       .finally(() => setIsLoading(false));
-  }, []);
+
+    fetchData(`/products/${phoneId}/recommended`)
+      .then((data) => setRecommendedProducts(data));
+  }, [phoneId]);
 
   return (
     currentProduct && !isLoading ? (
@@ -44,7 +48,8 @@ const ProductPage = () => {
           <TechSpecs phone={currentProduct} />
         </div>
 
-        <RecommendedGoods phones={examplePhones} title={'You may also like'} isLoading={isLoading}/>
+        <RecommendedGoods phones={recommendedProducts} title={'You may also like'} isLoading={isLoading}/>
+
       </div>
     ) : isLoading ? (<Loader />) : (
       <div className="container">

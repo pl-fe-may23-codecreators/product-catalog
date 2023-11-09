@@ -13,6 +13,7 @@ import { Header } from './components/Header';
 import { CartProvider } from './context/CartContext';
 import { FavouritesProvider } from './context/FavouritesContext';
 import { ClerkProvider } from '@clerk/clerk-react';
+import OrdersPage from './pages/OrdersPage/OrdersPage';
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
@@ -40,6 +41,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/tablets" element={<TabletsPage />} />
             <Route path="/accessories" element={<AccessoriesPage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />

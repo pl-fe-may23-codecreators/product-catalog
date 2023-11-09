@@ -46,6 +46,7 @@ $gray-elements: #e2e6e9;
     font-size: 14px;
     font-weight: 500;
     line-height: 21px; // 150%
+    cursor: pointer;
     @include text-properties;
 
     &.active {

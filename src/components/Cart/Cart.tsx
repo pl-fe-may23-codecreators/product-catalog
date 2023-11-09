@@ -1,5 +1,6 @@
 import { useCart } from '../../context/CartContext';
 import { CartItem } from '../CartItem/CartItem';
+import { Checkout } from '../Checkout';
 import './Cart.scss';
 import Modal from '../Modal/Modal';
 import { useUser } from '@clerk/clerk-react';
@@ -44,6 +45,7 @@ export const Cart = () => {
               </div>
               <button onClick={handleCheckoutClick} className="Total__checkout">Checkout</button>
             </div>
+            <Checkout totalPrice={totalPrice} />
           </div>
         </div>
       </div>
