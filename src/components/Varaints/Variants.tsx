@@ -6,13 +6,15 @@ import { useFavourites } from '../../context/FavouritesContext';
 import { Link } from 'react-router-dom';
 
 const colorMap: { [key: string]: string } = {
-  'red': 'indianred',
-  'yellow': 'gold',
-  'green': 'oliveDrab',
-  'purple': 'plum'
+  red: 'indianred',
+  gold: '#FCDBC1',
+  green: 'oliveDrab',
+  midnightgreen: '#5F7170',
+  purple: 'plum',
+  spacegray: 'LightSlateGray',
+  silver: 'silver',
+  rosegold: 'Pink'
 };
-
-// ^ I added this, because colors like 'red' are too bright, if you want to add another colors, feel free to do it
 
 const transformColor = (color: string): string => {
   return colorMap[color] || color;
@@ -27,8 +29,9 @@ export const Variants = ({ phone }: VariantsProps) => {
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
 
-  const [selectedColor, setSelectedColor] = useState<string | null>(phone.color);
-
+  const [selectedColor, setSelectedColor] = useState<string | null>(
+    phone.color,
+  );
   const handleColorSelect = (color: string) => {
     setSelectedColor(transformColor(color));
   };
@@ -70,14 +73,19 @@ export const Variants = ({ phone }: VariantsProps) => {
         <div className="colors__options">
           {phone.colorsAvailable.map((color, index) => (
             <Link
-              to={`/phones/${phone.phoneId.split(phone.color).join('').concat(color)}`}
+              to={`/phones/${phone.phoneId
+                .split(phone.color)
+                .join('')
+                .concat(color)}`}
               key={index}
             >
               <div
                 className="colors__circle-border"
                 style={{
                   borderColor:
-                selectedColor === transformColor(color) ? '#313237' : '#E2E6E9'
+                    selectedColor === transformColor(color)
+                      ? '#313237'
+                      : '#E2E6E9',
                 }}
                 onClick={() => handleColorSelect(color)}
               >
@@ -87,13 +95,14 @@ export const Variants = ({ phone }: VariantsProps) => {
                 ></div>
               </div>
             </Link>
-            
           ))}
         </div>
         <p className="capacity__title">Select capacity</p>
         {phone.capacityAvailable.map((capacity, index) => (
           <Link
-            to={`/phones/${phone.phoneId.split(phone.capacity.toLowerCase()).join(capacity.toLowerCase())}`}
+            to={`/phones/${phone.phoneId
+              .split(phone.capacity.toLowerCase())
+              .join(capacity.toLowerCase())}`}
             key={index}
           >
             <button
@@ -115,7 +124,7 @@ export const Variants = ({ phone }: VariantsProps) => {
         <div className="card__buttons">
           <button
             className={`card__buttons--cart--wide ${
-              isCartSelected ? 'selected--cart--wide' : ''
+              isCartSelected && 'selected--cart--wide'
             }`}
             onClick={handleCartToggle}
           >
@@ -123,7 +132,7 @@ export const Variants = ({ phone }: VariantsProps) => {
           </button>
           <button
             className={`card__buttons--heart--wide ${
-              isFavouritesSelected ? 'selected--heart--wide' : ''
+              isFavouritesSelected && 'selected--heart--wide'
             }`}
             onClick={handleFavouritesToggle}
           ></button>
@@ -149,7 +158,6 @@ export const Variants = ({ phone }: VariantsProps) => {
         </div>
       </div>
       <p className="phoneID">ID: 802390</p>
-      {/* Here I would add other ID, because the one from phone.id sucks */}
     </div>
   );
 };

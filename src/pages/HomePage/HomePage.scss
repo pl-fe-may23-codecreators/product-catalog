@@ -23,7 +23,6 @@
   }
 }
 
-
 .show-on-mobile {
   display: none;
 
@@ -38,4 +37,31 @@
   @media (max-width: 991px) {
     display: none;
   }
+}
+
+.cl-formButtonPrimary {
+  background-color: #313237;
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  background-color: rgb(104, 95, 74);
+}
+
+.cl-header {
+  align-items: flex-start;
+}
+
+.cl-internal-b3fm6y {
+  background-color: #313237;
+}
+
+.cl-internal-b3fm6y {
+  display: none;  // it could be illegal
+}
+
+
+.cl-internal-15amzqo {
+  color: rgb(0, 0, 0);
 }

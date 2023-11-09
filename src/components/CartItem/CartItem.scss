@@ -3,122 +3,147 @@
       @content;
     }
   }
-
+  
   @mixin for-tablet() {
     @media (min-width: 640px) and (max-width: 1199px) {
       @content;
     }
   }
-
-.CartItem {
+  
+  .CartItem {
+    display: flex;
+    flex-direction: column;
     width: 288px;
     border: 1px solid #E2E6E9;
     background: #FFF;
-
+    transition: width 0.3s ease;
+  
     @include for-desktop() {
-        width: 752px;
+      width: 752px;
     }
-
+  
     @include for-tablet() {
-        width: 592px;
+      width: 592px;
     }
-
+  
     &__content {
-        display: flex;
-        padding: 16px;
-        gap: 16px;
-        flex-flow: wrap;
-        justify-content: space-between;
-
-        @include for-desktop() {
-            flex-flow: nowrap;
-            padding: 24px;
-            gap: 24px;
-        }
-
-        @include for-tablet() {
-            flex-flow: nowrap;
-            padding: 24px;
-            gap: 24px;
-        }
+      display: flex;
+      padding: 16px;
+      gap: 16px;
+      flex-flow: wrap;
+      justify-content: space-between;
+  
+      @include for-desktop() {
+        flex-flow: nowrap;
+        padding: 24px;
+        gap: 24px;
+      }
+  
+      @include for-tablet() {
+        flex-flow: nowrap;
+        padding: 24px;
+        gap: 24px;
+      }
     }
-
+  
     &__remove {
-        width: 16px;
-        height: 16px;
-        background-image: url('../../images/close_icon.svg');
-        background-color: unset;
-        border: none;
-        align-self: center;
-
-        &:hover {
-            background-image: url('../../images/close_icon_hover.svg');
-        }
+      width: 16px;
+      height: 16px;
+      background-image: url('../../images/close_icon.svg');
+      background-color: unset;
+      border: none;
+      align-self: center;
+      cursor: pointer;
+  
+      &:hover {
+        background-image: url('../../images/close_icon_hover.svg');
+      }
     }
-
+  
     &__image {
-        object-fit: contain;
-        width: 66px;
-        height: 66px;
+      object-fit: contain;
+      width: 66px;
+      height: 66px;
     }
-
+  
     &__name {
-        width: 128px;
+      width: 128px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      align-self: center;
+  
+      @include for-desktop() {
+        width: 336px;
+      }
+  
+      @include for-tablet() {
+        width: 176px;
+      }
+    }
+  
+    &__count {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+  
+      &--button {
+        width: 32px;
+        height: 32px;
+        background-color: unset;
+        border: 1px solid #E2E6E9;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        cursor: pointer;
+  
+        &:hover {
+          border: 1px solid #313237;
+        }
+      }
+  
+      &--decrease-amount,
+      &--increase-amount {
+        width: 32px;
+        height: 32px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        cursor: pointer;
+  
+        &:hover {
+          border: 1px solid #313237;
+        }
+      }
+  
+      &--decrease-amount {
+        background-image: url('../../images/minus_icon.svg');
+  
+        &[disabled] {
+          background-image: url('../../images/minus_icon_disabled.svg');
+          cursor: not-allowed;
+        }
+      }
+  
+      &--increase-amount {
+        background-image: url('../../images/plus_icon.svg');
+      }
+  
+      &--amount {
         font-size: 14px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 21px;
-        align-self: center;
-
-        @include for-desktop() {
-            width: 336px;
-        }
-
-        @include for-tablet() {
-            width: 176px;
-        }
+      }
     }
-
-    &__count {
-        display: flex;
-        gap: 13px;
-        align-items: center;
-
-        &--button {
-            width: 32px;
-            height: 32px;
-            background-color: unset;
-            border: 1px solid #E2E6E9;
-            background-repeat: no-repeat;
-            background-position: 50%;
-
-            &:hover {
-                border: 1px solid #313237;
-            }
-        }
-
-        &--decrease-amount {
-            background-image: url('../../images/minus_icon.svg');
-        }
-
-        &--increase-amount {
-            background-image: url('../../images/plus_icon.svg');
-        }
-
-        &--amount {
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 21px;
-        }
-    }
-
+  
     &__price {
-        color: #313237;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 140%;
-        margin: auto 0;
+      min-width: 100px;
+      color: #313237;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%;
+      margin: auto 0;
     }
-}
+  }
+  
