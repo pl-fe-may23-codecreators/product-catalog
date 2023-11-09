@@ -88,9 +88,7 @@
 
     &--menu_icon {
       background-image: url('../../images/burger_menu.svg');
-      border: 1px solid #e2e6e9;
-      position: absolute;
-      right: 160px;
+      border: 1px solid #e2e6e9;     
       &:hover {
         margin-top: 0;
       }
@@ -98,12 +96,16 @@
       @include for-desktop() {
         display: none;
       }
+
+      @media (max-width: 640px) {
+        position: absolute;
+        right: 158px;
+      }
     }
 
     &--search_icon {
-      border-left: 1px solid #e2e6e9;
+      border: 1px solid #e2e6e9;
       display: block;
-      margin-right: 51px;
       background-image: url('../../images/search.svg');
 
       @include for-desktop() {
@@ -112,11 +114,14 @@
         border: 1px solid #e2e6e9;
         margin-right: 0;
       }
+
+      @media (max-width: 640px) {
+        display: none;
+      }
     }
 
     &--close_icon {
       display: block;
-      margin-right: 51px;
       background-image: url('../../images/close_icon.svg');
 
       @include for-desktop() {
@@ -124,6 +129,10 @@
         background-image: url('../../images/close_icon.svg');
         border: 1px solid #e2e6e9;
         margin-right: 0;
+      }
+
+      @media (max-width: 640px) {
+        display: none;
       }
     }
 

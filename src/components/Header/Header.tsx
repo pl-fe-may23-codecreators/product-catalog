@@ -19,7 +19,8 @@ export const Header = () => {
   const totalItems = cart.reduce((acc, item) => acc + (item.amount ?? 1), 0);
   const { favourites } = useFavourites();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchBarVisible, setSearchBarVisible] = useState(false);
+  const isMobile = window.innerWidth <= 640;
+  const [searchBarVisible, setSearchBarVisible] = useState(isMobile);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [phonesPerPage, setPhonesPerPage] = useState(8);
@@ -177,7 +178,7 @@ export const Header = () => {
                 onClick={toggleUserMenu}
                 ref={userIconRef}
                 style={{
-                  paddingTop: '15px',
+                  paddingTop: '1px',
                   paddingRight: '20px',
                   cursor: 'pointer',
                   paddingLeft: '20px',
