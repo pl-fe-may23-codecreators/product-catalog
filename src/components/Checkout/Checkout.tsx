@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom';
 import './Checkout.scss';
 import { generateOrderNumber } from './randomizer';
 import MoonLoader from 'react-spinners/MoonLoader';
+import { useCart } from '../../context/CartContext';
 
 export const Checkout = () => {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [redirectTimer, setRedirectTimer] = useState(10);
+  const [redirectTimer, setRedirectTimer] = useState(5);
   const [orderNumber] = useState(generateOrderNumber(6));
+  const { clearCart } = useCart();
 
   const showMessage = () => {
     setIsLoading(true);
-
     setTimeout(() => {
       setIsLoading(false);
       setIsMessageVisible(true);
@@ -30,6 +31,7 @@ export const Checkout = () => {
       };
     } else if (isMessageVisible && redirectTimer === 0) {
       window.location.href = '/';
+      clearCart();
     }
   }, [isMessageVisible, redirectTimer]);
 
@@ -69,7 +71,7 @@ export const Checkout = () => {
             <div className="checkout__message-redirect">
               You will be redirected to the homepage in {redirectTimer} seconds.
             </div>
-            <Link to="/" className="checkout__message-back">
+            <Link to="/" className="checkout__message-back" onClick={clearCart}>
               Go back to the homepage now
             </Link>
           </div>

@@ -1,11 +1,21 @@
+import React, { useEffect, useState } from 'react';
+import './Cart.scss';
 import { useCart } from '../../context/CartContext';
 import { CartItem } from '../CartItem/CartItem';
 import { Checkout } from '../Checkout';
-import './Cart.scss';
 
 export const Cart = () => {
   const { cart } = useCart();
-  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+  const [totalItems, setTotalItems] = useState(0);
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.price * (item.amount ?? 1),
+    0,
+  );
+
+  useEffect(() => {
+    setTotalItems(cart.reduce((acc, item) => acc + (item.amount ?? 1), 0));
+  }, [cart]);
+
   return (
     <div className="Cart">
       <button className="Cart__goback">
@@ -18,9 +28,8 @@ export const Cart = () => {
           {cart.map((item) => (
             <CartItem
               key={item.id}
-              name={item.name}
-              price={item.price}
-              imgURL={item.image}
+              phone={item}
+              setTotalItems={setTotalItems}
             />
           ))}
         </div>
@@ -28,7 +37,7 @@ export const Cart = () => {
           <div className="Total">
             <div className="Total__price">${totalPrice}</div>
             <div className="Total__count-items">
-              Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
+              Total for {totalItems} {totalItems === 1 ? 'item' : 'items'}
             </div>
             <Checkout />
           </div>
