@@ -23,7 +23,12 @@ function ClerkProviderWithRoutes() {
   const navigate = useNavigate();
 
   return (
-    <ClerkProvider publishableKey={clerkPubKey} navigate={(to) => navigate(to)}>
+    <ClerkProvider
+      publishableKey={clerkPubKey}
+      navigate={(to) => navigate(to)}
+      afterSignInUrl="/product-catalog"
+      afterSignUpUrl="/product-catalog"
+    >
       <CartProvider>
         <FavouritesProvider>
           <Header />
