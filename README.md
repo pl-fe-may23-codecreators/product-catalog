@@ -1,6 +1,9 @@
 # Nice Gadgets - Frontend Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a front-end project of the Nice Gadgets site, created by us - CodeCreators. It is a shop that specifies in selling various phones, tablets and accessories to go with them. The user is allowed to search through our inventory, sort and filter around, add products to the cart and even, after loggin into e.g. their Google account, checkout and place an order.
+
+## Technologies
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses [React.js](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Sass (SCSS)](https://sass-lang.com/) and [Clerk Authentication System](https://clerk.com/) to provide users with easy-to-work-with, clear and responsive design to make sure that the end-user has the best experience possible.
 
 ## Requirements
 To work with the code, you'll need:
