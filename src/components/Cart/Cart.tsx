@@ -1,10 +1,6 @@
-
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
 import { NavLink } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
-import { CartItem } from '../CartItem/CartItem';
-import { Checkout } from '../Checkout';
 import './Cart.scss';
 import { BackClick } from '../BackClick/backClick';
 import React, { useEffect, useState } from 'react';
@@ -52,16 +48,13 @@ export const Cart = () => {
         </NavLink>
       </div>
       <BackClick />
-      <div className='Cart'>
+      <div className="Cart">
         <h1 className="Cart__title">Cart</h1>
         <div className="Cart__content">
           <div className="Cart__items">
             {cart.map((item) => (
               <CartItem
                 key={item.id}
-                name={item.name}
-                price={item.price}
-                imgURL={item.image}
                 phone={item}
                 setTotalItems={setTotalItems}
               />
@@ -73,7 +66,9 @@ export const Cart = () => {
               <div className="Total__count-items">
                 Total for {totalItems} {totalItems === 1 ? 'item' : 'items'}
               </div>
-              <Checkout totalPrice={totalPrice} />
+              <div onClick={handleCheckoutClick}>
+                <Checkout totalPrice={totalPrice} />
+              </div>
             </div>
           </div>
         </div>

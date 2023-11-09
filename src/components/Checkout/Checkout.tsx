@@ -7,20 +7,16 @@ import { useOrders } from '../../context/OrdersContext';
 import { useCart } from '../../context/CartContext';
 
 type CheckoutProps = {
-  totalPrice: number,
+  totalPrice: number;
 };
 
-export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
+export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [redirectTimer, setRedirectTimer] = useState(5);
   const [orderNumber] = useState(generateOrderNumber(6));
-  const { clearCart } = useCart();
-
-  const showMessage = () => {
-    setIsLoading(true);
+  const { clearCart, cart } = useCart();
   const { addToOrders } = useOrders();
-  const { cart } = useCart();
 
   const showMessage = () => {
     setIsLoading(true);
@@ -33,7 +29,7 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
       totalPrice,
     };
     addToOrders(newOrder);
-    
+
     setTimeout(() => {
       setIsLoading(false);
       setIsMessageVisible(true);
@@ -41,19 +37,19 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
   };
 
   useEffect(() => {
+    let timerId: NodeJS.Timeout | null = null;
     if (isMessageVisible && redirectTimer > 0) {
-      const timerId = setTimeout(() => {
-        setRedirectTimer(redirectTimer - 1);
+      timerId = setTimeout(() => {
+        setRedirectTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-
-      return () => {
-        clearTimeout(timerId);
-      };
     } else if (isMessageVisible && redirectTimer === 0) {
-      window.location.href = '/';
       clearCart();
+      window.location.href = '/';
     }
-  }, [isMessageVisible, redirectTimer]);
+    return () => {
+      if (timerId) clearTimeout(timerId);
+    };
+  }, [isMessageVisible, redirectTimer, clearCart]);
 
   return (
     <div>
@@ -76,14 +72,11 @@ export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
       {isMessageVisible && !isLoading && (
         <div className="checkout__overlay">
           <div className="checkout__message">
-            <div className="checkout__message-thanks">
-              Thank You for your purchase!
-            </div>
+            <div className="checkout__message-thanks">Thank You for your purchase!</div>
             <div className="checkout__message-confirmation">
               Your order has been processed✅
               <br />
-              Order confirmation and delivery info will be provided to you via
-              e-mail.
+              Order confirmation and delivery info will be provided to you via e-mail.
             </div>
             <div className="checkout__message-order">
               Order ID #{orderNumber}
