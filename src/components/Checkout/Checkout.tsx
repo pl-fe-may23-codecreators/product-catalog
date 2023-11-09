@@ -3,15 +3,32 @@ import { Link } from 'react-router-dom';
 import './Checkout.scss';
 import { generateOrderNumber } from './randomizer';
 import MoonLoader from 'react-spinners/MoonLoader';
+import { useOrders } from '../../context/OrdersContext';
+import { useCart } from '../../context/CartContext';
 
-export const Checkout = () => {
+type CheckoutProps = {
+  totalPrice: number;
+};
+
+export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [redirectTimer, setRedirectTimer] = useState(10);
+  const [redirectTimer, setRedirectTimer] = useState(5);
   const [orderNumber] = useState(generateOrderNumber(6));
+  const { clearCart, cart } = useCart();
+  const { addToOrders } = useOrders();
 
   const showMessage = () => {
     setIsLoading(true);
+
+    const newOrder = {
+      orderId: orderNumber,
+      timestamp: new Date().toLocaleString(),
+      products: cart,
+      status: 'in progress',
+      totalPrice,
+    };
+    addToOrders(newOrder);
 
     setTimeout(() => {
       setIsLoading(false);
@@ -20,18 +37,19 @@ export const Checkout = () => {
   };
 
   useEffect(() => {
+    let timerId: NodeJS.Timeout | null = null;
     if (isMessageVisible && redirectTimer > 0) {
-      const timerId = setTimeout(() => {
-        setRedirectTimer(redirectTimer - 1);
+      timerId = setTimeout(() => {
+        setRedirectTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-
-      return () => {
-        clearTimeout(timerId);
-      };
     } else if (isMessageVisible && redirectTimer === 0) {
+      clearCart();
       window.location.href = '/';
     }
-  }, [isMessageVisible, redirectTimer]);
+    return () => {
+      if (timerId) clearTimeout(timerId);
+    };
+  }, [isMessageVisible, redirectTimer, clearCart]);
 
   return (
     <div>
@@ -69,7 +87,7 @@ export const Checkout = () => {
             <div className="checkout__message-redirect">
               You will be redirected to the homepage in {redirectTimer} seconds.
             </div>
-            <Link to="/" className="checkout__message-back">
+            <Link to="/" className="checkout__message-back" onClick={clearCart}>
               Go back to the homepage now
             </Link>
           </div>

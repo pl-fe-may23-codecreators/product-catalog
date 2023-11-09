@@ -2,21 +2,46 @@ import React from 'react';
 import './PhonesLayout.scss';
 import homeIcon from '../../images/home.svg';
 import rightIcon from '../../images/disabled_right_icon.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
+import classNames from 'classnames';
+import { SearchLink } from '../SearchLink';
 
 interface PhonesLayoutProps {
-  sortBy: string;
-  setSortBy: (value: string) => void;
   productsPerPage: number;
   setProductsPerPage: (value: number) => void;
 }
 
 export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
-  sortBy,
-  setSortBy,
   productsPerPage,
   setProductsPerPage,
 }) => {
+  const [searchParams] = useSearchParams();
+  const sortField = searchParams.get('sort');
+  const sortOrder = searchParams.get('order');
+
+  const handleSortFilter = (param: string) => {
+    if (sortField === null && sortOrder === null) {
+      return param;
+    }
+
+    if (sortField === param && sortOrder === 'asc') {
+      return param;
+    }
+
+    return null;
+  };
+
+  const handleOrderFilter = (param: string) => {
+    if (sortField === null && sortOrder === null) {
+      return 'asc';
+    }
+
+    if (sortField === param && sortOrder === 'asc') {
+      return 'desc';
+    }
+
+    return null;
+  };
   return (
     <>
       <div className="section">
@@ -41,29 +66,82 @@ export const PhonesLayout: React.FC<PhonesLayoutProps> = ({
         <div className="product">
           <div className="product__dropdown">
             <span className="product__dropdown--name">Sort by</span>
-            <select
-              className="product__dropdown--trigger sorting"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-            >
-              <option value="price-asc">Price (asc)</option>
-              <option value="price-desc">Price (desc)</option>
-              <option value="name-asc">Name (a-z)</option>
-              <option value="name-desc">Name (z-a)</option>
-            </select>
+            <div className="product__sortFields">
+              <SearchLink
+                params={{
+                  sort: handleSortFilter('year'),
+                  order: handleOrderFilter('year'),
+                }}
+                className="product__sortField"
+              >
+                Year
+                <span className="product__sortField--icon">
+                  <i
+                    className={classNames('fas', {
+                      'fa-sort-up':
+                        sortOrder === 'desc' && sortField === 'year',
+                      'fa-sort':
+                        (sortOrder === null && sortField === null) ||
+                        sortField === 'price',
+                      'fa-sort-down':
+                        sortOrder === 'asc' && sortField === 'year',
+                    })}
+                  />
+                </span>
+              </SearchLink>
+              <SearchLink
+                params={{
+                  sort: handleSortFilter('price'),
+                  order: handleOrderFilter('price'),
+                }}
+                className="product__sortField"
+              >
+                Price
+                <span className="product__sortField--icon">
+                  <i
+                    className={classNames('fas', {
+                      'fa-sort-up':
+                        sortOrder === 'desc' && sortField === 'price',
+                      'fa-sort':
+                        (sortOrder === null && sortField === null) ||
+                        sortField === 'year',
+                      'fa-sort-down':
+                        sortOrder === 'asc' && sortField === 'price',
+                    })}
+                  />
+                </span>
+              </SearchLink>
+            </div>
           </div>
 
           <div className="product__dropdown">
             <span className="product__dropdown--name">Items on page</span>
-            <select
-              className="product__dropdown--trigger items"
-              value={productsPerPage}
-              onChange={(e) => setProductsPerPage(parseInt(e.target.value, 10))}
-            >
-              <option value={4}>4</option>
-              <option value={8}>8</option>
-              <option value={16}>16</option>
-            </select>
+            <div className="product__dropdown--trigger items">
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 4,
+                })}
+                onClick={() => setProductsPerPage(4)}
+              >
+                4
+              </button>
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 8,
+                })}
+                onClick={() => setProductsPerPage(8)}
+              >
+                8
+              </button>
+              <button
+                className={classNames('items__item', {
+                  'items__item--active': productsPerPage === 16,
+                })}
+                onClick={() => setProductsPerPage(16)}
+              >
+                16
+              </button>
+            </div>
           </div>
         </div>
       </div>

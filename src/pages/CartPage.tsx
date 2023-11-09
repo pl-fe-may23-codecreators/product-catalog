@@ -5,7 +5,7 @@ import emptyCart from '../images/empty_cart.png';
 const CartPage = () => {
   const { cart } = useCart();
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div className="container">
       {cart.length === 0 ? <img src={emptyCart} alt="empty cart" /> : <Cart />}
     </div>
   );

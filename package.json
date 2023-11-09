@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://pl-fe-may23-codecreators.github.io/product-catalog/",
   "dependencies": {
+    "@clerk/clerk-react": "^4.28.0",
+    "@fortawesome/fontawesome-free": "^6.1.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +13,7 @@
     "@types/node": "^16.18.59",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
+    "babel-plugin-macros": "^3.1.0",
     "classnames": "^2.3.2",
     "gh-pages": "^6.0.0",
     "react": "^18.2.0",

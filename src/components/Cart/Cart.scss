@@ -11,20 +11,6 @@
 }
 
 .Cart {
-  margin: 0 16px;
-  padding-top: 25px;
-
-  @include for-tablet() {
-    margin: 0 24px;
-    padding-top: 40px;
-  }
-
-  @include for-desktop() {
-    width: 1136px;
-    margin: 0 auto;
-    padding-top: 40px;
-  }
-
   &__content {
     margin-top: 32px;
     box-sizing: border-box;
@@ -36,6 +22,10 @@
     @include for-desktop() {
       flex-direction: row;
       align-items: flex-start;
+    }
+
+    @include for-tablet() {
+      align-items: unset;
     }
   }
 
@@ -61,6 +51,10 @@
     flex-direction: column;
     gap: 16px;
     align-items: center;
+
+    @include for-tablet() {
+      align-items: unset;
+    }
   }
 
   &__goback {

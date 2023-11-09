@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Phone } from '../types/PhoneTypes';
+import { useUser } from '@clerk/clerk-react';
 
 type FavouritesContextType = {
   favourites: Phone[];
@@ -26,7 +27,12 @@ type FavouritesProviderProps = {
 export const FavouritesProvider: React.FC<FavouritesProviderProps> = ({
   children,
 }) => {
+  const { isSignedIn } = useUser();
   const [favourites, setFavourites] = useState<Phone[]>(() => {
+    if (!isSignedIn) {
+      return [];
+    }
+
     const savedFavourites = localStorage.getItem('favourites');
     if (savedFavourites) {
       return JSON.parse(savedFavourites);
@@ -35,8 +41,19 @@ export const FavouritesProvider: React.FC<FavouritesProviderProps> = ({
   });
 
   useEffect(() => {
-    localStorage.setItem('favourites', JSON.stringify(favourites));
-  }, [favourites]);
+    if (isSignedIn) {
+      const savedFavourites = localStorage.getItem('favourites');
+      if (savedFavourites) {
+        setFavourites(JSON.parse(savedFavourites));
+      }
+    }
+  }, [isSignedIn]);
+
+  useEffect(() => {
+    if (isSignedIn) {
+      localStorage.setItem('favourites', JSON.stringify(favourites));
+    }
+  }, [favourites, isSignedIn]);
 
   const addToFavourites = (phone: Phone) => {
     setFavourites((prevFavourites) => {

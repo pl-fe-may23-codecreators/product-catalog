@@ -50,6 +50,7 @@ const ProductPage = () => {
       <RecommendedGoods
         phones={recommendedProducts}
         title={'You may also like'}
+        isLoading={isLoading}
       />
     </div>
   ) : isLoading ? (
