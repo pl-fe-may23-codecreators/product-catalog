@@ -19,6 +19,7 @@ export function ImageSlider({
             <img
               key={url}
               src={url}
+              alt="image slider"
               className="img-slider-img"
               style={{ translate: `${-100 * currentIndex}%` }}
             />

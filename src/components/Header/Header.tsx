@@ -103,6 +103,7 @@ export const Header = () => {
             className="Header__icons--icon Header__icons--menu_icon"
             onClick={toggleMenu}
           />
+
           {searchBarVisible && <SearchBar data={phones} />}
           {isSearchActive ? (
             <div
@@ -115,7 +116,6 @@ export const Header = () => {
               onClick={handleSearchIconClick}
             />
           )}
-
           <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <NavLink
             className={({ isActive }) =>

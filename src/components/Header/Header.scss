@@ -13,6 +13,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 8px;
+
+    @include for-desktop() {
+    padding-left: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    }
   }
 
   &__navigation {
@@ -53,15 +62,22 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      transition: all 0.1s;
 
       &:hover {
         border: 1px solid #313237;
+        margin-top: 1px;
       }
     }
 
     &--menu_icon {
       background-image: url('../../images/burger_menu.svg');
       border: 1px solid #e2e6e9;
+      position: absolute;
+      right: 0;
+      &:hover {
+        margin-top: 0;
+      }
 
       @include for-desktop() {
         display: none;
@@ -69,24 +85,29 @@
     }
 
     &--search_icon {
-      display: none;
+      border-left: 1px solid #e2e6e9;
+      display: block;
+      margin-right: 48px;
       background-image: url('../../images/search.svg');
 
       @include for-desktop() {
         display: block;
         background-image: url('../../images/search.svg');
         border: 1px solid #e2e6e9;
+        margin-right: 0;
       }
     }
 
     &--close_icon {
-      display: none;
+      display: block;
+      margin-right: 48px;
       background-image: url('../../images/close_icon.svg');
 
       @include for-desktop() {
         display: block;
         background-image: url('../../images/close_icon.svg');
         border: 1px solid #e2e6e9;
+        margin-right: 0;
       }
     }
 

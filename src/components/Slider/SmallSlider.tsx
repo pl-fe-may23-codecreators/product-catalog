@@ -58,7 +58,7 @@ export const SmallSlider = () => {
       >
         {currentImages.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={image} alt="" />
+            <img src={image} alt="image swiper" />
           </SwiperSlide>
         ))}
       </Swiper>

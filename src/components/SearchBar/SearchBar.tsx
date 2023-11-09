@@ -58,14 +58,22 @@ export const SearchBar: React.FC<{ data: Phone[] }> = ({ data }) => {
             ref={inputRef}
           />
         </div>
-        {filteredData && filteredData.length !== 0 && (
+        {wordEntered !== '' && filteredData.length === 0 && (
+          <div className="Search__results">
+            <p className="Serch__no-results">No results</p>
+          </div>
+        )}
+        {wordEntered !== '' && filteredData.length !== 0 && (
           <div className="Search__results">
             {filteredData.map(({ phoneId, name }, key) => (
               <Link
                 to={`/phones/${phoneId}`}
                 key={key}
                 rel="noopener noreferrer"
-                onClick={() => navigate(`/phones/${phoneId}`)}
+                onClick={() => {
+                  navigate(`/phones/${phoneId}`);
+                  setWordEntered('');
+                }}
               >
                 {name}
               </Link>
