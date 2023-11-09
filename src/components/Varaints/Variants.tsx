@@ -6,14 +6,16 @@ import { useFavourites } from '../../context/FavouritesContext';
 import { Link } from 'react-router-dom';
 
 const colorMap: { [key: string]: string } = {
-  red: 'indianred',
-  gold: '#FCDBC1',
-  green: 'oliveDrab',
-  midnightgreen: '#5F7170',
-  purple: 'plum',
-  spacegray: 'LightSlateGray',
-  silver: 'silver',
-  rosegold: 'Pink',
+  red: '#E23636',
+  gold: '#F5DDC5',
+  green: '#AEE1CD',
+  midnightgreen: '#4E5851',
+  purple: '#B8AFE6',
+  spacegray: '#808080',
+  silver: '#EBEBE3',
+  rosegold: '#E6C7C2',
+  yellow: '#FFE681',
+  coral: '#EE7762',
 };
 
 const transformColor = (color: string): string => {
