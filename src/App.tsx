@@ -14,6 +14,7 @@ import { CartProvider } from './context/CartContext';
 import { FavouritesProvider } from './context/FavouritesContext';
 import { ClerkProvider } from '@clerk/clerk-react';
 import OrdersPage from './pages/OrdersPage/OrdersPage';
+import { OrdersProvider } from './context/OrdersContext';
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
@@ -30,23 +31,25 @@ function ClerkProviderWithRoutes() {
       afterSignInUrl="/product-catalog"
       afterSignUpUrl="/product-catalog"
     >
-      <CartProvider>
-        <FavouritesProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/phones" element={<PhonesPage />} />
-            <Route path="/phones/:phoneId" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/tablets" element={<TabletsPage />} />
-            <Route path="/accessories" element={<AccessoriesPage />} />
-            <Route path="/favourites" element={<FavouritesPage />} />
-            <Route path="/orders" element={<OrdersPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-          <Footer />
-        </FavouritesProvider>
-      </CartProvider>
+      <OrdersProvider>
+        <CartProvider>
+          <FavouritesProvider>
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/phones" element={<PhonesPage />} />
+              <Route path="/phones/:phoneId" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/tablets" element={<TabletsPage />} />
+              <Route path="/accessories" element={<AccessoriesPage />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route path="/orders" element={<OrdersPage />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+            <Footer />
+          </FavouritesProvider>
+        </CartProvider>
+      </OrdersProvider>
     </ClerkProvider>
   );
 }

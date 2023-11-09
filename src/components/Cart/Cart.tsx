@@ -43,9 +43,8 @@ export const Cart = () => {
               <div className="Total__count-items">
                 Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
               </div>
-              <button onClick={handleCheckoutClick} className="Total__checkout">Checkout</button>
+              <Checkout totalPrice={totalPrice} />
             </div>
-            <Checkout totalPrice={totalPrice} />
           </div>
         </div>
       </div>
