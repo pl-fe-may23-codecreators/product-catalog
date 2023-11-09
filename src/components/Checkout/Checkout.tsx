@@ -3,15 +3,33 @@ import { Link } from 'react-router-dom';
 import './Checkout.scss';
 import { generateOrderNumber } from './randomizer';
 import MoonLoader from 'react-spinners/MoonLoader';
+import { useOrders } from '../../context/OrdersContext';
+import { useCart } from '../../context/CartContext';
 
-export const Checkout = () => {
+type CheckoutProps = {
+  totalPrice: number,
+};
+
+export const Checkout: React.FC<CheckoutProps> = ({totalPrice}) => {
   const [isMessageVisible, setIsMessageVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [redirectTimer, setRedirectTimer] = useState(10);
   const [orderNumber] = useState(generateOrderNumber(6));
+  const { addToOrders } = useOrders();
+  const { cart } = useCart();
 
   const showMessage = () => {
     setIsLoading(true);
+
+    const newOrder = {
+      orderId: orderNumber,
+      timestamp: new Date().toLocaleString(),
+      products: cart,
+      status: 'in progress',
+      totalPrice,
+    };
+
+    addToOrders(newOrder);
 
     setTimeout(() => {
       setIsLoading(false);

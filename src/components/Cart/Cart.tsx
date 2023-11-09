@@ -30,7 +30,7 @@ export const Cart = () => {
             <div className="Total__count-items">
               Total for {cart.length} {cart.length === 1 ? 'item' : 'items'}
             </div>
-            <Checkout />
+            <Checkout totalPrice={totalPrice} />
           </div>
         </div>
       </div>
