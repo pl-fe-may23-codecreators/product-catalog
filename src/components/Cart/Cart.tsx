@@ -1,3 +1,12 @@
+
+import homeIcon from '../../images/home.svg';
+import rightIcon from '../../images/disabled_right_icon.svg';
+import { NavLink } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
+import { CartItem } from '../CartItem/CartItem';
+import { Checkout } from '../Checkout';
+import './Cart.scss';
+import { BackClick } from '../BackClick/backClick';
 import React, { useEffect, useState } from 'react';
 import './Cart.scss';
 import { useCart } from '../../context/CartContext';
@@ -5,7 +14,6 @@ import { CartItem } from '../CartItem/CartItem';
 import { Checkout } from '../Checkout';
 import Modal from '../Modal/Modal';
 import { useUser } from '@clerk/clerk-react';
-
 export const Cart = () => {
   const { cart } = useCart();
   const [totalItems, setTotalItems] = useState(0);
@@ -28,17 +36,32 @@ export const Cart = () => {
 
   return (
     <>
-      <div className="Cart">
-        <button className="Cart__goback">
-          <div className="Cart__goback--icon" />
-          <p className="Cart__goback--text">Back</p>
-        </button>
+      <div className="navigation">
+        <NavLink to="/">
+          <img className="navigation__home-icon" src={homeIcon} alt="Home" />
+        </NavLink>
+
+        <img
+          className="navigation__right-icon"
+          src={rightIcon}
+          alt="Right icon"
+        />
+
+        <NavLink to="/cart" className="navigation__category--favourites">
+          <p>Cart</p>
+        </NavLink>
+      </div>
+      <BackClick />
+      <div className='Cart'>
         <h1 className="Cart__title">Cart</h1>
         <div className="Cart__content">
           <div className="Cart__items">
             {cart.map((item) => (
               <CartItem
                 key={item.id}
+                name={item.name}
+                price={item.price}
+                imgURL={item.image}
                 phone={item}
                 setTotalItems={setTotalItems}
               />
