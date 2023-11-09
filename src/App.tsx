@@ -1,10 +1,5 @@
 import './App.css';
-import {
-  HashRouter,
-  Route,
-  Routes,
-  useNavigate,
-} from 'react-router-dom';
+import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import PhonesPage from './pages/PhonesPage';
 import ErrorPage from './pages/ErrorPage';
@@ -18,7 +13,6 @@ import { Header } from './components/Header';
 import { CartProvider } from './context/CartContext';
 import { FavouritesProvider } from './context/FavouritesContext';
 import { ClerkProvider } from '@clerk/clerk-react';
-import ProtectedRoute from './components/ProtectedPage';
 
 if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
@@ -29,12 +23,7 @@ function ClerkProviderWithRoutes() {
   const navigate = useNavigate();
 
   return (
-    <ClerkProvider
-      publishableKey={clerkPubKey}
-      navigate={(to) => navigate(to)}
-      afterSignInUrl='/product-catalog'
-      afterSignUpUrl='/product-catalog'
-    >
+    <ClerkProvider publishableKey={clerkPubKey} navigate={(to) => navigate(to)}>
       <CartProvider>
         <FavouritesProvider>
           <Header />
@@ -42,24 +31,10 @@ function ClerkProviderWithRoutes() {
             <Route path="/" element={<HomePage />} />
             <Route path="/phones" element={<PhonesPage />} />
             <Route path="/phones/:phoneId" element={<ProductPage />} />
-            <Route
-              path="/cart"
-              element={
-                <ProtectedRoute>
-                  <CartPage />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/tablets" element={<TabletsPage />} />
             <Route path="/accessories" element={<AccessoriesPage />} />
-            <Route
-              path="/favourites"
-              element={
-                <ProtectedRoute>
-                  <FavouritesPage />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />

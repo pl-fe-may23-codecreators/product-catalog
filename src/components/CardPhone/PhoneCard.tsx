@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
 import { Phone } from '../../types/PhoneTypes';
 import './PhoneCard.scss';
 import { useCart } from '../../context/CartContext';
 import { useFavourites } from '../../context/FavouritesContext';
 import { Link } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
-import Modal from '../Modal/Modal';
 
 type Props = {
   phone: Phone;
@@ -14,17 +11,12 @@ type Props = {
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
-  const { isSignedIn } = useUser();
-  const [showModal, setShowModal] = useState(false);
 
   const isCartSelected = cart.some((item) => item.itemId === phone.itemId);
   const isFavouritesSelected = favourites.some((item) => item.itemId === phone.itemId);
 
   const handleCartToggle = () => {
-    if (!isSignedIn) {
-      setShowModal(true);
-      return;
-    }
+
     if (isCartSelected) {
       removeFromCart(phone);
     } else {
@@ -33,10 +25,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   };
 
   const handleFavouritesToggle = () => {
-    if (!isSignedIn) {
-      setShowModal(true);
-      return;
-    }
+
     if (isFavouritesSelected) {
       removeFromFavourites(phone);
     } else {
@@ -44,7 +33,6 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
     }
   };
 
-  const closeModal = () => setShowModal(false);
 
   return (
     <div className="card">
@@ -79,20 +67,17 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </div>
         <div className="card__buttons">
           <button
-            className={`card__buttons--cart ${isCartSelected && isSignedIn ? 'selected--cart' : ''}`}
+            className={`card__buttons--cart ${isCartSelected && 'selected--cart'}`}
             onClick={handleCartToggle}
           >
-            {isCartSelected && isSignedIn? 'Added!' : 'Add to cart'}
+            {isCartSelected? 'Added!' : 'Add to cart'}
           </button>
           <button
-            className={`card__buttons--heart ${isFavouritesSelected && isSignedIn? 'selected--heart' : ''}`}
+            className={`card__buttons--heart ${isFavouritesSelected && 'selected--heart'}`}
             onClick={handleFavouritesToggle}
           />
         </div>
       </div>
-      {showModal && (
-        <Modal onClose={closeModal} />
-      )}
     </div>
   );
 };

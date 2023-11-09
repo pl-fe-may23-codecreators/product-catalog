@@ -20,7 +20,7 @@
     display: none;
 
 
-    &--sign-out {
+    &--user-text {
       font-size: 12px;
       line-height: 48px;
       padding-left: 20px;
@@ -89,6 +89,7 @@
       display: none;
 
       @include for-desktop() {
+        position: relative;
         display: block;
         background-image: url('../../images/heart_icon.svg');
         border: 1px solid #e2e6e9;
@@ -132,8 +133,8 @@
 
 .favourites-count {
   position: absolute;
-  top: 10px;
-  right: 166px;
+  top: 9px;
+  right: 8px;
   background-image: url('../../images/EllipseCounter.svg');
   background-repeat: no-repeat;
   padding: 2px 4.5px;
@@ -159,7 +160,7 @@
   }
 }
 
-.Header__navigation--sign-out {
+.Header__navigation--user-text {
   font-size: 12px;
   line-height: 48px;
   padding-left: 20px;

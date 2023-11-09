@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { PhoneForProductPage } from '../../types/PhoneTypes';
 import { useCart } from '../../context/CartContext';
 import { useFavourites } from '../../context/FavouritesContext';
-import { useUser } from '@clerk/clerk-react';
-import Modal from '../Modal/Modal';
 
 const colorMap: { [key: string]: string } = {
   red: 'indianred',
@@ -12,8 +10,6 @@ const colorMap: { [key: string]: string } = {
   green: 'oliveDrab',
   purple: 'plum',
 };
-
-// ^ I added this, because colors like 'red' are too bright, if you want to add another colors, feel free to do it
 
 const transformColor = (color: string): string => {
   return colorMap[color] || color;
@@ -29,10 +25,7 @@ export const Variants = ({ phone }: VariantsProps) => {
   );
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
-  const { isSignedIn } = useUser();
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState(false);
-
   const handleColorSelect = (color: string) => {
     setSelectedColor(transformColor(color));
   };
@@ -52,10 +45,6 @@ export const Variants = ({ phone }: VariantsProps) => {
   };
 
   const handleCartToggle = () => {
-    if (!isSignedIn) {
-      setShowModal(true);
-      return;
-    }
     if (isCartSelected) {
       removeFromCart(cartObject);
     } else {
@@ -64,10 +53,6 @@ export const Variants = ({ phone }: VariantsProps) => {
   };
 
   const handleFavouritesToggle = () => {
-    if (!isSignedIn) {
-      setShowModal(true);
-      return;
-    }
     if (isFavouritesSelected) {
       removeFromFavourites(cartObject);
     } else {
@@ -75,7 +60,6 @@ export const Variants = ({ phone }: VariantsProps) => {
     }
   };
 
-  const closeModal = () => setShowModal(false);
   return (
     <div className="variants-container">
       <div className="colors">
@@ -121,15 +105,15 @@ export const Variants = ({ phone }: VariantsProps) => {
         <div className="card__buttons">
           <button
             className={`card__buttons--cart--wide ${
-              isCartSelected && isSignedIn ? 'selected--cart--wide' : ''
+              isCartSelected && 'selected--cart--wide'
             }`}
             onClick={handleCartToggle}
           >
-            {isCartSelected && isSignedIn ? 'Added!' : 'Add to cart'}
+            {isCartSelected ? 'Added!' : 'Add to cart'}
           </button>
           <button
             className={`card__buttons--heart--wide ${
-              isFavouritesSelected && isSignedIn ? 'selected--heart--wide' : ''
+              isFavouritesSelected && 'selected--heart--wide'
             }`}
             onClick={handleFavouritesToggle}
           ></button>
@@ -155,8 +139,6 @@ export const Variants = ({ phone }: VariantsProps) => {
         </div>
       </div>
       <p className="phoneID">ID: 802390</p>
-      {/* Here I would add other ID, because the one from phone.id sucks */}
-      {showModal && <Modal onClose={closeModal} />}
     </div>
   );
 };
