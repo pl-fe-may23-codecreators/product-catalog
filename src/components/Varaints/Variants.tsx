@@ -7,9 +7,13 @@ import { Link } from 'react-router-dom';
 
 const colorMap: { [key: string]: string } = {
   red: 'indianred',
-  yellow: 'gold',
+  gold: '#FCDBC1',
   green: 'oliveDrab',
+  midnightgreen: '#5F7170',
   purple: 'plum',
+  spacegray: 'LightSlateGray',
+  silver: 'silver',
+  rosegold: 'Pink'
 };
 
 const transformColor = (color: string): string => {
