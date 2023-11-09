@@ -3,35 +3,31 @@ import { useState } from 'react';
 import { PhoneForProductPage } from '../../types/PhoneTypes';
 import { useCart } from '../../context/CartContext';
 import { useFavourites } from '../../context/FavouritesContext';
+import { Link } from 'react-router-dom';
 
 const colorMap: { [key: string]: string } = {
-  'red': 'indianred',
-  'yellow': 'gold',
-  'green': 'oliveDrab',
-  'purple': 'plum'
+  red: 'indianred',
+  yellow: 'gold',
+  green: 'oliveDrab',
+  purple: 'plum',
 };
-
-// ^ I added this, because colors like 'red' are too bright, if you want to add another colors, feel free to do it
 
 const transformColor = (color: string): string => {
   return colorMap[color] || color;
 };
-
-
 
 interface VariantsProps {
   phone: PhoneForProductPage;
 }
 
 export const Variants = ({ phone }: VariantsProps) => {
-  const [selectedCapacity, setSelectedCapacity] = useState(
-    phone.capacityAvailable[0],
-  );
+  const [selectedCapacity, setSelectedCapacity] = useState(phone.capacity);
   const { cart, addToCart, removeFromCart } = useCart();
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
 
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-
+  const [selectedColor, setSelectedColor] = useState<string | null>(
+    phone.color,
+  );
   const handleColorSelect = (color: string) => {
     setSelectedColor(transformColor(color));
   };
@@ -72,33 +68,48 @@ export const Variants = ({ phone }: VariantsProps) => {
         <p className="colors__title">Available colors</p>
         <div className="colors__options">
           {phone.colorsAvailable.map((color, index) => (
-            <div
+            <Link
+              to={`/phones/${phone.phoneId
+                .split(phone.color)
+                .join('')
+                .concat(color)}`}
               key={index}
-              className="colors__circle-border"
-              style={{
-                borderColor:
-                selectedColor === transformColor(color) ? '#313237' : '#E2E6E9'
-              }}
-              onClick={() => handleColorSelect(color)}
             >
               <div
-                className="colors__circle"
-                style={{ backgroundColor: transformColor(color) }}
-              ></div>
-            </div>
+                className="colors__circle-border"
+                style={{
+                  borderColor:
+                    selectedColor === transformColor(color)
+                      ? '#313237'
+                      : '#E2E6E9',
+                }}
+                onClick={() => handleColorSelect(color)}
+              >
+                <div
+                  className="colors__circle"
+                  style={{ backgroundColor: transformColor(color) }}
+                ></div>
+              </div>
+            </Link>
           ))}
         </div>
         <p className="capacity__title">Select capacity</p>
         {phone.capacityAvailable.map((capacity, index) => (
-          <button
-            key={capacity}
-            className={`capacity__button capacity__button--${index + 1} ${
-              selectedCapacity === capacity ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCapacity(capacity)}
+          <Link
+            to={`/phones/${phone.phoneId
+              .split(phone.capacity.toLowerCase())
+              .join(capacity.toLowerCase())}`}
+            key={index}
           >
-            {capacity}
-          </button>
+            <button
+              className={`capacity__button capacity__button--${index + 1} ${
+                selectedCapacity === capacity ? 'active' : ''
+              }`}
+              onClick={() => setSelectedCapacity(capacity)}
+            >
+              {capacity}
+            </button>
+          </Link>
         ))}
 
         <div className="card__product-prices">
@@ -109,7 +120,7 @@ export const Variants = ({ phone }: VariantsProps) => {
         <div className="card__buttons">
           <button
             className={`card__buttons--cart--wide ${
-              isCartSelected ? 'selected--cart--wide' : ''
+              isCartSelected && 'selected--cart--wide'
             }`}
             onClick={handleCartToggle}
           >
@@ -117,7 +128,7 @@ export const Variants = ({ phone }: VariantsProps) => {
           </button>
           <button
             className={`card__buttons--heart--wide ${
-              isFavouritesSelected ? 'selected--heart--wide' : ''
+              isFavouritesSelected && 'selected--heart--wide'
             }`}
             onClick={handleFavouritesToggle}
           ></button>
@@ -143,7 +154,6 @@ export const Variants = ({ phone }: VariantsProps) => {
         </div>
       </div>
       <p className="phoneID">ID: 802390</p>
-      {/* Here I would add other ID, because the one from phone.id sucks */}
     </div>
   );
 };

@@ -13,11 +13,10 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   const { favourites, addToFavourites, removeFromFavourites } = useFavourites();
 
   const isCartSelected = cart.some((item) => item.itemId === phone.itemId);
-  const isFavouritesSelected = favourites.some(
-    (item) => item.itemId === phone.itemId,
-  );
+  const isFavouritesSelected = favourites.some((item) => item.itemId === phone.itemId);
 
   const handleCartToggle = () => {
+
     if (isCartSelected) {
       removeFromCart(phone);
     } else {
@@ -26,6 +25,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   };
 
   const handleFavouritesToggle = () => {
+
     if (isFavouritesSelected) {
       removeFromFavourites(phone);
     } else {
@@ -33,20 +33,18 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
     }
   };
 
+
   return (
     <div className="card">
       <div className="card__content">
         <Link to={`/phones/${phone.phoneId}`}>
           <img
             className="card__image"
-            src={`https://codecreators-backend.onrender.com/${[phone.image]}`}
+            src={`https://codecreators-backend.onrender.com/${phone.image}`}
             alt={phone.name}
           />
         </Link>
-        <Link
-          style={{ textDecoration: 'none' }}
-          to={`/phones/${phone.phoneId}`}
-        >
+        <Link style={{ textDecoration: 'none' }} to={`/phones/${phone.phoneId}`}>
           <h3 className="card__title">{phone.name}</h3>
         </Link>
         <div className="card__prices">
@@ -69,19 +67,15 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </div>
         <div className="card__buttons">
           <button
-            className={`card__buttons--cart ${
-              isCartSelected ? 'selected--cart' : ''
-            }`}
+            className={`card__buttons--cart ${isCartSelected && 'selected--cart'}`}
             onClick={handleCartToggle}
           >
-            {isCartSelected ? 'Added!' : 'Add to cart'}
+            {isCartSelected? 'Added!' : 'Add to cart'}
           </button>
           <button
-            className={`card__buttons--heart ${
-              isFavouritesSelected ? 'selected--heart' : ''
-            }`}
+            className={`card__buttons--heart ${isFavouritesSelected && 'selected--heart'}`}
             onClick={handleFavouritesToggle}
-          ></button>
+          />
         </div>
       </div>
     </div>

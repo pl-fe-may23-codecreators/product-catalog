@@ -1,0 +1,112 @@
+@mixin for-desktop() {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @mixin for-tablet() {
+    @media (min-width: 640px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+
+.Orders {
+    font-family: 'Mont';
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+    &__product, &__container {
+        width: 288px;
+
+        @include for-desktop() {
+            width: 500px;
+        }
+    
+        @include for-tablet() {
+            width: 500px;
+        }
+    }
+}
+
+.Order {
+    &__price, &__date, &__status, &__cancellation {
+        color: #89939a;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 21px;
+
+        &--details {
+            color: #313237;
+        }
+
+        &--inprogress {
+            color: burlywood;
+            text-transform: uppercase;
+        }
+
+        &--completed {
+            color: green;
+            text-transform: uppercase;
+        }
+
+        &--canceled {
+            color: red;
+            text-transform: uppercase;
+        }
+    }
+
+    &__cancellation {
+        margin: 5px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        float: right;
+
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &--tooltip {
+            margin: 5px 0;
+            color: #89939a;
+            font-size: 12px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #89939a;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+            float: right;
+            position: relative;
+        
+        }
+              
+        &--tooltip &--tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #89939a;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+
+            @include for-desktop() {
+                right: unset,
+            }
+
+            @include for-tablet() {
+                right: unset;
+            }
+        }
+
+        &--tooltip:hover &--tooltiptext {
+            visibility: visible;
+          }
+    }
+}

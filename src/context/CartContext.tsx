@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Phone } from '../types/PhoneTypes';
+import { useUser } from '@clerk/clerk-react';
 
 type CartContextType = {
   cart: Phone[];
@@ -23,17 +24,23 @@ type CartProviderProps = {
 };
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cart, setCart] = useState<Phone[]>(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      return JSON.parse(savedCart);
-    }
-    return [];
-  });
+  const { isSignedIn } = useUser();
+  const [cart, setCart] = useState<Phone[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+    if (isSignedIn) {
+      const savedCart = localStorage.getItem('cart');
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      }
+    }
+  }, [isSignedIn]);
+
+  useEffect(() => {
+    if (isSignedIn) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart, isSignedIn]);
 
   const addToCart = (phoneToAdd: Phone) => {
     setCart((prevCart) => {
