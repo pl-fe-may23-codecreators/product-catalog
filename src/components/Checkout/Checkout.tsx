@@ -37,19 +37,19 @@ export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
   };
 
   useEffect(() => {
-    let timerId: NodeJS.Timeout | null = null;
     if (isMessageVisible && redirectTimer > 0) {
-      timerId = setTimeout(() => {
-        setRedirectTimer((prevTimer) => prevTimer - 1);
+      const timerId = setTimeout(() => {
+        setRedirectTimer(redirectTimer - 1);
       }, 1000);
+
+      return () => {
+        clearTimeout(timerId);
+      };
     } else if (isMessageVisible && redirectTimer === 0) {
-      clearCart();
       window.location.href = '/';
+      clearCart();
     }
-    return () => {
-      if (timerId) clearTimeout(timerId);
-    };
-  }, [isMessageVisible, redirectTimer, clearCart]);
+  }, [isMessageVisible, redirectTimer]);
 
   return (
     <div>
@@ -72,11 +72,14 @@ export const Checkout: React.FC<CheckoutProps> = ({ totalPrice }) => {
       {isMessageVisible && !isLoading && (
         <div className="checkout__overlay">
           <div className="checkout__message">
-            <div className="checkout__message-thanks">Thank You for your purchase!</div>
+            <div className="checkout__message-thanks">
+              Thank You for your purchase!
+            </div>
             <div className="checkout__message-confirmation">
               Your order has been processed✅
               <br />
-              Order confirmation and delivery info will be provided to you via e-mail.
+              Order confirmation and delivery info will be provided to you via
+              e-mail.
             </div>
             <div className="checkout__message-order">
               Order ID #{orderNumber}
