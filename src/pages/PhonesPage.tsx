@@ -4,20 +4,23 @@ import { fetchData } from '../services/dataService';
 import { Phone } from '../types/PhoneTypes';
 import { Pagination } from '../components/Pagination';
 import { PhonesLayout } from '../components/PhonesLayout';
+import { useSearchParams } from 'react-router-dom';
 
 const PhonesPage = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [phonesPerPage, setPhonesPerPage] = useState(8);
-  const [sortBy, setSortBy] = useState('price-asc');
+  const [searchParams] = useSearchParams();
+  const sortField = searchParams.get('sort');
+  const sortOrder= searchParams.get('order');
 
   useEffect(() => {
     async function loadData() {
       const fetchedPhones = await fetchData('/products', {
         page: currentPage,
         limit: phonesPerPage,
-        sortField: sortBy.split('-')[0],
-        sortOrder: sortBy.split('-')[1],
+        sortField,
+        sortOrder,
       });
 
       if (fetchedPhones) {
@@ -26,7 +29,7 @@ const PhonesPage = () => {
     }
 
     loadData();
-  }, [currentPage, phonesPerPage, sortBy]);
+  }, [currentPage, phonesPerPage, sortField, sortOrder]);
 
   const total = 71;
 
@@ -38,8 +41,6 @@ const PhonesPage = () => {
     <>
       <div className="container">
         <PhonesLayout
-          sortBy={sortBy}
-          setSortBy={setSortBy}
           productsPerPage={phonesPerPage}
           setProductsPerPage={setPhonesPerPage}
         />

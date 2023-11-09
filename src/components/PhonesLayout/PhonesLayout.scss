@@ -45,7 +45,7 @@
 
 .product {
   display: flex;
-  gap: 16px;
+  gap: 30px;
   margin-bottom: 24px;
   margin-top: 40px;
 
@@ -61,21 +61,6 @@
       margin-bottom: 4px;
     }
 
-    &--trigger {
-      background-color: #fff;
-      align-items: center;
-      border: 1px solid #B4BDC3;
-      color: #313237;
-      cursor: pointer;
-      display: flex;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 21px;
-      padding: 10px 12px;
-      position: relative;
-      transition: .3s ease;
-    }
-
     &--text {
       pointer-events: none;
     }
@@ -89,6 +74,38 @@
       transition: opacity .3s ease,transform .3s ease;
     }
   }
+
+  &__elements {
+    font-family: 'Mont';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+  }
+
+  &__sortFields {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__sortField {
+    font-family: 'Mont';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--icon {
+      padding: 0 5px;
+    }
+  }
 }
 
 .sorting {
@@ -96,5 +113,29 @@
 }
 
 .items {
-  width: 128px;
+  display: flex;
+  gap: 10px;
+
+  &__item {
+    font-family: 'Mont';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: #89939a;
+    text-decoration: none;
+    background-color: unset;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #e2e6e9;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e2e6e9;
+    }
+
+    &--active {
+      background-color: #e2e6e9;
+    }
+  }
 }
