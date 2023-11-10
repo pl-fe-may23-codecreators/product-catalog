@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.659efecc.css",
-    "main.js": "/product-catalog/static/js/main.eeeb4681.js",
+    "main.css": "/product-catalog/static/css/main.f8633d90.css",
+    "main.js": "/product-catalog/static/js/main.11482ab1.js",
     "static/media/img1.png": "/product-catalog/static/media/img1.96586e4d18c6309470bf.png",
     "static/media/img3.png": "/product-catalog/static/media/img3.245c50249f79371d15d9.png",
     "static/media/img2.png": "/product-catalog/static/media/img2.b4eeda8bd82b712057a2.png",
@@ -22,6 +22,7 @@
     "static/media/home.svg": "/product-catalog/static/media/home.ad58962b5eafcd1dccab2515abb48ff9.svg",
     "static/media/heart_icon_red.svg": "/product-catalog/static/media/heart_icon_red.0adbb61bbc593d135bdb.svg",
     "static/media/search.svg": "/product-catalog/static/media/search.eb670dd9ac01a47e6e00d9575822afe8.svg",
+    "static/media/shipping-fast-solid.svg": "/product-catalog/static/media/shipping-fast-solid.b413fde05bf8de5a14ea.svg",
     "static/media/close_icon_hover.svg": "/product-catalog/static/media/close_icon_hover.c0b1179e5233462d1ff3.svg",
     "static/media/close_icon.svg": "/product-catalog/static/media/close_icon.d9cd77be5a0b001f87e9.svg",
     "index.html": "/product-catalog/index.html",
@@ -31,16 +32,15 @@
     "static/media/disabled_right_icon.svg": "/product-catalog/static/media/disabled_right_icon.a374b573155c92815583d44daaae0b60.svg",
     "static/media/left_arrow_icon.svg": "/product-catalog/static/media/left_arrow_icon.f5092e0778bf9b12dda7c7c8baba4286.svg",
     "static/media/right_arrow_icon.svg": "/product-catalog/static/media/right_arrow_icon.cd2131f50cbb92799a15ed018a858e9d.svg",
-    "static/media/user-regular.svg": "/product-catalog/static/media/user-regular.d8ba21172bdc52be1b1da839e8fc2307.svg",
     "static/media/footer_nav.svg": "/product-catalog/static/media/footer_nav.4ae001b259841bc24eef.svg",
     "static/media/minus_icon.svg": "/product-catalog/static/media/minus_icon.bdf110d3a1bd224c8a82.svg",
     "static/media/minus_icon_disabled.svg": "/product-catalog/static/media/minus_icon_disabled.6698474d0698283fceec.svg",
     "static/media/EllipseCounter.svg": "/product-catalog/static/media/EllipseCounter.74ec7e268b5369cc84e3.svg",
-    "main.659efecc.css.map": "/product-catalog/static/css/main.659efecc.css.map",
-    "main.eeeb4681.js.map": "/product-catalog/static/js/main.eeeb4681.js.map"
+    "main.f8633d90.css.map": "/product-catalog/static/css/main.f8633d90.css.map",
+    "main.11482ab1.js.map": "/product-catalog/static/js/main.11482ab1.js.map"
   },
   "entrypoints": [
-    "static/css/main.659efecc.css",
-    "static/js/main.eeeb4681.js"
+    "static/css/main.f8633d90.css",
+    "static/js/main.11482ab1.js"
   ]
 }
