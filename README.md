@@ -71,4 +71,4 @@ The app will be available at [http://localhost:3000](http://localhost:3000).
 
 
 ## Authors
-This project was created by [Klaudia Kliś](https://github.com/klaudia-klis), [Emil Owczarek](https://github.com/emil-owczarek), [Vira Lyzohub](https://github.com/Vira-V), [Paweł Przybylak](https://github.com/PawelP2001) and [Jakub Mikołajczyk](https://github.com/jakubMikolajczykTech)
+This project was created by [Klaudia Kliś](https://github.com/klaudia-klis), [Emil Owczarek](https://github.com/emil-owczarek), [Vira Lyzohub](https://github.com/Vira-V) and [Paweł Przybylak](https://github.com/PawelP2001).
