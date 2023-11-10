@@ -48,10 +48,12 @@ $gray-secondary: #89939a;
   }
 
   &__image {
-    max-height: 392px;
     width: 100%;
+    max-height: 392px;
     transform: scale(1);
     transition: 0.3s ease-in-out;
+    aspect-ratio: attr(width) / attr(height);
+    height: auto; 
 
     &:hover {
       transform: scale(1.3);

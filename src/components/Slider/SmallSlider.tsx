@@ -1,11 +1,11 @@
-import img1 from '../../images/img4.png';
-import img2 from '../../images/img1.png';
-import img3 from '../../images/img2.png';
-import img4 from '../../images/img3.png';
-import img1resized from '../../images/img4cut.png';
-import img2resized from '../../images/img1cut.png';
-import img3resized from '../../images/img2cut.png';
-import img4resized from '../../images/img3cut.png';
+import img1 from '../../images/img4.webp';
+import img2 from '../../images/img1.webp';
+import img3 from '../../images/img2.webp';
+import img4 from '../../images/img3.webp';
+import img1resized from '../../images/img4cut.webp';
+import img2resized from '../../images/img1cut.webp';
+import img3resized from '../../images/img2cut.webp';
+import img4resized from '../../images/img3cut.webp';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,7 +58,7 @@ export const SmallSlider = () => {
       >
         {currentImages.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={image} alt="image swiper" />
+            <img src={image} alt={`image ${index + 1}`} loading="lazy" />
           </SwiperSlide>
         ))}
       </Swiper>

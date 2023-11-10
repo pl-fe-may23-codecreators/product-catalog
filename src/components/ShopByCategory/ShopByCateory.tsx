@@ -1,6 +1,6 @@
-import phones from '../../images/mobile.png';
-import tablets from '../../images/tablet.png';
-import accessories from '../../images/accessories.png';
+import phones from '../../images/mobile.webp';
+import tablets from '../../images/tablet.webp';
+import accessories from '../../images/accessories.webp';
 import './ShopByCategory.scss';
 import { Link } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ export const ShopByCategory = () => {
                 className="shop-by-category__image"
                 src={phones}
                 alt="Mobile phones"
+                loading="lazy"
               />
             </div>
             <h3 className="shop-by-category__sub-title">Mobile phones</h3>
@@ -30,6 +31,7 @@ export const ShopByCategory = () => {
                 className="shop-by-category__image"
                 src={tablets}
                 alt="Tablets"
+                loading="lazy"
               />
             </div>
             <h3 className="shop-by-category__sub-title">Tablets</h3>
@@ -44,6 +46,7 @@ export const ShopByCategory = () => {
                 className="shop-by-category__image"
                 src={accessories}
                 alt="Accessories"
+                loading="lazy"
               />
             </div>
             <h3 className="shop-by-category__sub-title">Accessories</h3>

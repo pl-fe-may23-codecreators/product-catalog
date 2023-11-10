@@ -71,6 +71,7 @@ export const BurgerMenu: React.FC<Props> = ({ isOpen, toggleMenu }) => {
 
       <div className="Burger__footer" onClick={closeMenu}>
         <NavLink
+          aria-label="Close menu"
           className={({ isActive }) =>
             cn('Burger__footer--icon Burger__footer--heart_icon', {
               'is-active': isActive,
@@ -85,6 +86,7 @@ export const BurgerMenu: React.FC<Props> = ({ isOpen, toggleMenu }) => {
           )}
         </NavLink>
         <NavLink
+          aria-label="cart"
           className={({ isActive }) =>
             cn('Burger__footer--icon Burger__footer--cart_icon', {
               'is-active': isActive,

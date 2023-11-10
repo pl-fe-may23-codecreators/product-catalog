@@ -8,7 +8,7 @@ import { fetchData } from '../../services/dataService';
 export const SearchBar: React.FC<{ data: Phone[] }> = ({ data }) => {
   const navigate = useNavigate();
   const [filteredData, setFilteredData] = useState<Phone[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [, setIsLoading] = useState<boolean>(true);
   const [wordEntered, setWordEntered] = useState<string>('');
   const { phoneId } = useParams();
 

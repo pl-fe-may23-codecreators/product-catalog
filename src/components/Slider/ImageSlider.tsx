@@ -15,13 +15,14 @@ export function ImageSlider({
     <>
       <div className="biggest-div">
         <div className="smaller-div">
-          {imageUrls.map((url) => (
+          {imageUrls.map((url, index) => (
             <img
               key={url}
               src={url}
-              alt="image slider"
+              alt={`image ${index}`}
               className="img-slider-img"
               style={{ translate: `${-100 * currentIndex}%` }}
+              loading={index === 0 ? 'eager' : 'lazy'} 
             />
           ))}
         </div>
@@ -30,14 +31,11 @@ export function ImageSlider({
         {imageUrls.map((_, index) => (
           <button
             key={index}
-            className="img-slider-dot-btn"
+            className={`img-slider-dot-btn ${index === currentIndex ? 'active' : ''}`}
             onClick={() => setImageIndex(index)}
+            aria-label={`Slide ${index + 1}`} 
           >
-            {index === currentIndex ? (
-              <div className="activePick"></div>
-            ) : (
-              <div className="inActivePick"></div>
-            )}
+            <div className={index === currentIndex ? 'activePick' : 'inActivePick'}></div>
           </button>
         ))}
       </div>
