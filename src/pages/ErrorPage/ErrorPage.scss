@@ -1,0 +1,66 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.error-code {
+  font-size: 10rem;
+}
+
+.error-message {
+  font-size: 2rem;
+  margin: 1rem;
+  font-family: Mont;
+}
+
+.error-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #89939a;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Mont;
+}
+
+.error-button:hover {
+    background-color: #1c5f9a;
+    box-shadow: 0 0 10px black;
+}
+
+
+@media (max-width: 480px) {
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+
+  .error-button {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

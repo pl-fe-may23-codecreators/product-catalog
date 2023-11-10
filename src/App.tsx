@@ -2,7 +2,7 @@ import './App.css';
 import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import PhonesPage from './pages/PhonesPage';
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 import CartPage from './pages/CartPage';
 import FavouritesPage from './pages/FavouritesPage/FavouritesPage';
 import ProductPage from './pages/ProductPage/ProductPage';
