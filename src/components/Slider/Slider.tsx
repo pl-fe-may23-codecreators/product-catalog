@@ -1,8 +1,8 @@
 import { ImageSlider } from './ImageSlider';
-import img1 from '../../images/img4.png';
-import img2 from '../../images/img1.png';
-import img3 from '../../images/img2.png';
-import img4 from '../../images/img3.png';
+import img1 from '../../images/img4.webp';
+import img2 from '../../images/img1.webp';
+import img3 from '../../images/img2.webp';
+import img4 from '../../images/img3.webp';
 import leftIcon from '../../images/left_arrow_icon.svg';
 import rightIcon from '../../images/right_arrow_icon.svg';
 import { useEffect, useState } from 'react';
@@ -47,7 +47,7 @@ export const Slider = () => {
       }}
     >
       <button className="button-arrow left-button" onClick={showPrevImage}>
-        <img src={leftIcon} alt="Left Arrow" />
+        <img src={leftIcon} alt="Left Arrow" style={{height: '16px', width: '16px'}}/>
       </button>
 
       <ImageSlider
@@ -57,7 +57,7 @@ export const Slider = () => {
       />
 
       <button className="button-arrow right-button" onClick={showNextImage}>
-        <img src={rightIcon} alt="Right Arrow" />
+        <img src={rightIcon} alt="Right Arrow" style={{height: '16px', width: '16px'}}/>
       </button>
     </div>
   );

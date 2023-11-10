@@ -45,6 +45,8 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
             className="card__image"
             src={`https://codecreators-backend.onrender.com/${phone.image}`}
             alt={phone.name}
+            height="206px"
+            width="194px"
           />
         </Link>
         <Link
@@ -74,6 +76,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </div>
         <div className="card__buttons">
           <button
+            aria-label={isCartSelected ? 'Remove from cart' : 'Add to cart'}
             className={`card__buttons--cart ${
               isCartSelected && 'selected--cart'
             }`}
@@ -82,6 +85,11 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
             {isCartSelected ? 'Added!' : 'Add to cart'}
           </button>
           <button
+            aria-label={
+              isFavouritesSelected
+                ? 'Remove from Favourites'
+                : 'Add to Favourites'
+            }
             className={`card__buttons--heart ${
               isFavouritesSelected && 'selected--heart'
             }`}

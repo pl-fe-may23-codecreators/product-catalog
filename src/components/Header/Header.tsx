@@ -9,9 +9,7 @@ import { useFavourites } from '../../context/FavouritesContext';
 import { SearchBar } from '../SearchBar';
 import { Phone } from '../../types/PhoneTypes';
 import { fetchData } from '../../services/dataService';
-import { useClerk, useUser } from '@clerk/clerk-react';
-import DropdownMenu from '../DropdownMenu/Dropdownmenu';
-import userIcon from '../../images/user-regular.svg';
+import { UserButton, useClerk, useUser } from '@clerk/clerk-react';
 
 export const Header = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -25,7 +23,7 @@ export const Header = () => {
   const [currentPage] = useState(1);
   const [phonesPerPage] = useState(8);
   const [sortBy] = useState('price-asc');
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [, setIsUserMenuOpen] = useState(false);
   const { isSignedIn } = useUser();
   const userIconRef = useRef<HTMLDivElement>(null);
 
@@ -78,16 +76,13 @@ export const Header = () => {
     loadData();
   }, [currentPage, phonesPerPage, sortBy]);
 
-  const toggleUserMenu = () => {
-    setIsUserMenuOpen(!isUserMenuOpen);
-  };
-
   return (
     <div className="Header">
       <div className="Header__content">
         <Logo />
         <div className="Header__navigation">
           <NavLink
+            aria-label="Home"
             className={({ isActive }) =>
               cn('Header__navigation--link', {
                 'is-active': isActive,
@@ -98,6 +93,7 @@ export const Header = () => {
             Home
           </NavLink>
           <NavLink
+            aria-label="Phones"
             className={({ isActive }) =>
               cn('Header__navigation--link', {
                 'is-active': isActive,
@@ -108,6 +104,7 @@ export const Header = () => {
             Phones
           </NavLink>
           <NavLink
+            aria-label="Tablets"
             className={({ isActive }) =>
               cn('Header__navigation--link', {
                 'is-active': isActive,
@@ -118,6 +115,7 @@ export const Header = () => {
             Tablets
           </NavLink>
           <NavLink
+            aria-label="Accessories"
             className={({ isActive }) =>
               cn('Header__navigation--link', {
                 'is-active': isActive,
@@ -149,6 +147,7 @@ export const Header = () => {
           <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
           <NavLink
+            aria-label="Favourites"
             className={({ isActive }) =>
               cn('Header__icons--icon Header__icons--heart_icon', {
                 'is-active': isActive,
@@ -162,6 +161,7 @@ export const Header = () => {
           </NavLink>
 
           <NavLink
+            aria-label="Cart"
             className={({ isActive }) =>
               cn('Header__icons--icon Header__icons--cart_icon', {
                 'is-active': isActive,
@@ -175,24 +175,20 @@ export const Header = () => {
           {isSignedIn ? (
             <>
               <div
-                onClick={toggleUserMenu}
-                ref={userIconRef}
-                style={{
-                  paddingTop: '15px',
-                  paddingRight: '20px',
-                  cursor: 'pointer',
-                  paddingLeft: '20px',
-                }}
+                style={{ border: '1px solid #e2e6e9', padding: '14px 10px' }}
               >
-                <div
-                  style={{
-                    width: '18px',
-                    height: '18px',
-                    backgroundImage: `url(${userIcon})`,
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                />
-                <DropdownMenu isUserMenuOpen={isUserMenuOpen} />
+                <NavLink
+                  aria-label="Orders"
+                  style={{ border: 'none' }}
+                  className={() =>
+                    cn('Header__icons--icon Header__icons--orders_icon', {})
+                  }
+                  to="/orders"
+                >
+                  {totalItems > 0 && (
+                    <span className="cart-count">{totalItems}</span>
+                  )}
+                </NavLink>
               </div>
             </>
           ) : (
@@ -224,6 +220,9 @@ export const Header = () => {
               </div>
             </>
           )}
+          <div style={{ padding: isSignedIn ? '0 20px' : '0' }}>
+            <UserButton afterSignOutUrl="/" />
+          </div>
         </div>
       </div>
     </div>
